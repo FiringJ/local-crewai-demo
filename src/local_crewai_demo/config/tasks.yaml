@@ -1,0 +1,42 @@
+contract_audit_report_task:
+  description: >
+    你将审核合同文件《{file_name}》（办公小浣熊 OPC 作品 · 企业合同初审场景）。
+
+    当前日期：{current_date}
+
+    知识库要点（@知识库）：
+    {knowledge_context}
+
+    合同全文如下：
+    {contract_text}
+
+    系统已经按 3 组 22 条规则完成字段抽取和精确计算校验，结构化结果如下：
+    {audit_evidence_json}
+
+    请基于知识库红线与结构化结果生成最终合同审核报告。必须保留每条规则的结论、
+    风险等级、依据和修改建议；可以优化表达，但不得改变结构化结果中的通过/不通过/需复核判断。
+    对高风险项优先给出可执行修改话术。
+  expected_output: >
+    一份中文 Markdown 合同审核报告，包含：总体结论、关键字段、风险统计、
+    三个规则组的逐条审核表格、可复制修改条款建议。不要使用代码块包裹全文。
+  agent: contract_auditor
+  markdown: true
+
+executive_briefing_task:
+  description: >
+    基于上一份合同审核报告与结构化证据，为管理层生成 6 页汇报 PPT 大纲。
+
+    文件：{file_name}
+    结构化证据：{audit_evidence_json}
+
+    要求：
+    1) 第1页封面 2) 背景痛点 3) 关键合同数据 4) 合规总览 5) Top风险项 6) 决策建议
+    2) 每页不超过 5 个要点，风格商务简洁
+    3) 数据必须与结构化证据一致，不得编造
+    4) 末尾附一段「粘贴至办公小浣熊 PPT 生成」的 Prompt
+  expected_output: >
+    中文 Markdown 格式的 6 页汇报大纲，标题清晰，可直接复制到办公小浣熊生成 PPT。
+  agent: briefing_specialist
+  context:
+    - contract_audit_report_task
+  markdown: true

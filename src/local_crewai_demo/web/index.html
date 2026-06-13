@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>合同审核智能体</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true">
+      <div class="atmosphere__mesh"></div>
+      <div class="atmosphere__grain"></div>
+      <div class="atmosphere__rule"></div>
+    </div>
+
+    <header class="topbar">
+      <div class="brand">
+        <p class="eyebrow">Local Contract Audit</p>
+        <h1>合同审核智能体</h1>
+        <p class="brand__tagline">22 条规则 · 确定性校验 · CrewAI 报告润色</p>
+      </div>
+      <div class="topbar__actions">
+        <div class="status" id="status" role="status" aria-live="polite">
+          <span class="status__dot" aria-hidden="true"></span>
+          <span class="status__text">待命</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="panel controls">
+        <div class="panel__corner panel__corner--tl" aria-hidden="true"></div>
+        <div class="panel__corner panel__corner--br" aria-hidden="true"></div>
+
+        <div class="section-head">
+          <span class="section-head__label">审核输入</span>
+          <small>本地规则 + CrewAI</small>
+        </div>
+
+        <label class="field">
+          <span class="field__label">合同文件</span>
+          <div class="dropzone" id="dropzone">
+            <input id="contractFile" type="file" accept=".pdf,.docx,.docm,.txt,.md,.csv" />
+            <div class="dropzone__content">
+              <span class="dropzone__icon" aria-hidden="true">
+                <svg class="dropzone__icon-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9 5.5h9.2L21 8.3V24.5a1.5 1.5 0 0 1-1.5 1.5H9a1.5 1.5 0 0 1-1.5-1.5V7a1.5 1.5 0 0 1 1.5-1.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                  />
+                  <path d="M18.2 5.5V8.3H21" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                  <path d="M11 12.5h8M11 15.5h6.5M11 18.5h7.5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" opacity="0.42" />
+                  <circle cx="23" cy="23" r="5.5" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.25" />
+                  <path d="M23 20.8v4.4M21.3 22.5h3.4" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span class="dropzone__hint">拖放文件，或点击选择</span>
+              <span class="dropzone__formats">PDF · DOCX · TXT · MD · CSV</span>
+              <span class="dropzone__filename" id="fileName" hidden></span>
+            </div>
+          </div>
+        </label>
+
+        <label class="field">
+          <span class="field__label">
+            合同正文
+            <span class="field__meta" id="charCount">0 字</span>
+          </span>
+          <textarea
+            id="contractText"
+            rows="7"
+            spellcheck="false"
+            placeholder="或直接粘贴合同全文…"
+          ></textarea>
+        </label>
+
+        <label class="field">
+          <span class="field__label">审核模式</span>
+          <select id="reviewMode"></select>
+        </label>
+
+        <button id="runButton" type="button">
+          <span class="button-mark" aria-hidden="true"></span>
+          <span>开始审核</span>
+        </button>
+
+        <div class="section-divider" aria-hidden="true">
+          <span>模型配置</span>
+        </div>
+
+        <div class="section-head section-head--compact">
+          <span class="section-head__label">LLM 连接</span>
+          <small>默认 LM Studio</small>
+        </div>
+
+        <div class="config-grid">
+          <label class="field">
+            <span class="field__label">Provider</span>
+            <select id="provider"></select>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Model</span>
+            <input id="model" type="text" autocomplete="off" />
+          </label>
+
+          <label class="field field--wide">
+            <span class="field__label">Base URL</span>
+            <input id="baseUrl" type="text" autocomplete="off" />
+          </label>
+
+          <label class="field field--wide">
+            <span class="field__label">API Key</span>
+            <input id="apiKey" type="password" autocomplete="off" placeholder="仅本次运行使用" />
+          </label>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <article class="panel output">
+          <div class="panel__corner panel__corner--tl" aria-hidden="true"></div>
+          <div class="panel__corner panel__corner--br" aria-hidden="true"></div>
+
+          <div class="output-bar">
+            <div class="tabs" role="tablist" aria-label="审核结果视图">
+              <button class="tab active" type="button" data-view="report" aria-selected="true" role="tab">报告</button>
+              <button class="tab" type="button" data-view="json" aria-selected="false" role="tab">JSON</button>
+              <button class="tab" type="button" data-view="rules" aria-selected="false" role="tab">规则</button>
+              <button class="tab" type="button" data-view="logs" aria-selected="false" role="tab">日志</button>
+            </div>
+            <span class="output-meta">输出面板</span>
+          </div>
+
+          <div class="output-body">
+            <pre id="report" class="view active" role="tabpanel">上传合同文件，或粘贴合同正文后开始审核。</pre>
+            <pre id="json" class="view" role="tabpanel"></pre>
+            <pre id="rules" class="view" role="tabpanel"></pre>
+            <pre id="logs" class="view" role="tabpanel"></pre>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/select.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

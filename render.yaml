@@ -1,0 +1,20 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: contract-audit-demo
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/config
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: MODEL
+        value: deepseek/deepseek-chat
+      - key: CREWAI_DISABLE_TELEMETRY
+        value: "true"
+      - key: CREWAI_TRACING_ENABLED
+        value: "false"
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: SENSENOVA_API_KEY
+        sync: false
