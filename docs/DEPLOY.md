@@ -1,6 +1,19 @@
-# Railway / Render 部署指南
+# 云端部署指南
 
-本项目已配置 **Docker 一键部署**，无需自备服务器。选一个平台按下面步骤操作即可。
+> **Render 要绑信用卡？** 见 [`docs/DEPLOY_NO_CARD.md`](DEPLOY_NO_CARD.md) — 推荐 **Hugging Face Spaces**（免绑卡、固定链接）或 **Cloudflare 隧道**（最快）。
+
+本项目已配置 **Docker 一键部署**。GitHub 仓库：https://github.com/FiringJ/local-crewai-demo
+
+---
+
+## 免绑卡（推荐）
+
+| 方案 | 绑卡 | 链接稳定性 | 说明 |
+|------|------|------------|------|
+| [Hugging Face Spaces](DEPLOY_NO_CARD.md#方案-1hugging-face-spaces推荐--固定公网链接--免绑卡) | 否 | 高 | 固定 `*.hf.space` 域名 |
+| [Cloudflare 隧道](DEPLOY_NO_CARD.md#方案-2cloudflare-临时隧道最快--本机在线即可) | 否 | 低 | 本机开着才有 |
+
+详细步骤：**[`docs/DEPLOY_NO_CARD.md`](DEPLOY_NO_CARD.md)**
 
 ---
 
@@ -20,17 +33,20 @@
 
 ---
 
-## 方案 A：Render（有免费档）
+## 方案 A：Render（部分地区强制绑卡）
+
+> 若出现 **Add Card** 弹窗且不想绑卡，请改用 [`DEPLOY_NO_CARD.md`](DEPLOY_NO_CARD.md) 中的 Hugging Face 或 Cloudflare 方案。
+
+### 推荐：Web Service（免 Blueprint / 常免绑卡）
 
 1. 打开 [https://render.com](https://render.com) 注册，用 GitHub 登录  
-2. 点击 **New +** → **Blueprint**（或 **Web Service**）  
-3. 连接你的 GitHub 仓库 `local_crewai_demo`  
-4. 若用 Blueprint：Render 会读取根目录 `render.yaml` 自动创建服务  
-5. 若手动创建 Web Service：
+2. 点击 **New +** → **Web Service**（不要选 Blueprint）  
+3. 连接 GitHub 仓库：`FiringJ/local-crewai-demo`  
+4. 配置：
    - **Runtime**: Docker  
+   - **Instance Type**: **Free**  
    - **Health Check Path**: `/api/config`  
-   - **Instance Type**: Free（演示够用）  
-6. 在 **Environment** 添加变量，例如：
+5. 在 **Environment** 添加变量，例如：
    ```
    DEEPSEEK_API_KEY=sk-...
    MODEL=deepseek/deepseek-chat
@@ -38,8 +54,12 @@
    CREWAI_DISABLE_TELEMETRY=true
    CREWAI_TRACING_ENABLED=false
    ```
-7. 点击 **Deploy**，等待构建（约 5～10 分钟，含前端 npm build）  
+7. 点击 **Create Web Service**，等待构建（约 5～10 分钟，含前端 npm build）  
 8. 部署完成后访问：`https://你的服务名.onrender.com`
+
+### 备选：Blueprint（可能需要绑卡）
+
+若使用 **Blueprint** 并出现 Add Card 弹窗，说明 Render 要求身份验证。可 **Cancel** 后改用上文 Web Service 方式，或见下文「完全不想绑卡」方案。
 
 ### Render 注意事项
 
@@ -69,6 +89,36 @@
 - 按用量计费，新账号通常有试用额度；注意控制台余额  
 - Agent 全链路审核约 20～60 秒，Railway 一般比 Render 免费档更适合长请求  
 - 日志在 **Deployments → View Logs** 查看  
+
+---
+
+## 完全不想绑信用卡？
+
+以下方案 **0 绑卡**，适合比赛 Demo / 临时分享链接。
+
+### 方案 C：Cloudflare 临时隧道（推荐，5 分钟）
+
+本机先启动服务：
+
+```bash
+cd /Users/firingj/Projects/local_crewai_demo
+uv run crew_gui --no-open --port 7860
+```
+
+另开终端安装并运行隧道（无需注册信用卡）：
+
+```bash
+# 未安装时：brew install cloudflared
+cloudflared tunnel --url http://127.0.0.1:7860
+```
+
+终端会输出公网地址，例如 `https://xxxx.trycloudflare.com`，发给评委即可。  
+**注意**：你电脑需保持开机；关闭终端后链接失效。
+
+### 方案 D：局域网演示
+
+同一 WiFi：`uv run crew_gui --no-open --host 0.0.0.0 --port 7860`  
+别人访问 `http://你的电脑IP:7860`。
 
 ---
 

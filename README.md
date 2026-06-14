@@ -1,3 +1,14 @@
+---
+title: 办公小浣熊合同初审
+emoji: 🦝
+colorFrom: red
+colorTo: yellow
+sdk: docker
+app_port: 7860
+pinned: false
+license: apache-2.0
+---
+
 # 办公小浣熊 · 企业合同初审工作台
 
 > **商汤小浣熊 OPC 高手创造赛**参赛作品 — 一人 + AI 跑通企业合同初审全链路。
@@ -93,9 +104,7 @@ BASE_URL=https://api.sensenova.cn/compatible-mode/v2
 
 规则定义和实现位于 `src/local_crewai_demo/contract_review.py`。
 
-## 云端部署（Railway / Render）
-
-无需自备服务器，Docker 一键部署。详见 [`docs/DEPLOY.md`](docs/DEPLOY.md)。
+## 云端部署见 [`docs/DEPLOY_NO_CARD.md`](docs/DEPLOY_NO_CARD.md)（**免绑卡**：Hugging Face Spaces / Cloudflare 隧道）。
 
 ```bash
 # 本地验证 Docker 镜像

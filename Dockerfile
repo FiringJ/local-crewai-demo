@@ -30,11 +30,15 @@ COPY prompts ./prompts
 COPY docs ./docs
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
 
-RUN uv sync --frozen --no-dev
+RUN uv sync --frozen --no-dev \
+    && useradd -m -u 1000 user \
+    && chown -R user:user /app
+
+USER user
 
 EXPOSE 7860
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
     CMD curl -fsS "http://127.0.0.1:${PORT:-7860}/api/config" || exit 1
 
 CMD ["uv", "run", "crew_gui", "--no-open"]
