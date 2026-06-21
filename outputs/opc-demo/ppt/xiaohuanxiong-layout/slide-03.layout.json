@@ -1,0 +1,1448 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/e4o9ty",
+    "id": "e4o9ty",
+    "slide": 3,
+    "layoutId": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FAFAF8",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/w7mp0bi9",
+      "id": "1",
+      "bbox": [
+        72,
+        34,
+        64,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#002FA7",
+      "lineWidth": 2
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7mp0bi9s",
+      "id": "2",
+      "bbox": [
+        72,
+        44,
+        760,
+        24
+      ],
+      "geometry": "rect",
+      "text": "完整工作流",
+      "textPreview": "完整工作流",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "完整工作流"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "完整工作流",
+          "resolvedTextStyle": {
+            "fontSize": 12,
+            "color": "#737373",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "完整工作流",
+              "fontSize": 12,
+              "color": "#737373",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e1w7mp0b",
+      "id": "3",
+      "bbox": [
+        72,
+        78,
+        880,
+        90
+      ],
+      "geometry": "rect",
+      "text": "每天自动初审，每周自动复盘",
+      "textPreview": "每天自动初审，每周自动复盘",
+      "resolvedFontSize": 36,
+      "resolvedTextStyle": {
+        "fontSize": 36,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "每天自动初审，每周自动复盘"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "每天自动初审，每周自动复盘",
+          "resolvedTextStyle": {
+            "fontSize": 36,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "每天自动初审，每周自动复盘",
+              "fontSize": 36,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pg3ex0nu",
+      "id": "4",
+      "bbox": [
+        74,
+        160,
+        820,
+        56
+      ],
+      "geometry": "rect",
+      "text": "小浣熊把一次性问答变成连续运转的合同处理流程。",
+      "textPreview": "小浣熊把一次性问答变成连续运转的合同处理流程。",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "小浣熊把一次性问答变成连续运转的合同处理流程。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "小浣熊把一次性问答变成连续运转的合同处理流程。",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "小浣熊把一次性问答变成连续运转的合同处理流程。",
+              "fontSize": 18,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wval87ed",
+      "id": "5",
+      "bbox": [
+        72,
+        250,
+        154,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#002FA7",
+      "lineColor": "#002FA7",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7adsji5s",
+      "id": "6",
+      "bbox": [
+        86,
+        262,
+        126,
+        20
+      ],
+      "geometry": "rect",
+      "text": "早上九点",
+      "textPreview": "早上九点",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "早上九点"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "早上九点",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#FFFFFF",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "早上九点",
+              "fontSize": 11,
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/epkzupwb",
+      "id": "7",
+      "bbox": [
+        86,
+        288,
+        126,
+        36
+      ],
+      "geometry": "rect",
+      "text": "自动拉取待审合同",
+      "textPreview": "自动拉取待审合同",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "自动拉取待审合"
+          },
+          {
+            "index": 2,
+            "text": "同"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "自动拉取待审合同",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#FFFFFF"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "自动拉取待审合同",
+              "fontSize": 15,
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lc7u54zi",
+      "id": "8",
+      "bbox": [
+        226,
+        293,
+        36,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 2
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wra5gbq1",
+      "id": "9",
+      "bbox": [
+        262,
+        250,
+        154,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#F0F0EE",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/upwb2hwf",
+      "id": "10",
+      "bbox": [
+        276,
+        262,
+        126,
+        20
+      ],
+      "geometry": "rect",
+      "text": "逐份处理",
+      "textPreview": "逐份处理",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "逐份处理"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "逐份处理",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "逐份处理",
+              "fontSize": 11,
+              "color": "#737373",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nap4r65w",
+      "id": "11",
+      "bbox": [
+        276,
+        288,
+        126,
+        36
+      ],
+      "geometry": "rect",
+      "text": "读合同并抽取字段",
+      "textPreview": "读合同并抽取字段",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "读合同并抽取字"
+          },
+          {
+            "index": 2,
+            "text": "段"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "读合同并抽取字段",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "读合同并抽取字段",
+              "fontSize": 15,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cvixczed",
+      "id": "12",
+      "bbox": [
+        416,
+        293,
+        36,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 2
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5gbq1ory",
+      "id": "13",
+      "bbox": [
+        452,
+        250,
+        154,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#F0F0EE",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/udg7adsj",
+      "id": "14",
+      "bbox": [
+        466,
+        262,
+        126,
+        20
+      ],
+      "geometry": "rect",
+      "text": "查对方公司",
+      "textPreview": "查对方公司",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "查对方公司"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "查对方公司",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "查对方公司",
+              "fontSize": 11,
+              "color": "#737373",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nyd0z610",
+      "id": "15",
+      "bbox": [
+        466,
+        288,
+        126,
+        36
+      ],
+      "geometry": "rect",
+      "text": "查询公开风险线索",
+      "textPreview": "查询公开风险线索",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "查询公开风险线"
+          },
+          {
+            "index": 2,
+            "text": "索"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "查询公开风险线索",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "查询公开风险线索",
+              "fontSize": 15,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cj6tovah",
+      "id": "16",
+      "bbox": [
+        606,
+        293,
+        36,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 2
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/54zidony",
+      "id": "17",
+      "bbox": [
+        642,
+        250,
+        154,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#F0F0EE",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9knih4b",
+      "id": "18",
+      "bbox": [
+        656,
+        262,
+        126,
+        20
+      ],
+      "geometry": "rect",
+      "text": "查内部资料",
+      "textPreview": "查内部资料",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "查内部资料"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "查内部资料",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "查内部资料",
+              "fontSize": 11,
+              "color": "#737373",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "19",
+      "bbox": [
+        656,
+        288,
+        126,
+        36
+      ],
+      "geometry": "rect",
+      "text": "读取红线和历史案例",
+      "textPreview": "读取红线和历史案例",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "读取红线和历史"
+          },
+          {
+            "index": 2,
+            "text": "案例"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "读取红线和历史案例",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "读取红线和历史案例",
+              "fontSize": 15,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fil0rqd4",
+      "id": "20",
+      "bbox": [
+        796,
+        293,
+        36,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 2
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qxs72x4n",
+      "id": "21",
+      "bbox": [
+        832,
+        250,
+        154,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#F0F0EE",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xobm58z2",
+      "id": "22",
+      "bbox": [
+        846,
+        262,
+        126,
+        20
+      ],
+      "geometry": "rect",
+      "text": "固定检查",
+      "textPreview": "固定检查",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "固定检查"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "固定检查",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "固定检查",
+              "fontSize": 11,
+              "color": "#737373",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/83itgfml",
+      "id": "23",
+      "bbox": [
+        846,
+        288,
+        126,
+        36
+      ],
+      "geometry": "rect",
+      "text": "核对金额税率付款",
+      "textPreview": "核对金额税率付款",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "核对金额税率付"
+          },
+          {
+            "index": 2,
+            "text": "款"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "核对金额税率付款",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "核对金额税率付款",
+              "fontSize": 15,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fu18jqh0",
+      "id": "24",
+      "bbox": [
+        986,
+        293,
+        36,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 2
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m94fu18j",
+      "id": "25",
+      "bbox": [
+        1022,
+        250,
+        154,
+        86
+      ],
+      "geometry": "rect",
+      "fillColor": "#002FA7",
+      "lineColor": "#002FA7",
+      "lineWidth": 1
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x0nuxc3y",
+      "id": "26",
+      "bbox": [
+        1036,
+        262,
+        126,
+        20
+      ],
+      "geometry": "rect",
+      "text": "生成结果",
+      "textPreview": "生成结果",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "生成结果"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "生成结果",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#FFFFFF",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "生成结果",
+              "fontSize": 11,
+              "color": "#FFFFFF",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4fu18jqh",
+      "id": "27",
+      "bbox": [
+        1036,
+        288,
+        126,
+        36
+      ],
+      "geometry": "rect",
+      "text": "报告、归档、周报",
+      "textPreview": "报告、归档、周报",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "报告、归档、周"
+          },
+          {
+            "index": 2,
+            "text": "报"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "报告、归档、周报",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#FFFFFF"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "报告、归档、周报",
+              "fontSize": 15,
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 28,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/f6dcbulw",
+      "id": "28",
+      "bbox": [
+        112,
+        428,
+        1038,
+        124
+      ],
+      "geometry": "rect",
+      "fillColor": "#E8EDF8",
+      "lineColor": "#002FA7",
+      "lineWidth": 1
+    },
+    {
+      "order": 29,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mlkjm1cf",
+      "id": "29",
+      "bbox": [
+        152,
+        454,
+        960,
+        32
+      ],
+      "geometry": "rect",
+      "text": "每周五下午：小浣熊把一周审核结果汇总成趋势、风险排行和整改建议，再生成采购委员会可看的周报。",
+      "textPreview": "每周五下午：小浣熊把一周审核结果汇总成趋势、风险排行和整改建议，再生成采购委员会可看的周报。",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "每周五下午：小浣熊把一周审核结果汇总成趋势、风险排行和整改建议，再生成采购委员会可看的周报。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "每周五下午：小浣熊把一周审核结果汇总成趋势、风险排行和整改建议，再生成采购委员会可看的周报。",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "每周五下午：小浣熊把一周审核结果汇总成趋势、风险排行和整改建议，再生成采购委员会可看的周报。",
+              "fontSize": 20,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 30,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wra5gbq1",
+      "id": "30",
+      "bbox": [
+        152,
+        500,
+        960,
+        30
+      ],
+      "geometry": "rect",
+      "text": "沉淀方式：对方公司画像、风险案例、法务红线都会进入知识库，下次遇到同类合同可以直接复用。",
+      "textPreview": "沉淀方式：对方公司画像、风险案例、法务红线都会进入知识库，下次遇到同类合同可以直接复用。",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "fontSize": 17,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "沉淀方式：对方公司画像、风险案例、法务红线都会进入知识库，下次遇到同类合同可以直接复用。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "沉淀方式：对方公司画像、风险案例、法务红线都会进入知识库，下次遇到同类合同可以直接复用。",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "沉淀方式：对方公司画像、风险案例、法务红线都会进入知识库，下次遇到同类合同可以直接复用。",
+              "fontSize": 17,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 31,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lc7u54zi",
+      "id": "31",
+      "bbox": [
+        72,
+        660,
+        1136,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 32,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/eloj2t83",
+      "id": "32",
+      "bbox": [
+        72,
+        674,
+        560,
+        20
+      ],
+      "geometry": "rect",
+      "text": "办公小浣熊 · 企业合同初审持续运营工作流",
+      "textPreview": "办公小浣熊 · 企业合同初审持续运营工作流",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "办公小浣熊 · 企业合同初审持续运营工作流"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "办公小浣熊 · 企业合同初审持续运营工作流",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "办公小浣熊 · 企业合同初审持续运营工作流",
+              "fontSize": 11,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 33,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/36hcrmhk",
+      "id": "33",
+      "bbox": [
+        1160,
+        674,
+        48,
+        20
+      ],
+      "geometry": "rect",
+      "text": "03",
+      "textPreview": "03",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03",
+              "fontSize": 11,
+              "color": "#737373",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

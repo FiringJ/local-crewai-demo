@@ -1,0 +1,1217 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/9czhx9",
+    "id": "9czhx9",
+    "slide": 8,
+    "layoutId": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FAFAF8",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1orytsvu",
+      "id": "1",
+      "bbox": [
+        72,
+        34,
+        64,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#002FA7",
+      "lineWidth": 2
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u18jqh0f",
+      "id": "2",
+      "bbox": [
+        72,
+        44,
+        760,
+        24
+      ],
+      "geometry": "rect",
+      "text": "价值用数字说话",
+      "textPreview": "价值用数字说话",
+      "resolvedFontSize": 12,
+      "resolvedTextStyle": {
+        "fontSize": 12,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "价值用数字说话"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "价值用数字说话",
+          "resolvedTextStyle": {
+            "fontSize": 12,
+            "color": "#737373",
+            "bold": true
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "价值用数字说话",
+              "fontSize": 12,
+              "color": "#737373",
+              "bold": true
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm1cfa9w",
+      "id": "3",
+      "bbox": [
+        72,
+        78,
+        880,
+        90
+      ],
+      "geometry": "rect",
+      "text": "省时间、少漏项、能沉淀、可汇报",
+      "textPreview": "省时间、少漏项、能沉淀、可汇报",
+      "resolvedFontSize": 36,
+      "resolvedTextStyle": {
+        "fontSize": 36,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "省时间、少漏项、能沉淀、可汇报"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "省时间、少漏项、能沉淀、可汇报",
+          "resolvedTextStyle": {
+            "fontSize": 36,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "省时间、少漏项、能沉淀、可汇报",
+              "fontSize": 36,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cfa9w3m9",
+      "id": "4",
+      "bbox": [
+        74,
+        160,
+        820,
+        56
+      ],
+      "geometry": "rect",
+      "text": "每个数字都对应现有截图、样本结果或明确估算口径。",
+      "textPreview": "每个数字都对应现有截图、样本结果或明确估算口径。",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "每个数字都对应现有截图、样本结果或明确估算口径。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "每个数字都对应现有截图、样本结果或明确估算口径。",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "每个数字都对应现有截图、样本结果或明确估算口径。",
+              "fontSize": 18,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1032lszq",
+      "id": "5",
+      "bbox": [
+        90,
+        230,
+        460,
+        110
+      ],
+      "geometry": "rect",
+      "fillColor": "#002FA7",
+      "lineColor": "#002FA7",
+      "lineWidth": 1
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9knih4b",
+      "id": "6",
+      "bbox": [
+        114,
+        258,
+        150,
+        40
+      ],
+      "geometry": "rect",
+      "text": "92%",
+      "textPreview": "92%",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "fontSize": 38,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "92%"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "92%",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "color": "#FFFFFF"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "92%",
+              "fontSize": 38,
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/judg7ads",
+      "id": "7",
+      "bbox": [
+        280,
+        254,
+        230,
+        24
+      ],
+      "geometry": "rect",
+      "text": "单份合同预计节省时间",
+      "textPreview": "单份合同预计节省时间",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "单份合同预计节省时间"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "单份合同预计节省时间",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#FFFFFF"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "单份合同预计节省时间",
+              "fontSize": 20,
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cj6tovah",
+      "id": "8",
+      "bbox": [
+        280,
+        288,
+        230,
+        28
+      ],
+      "geometry": "rect",
+      "text": "人工约4小时，流程约3分钟",
+      "textPreview": "人工约4小时，流程约3分钟",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#FFFFFF",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "人工约4小时，流程约3分钟"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "人工约4小时，流程约3分钟",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#FFFFFF"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "人工约4小时，流程约3分钟",
+              "fontSize": 15,
+              "color": "#FFFFFF"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/54zidony",
+      "id": "9",
+      "bbox": [
+        630,
+        230,
+        460,
+        110
+      ],
+      "geometry": "rect",
+      "fillColor": "#F0F0EE",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t47y1kre",
+      "id": "10",
+      "bbox": [
+        654,
+        258,
+        150,
+        40
+      ],
+      "geometry": "rect",
+      "text": "22项",
+      "textPreview": "22项",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "fontSize": 38,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "22项"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "22项",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "22项",
+              "fontSize": 38,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0je9cvix",
+      "id": "11",
+      "bbox": [
+        820,
+        254,
+        230,
+        24
+      ],
+      "geometry": "rect",
+      "text": "固定检查覆盖",
+      "textPreview": "固定检查覆盖",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "固定检查覆盖"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "固定检查覆盖",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "固定检查覆盖",
+              "fontSize": 20,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/byhgn29g",
+      "id": "12",
+      "bbox": [
+        820,
+        288,
+        230,
+        28
+      ],
+      "geometry": "rect",
+      "text": "财务12项、法务7项、文本3项",
+      "textPreview": "财务12项、法务7项、文本3项",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "财务12项、法务7项、文本3项"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "财务12项、法务7项、文本3项",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "财务12项、法务7项、文本3项",
+              "fontSize": 15,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/idonyd0z",
+      "id": "13",
+      "bbox": [
+        90,
+        380,
+        460,
+        110
+      ],
+      "geometry": "rect",
+      "fillColor": "#F0F0EE",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tcj6tova",
+      "id": "14",
+      "bbox": [
+        114,
+        408,
+        150,
+        40
+      ],
+      "geometry": "rect",
+      "text": "3项",
+      "textPreview": "3项",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "fontSize": 38,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "3项"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "3项",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "3项",
+              "fontSize": 38,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0rqd4vmt",
+      "id": "15",
+      "bbox": [
+        280,
+        404,
+        230,
+        24
+      ],
+      "geometry": "rect",
+      "text": "样本高风险",
+      "textPreview": "样本高风险",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "样本高风险"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "样本高风险",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "样本高风险",
+              "fontSize": 20,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b6xkf6dc",
+      "id": "16",
+      "bbox": [
+        280,
+        438,
+        230,
+        28
+      ],
+      "geometry": "rect",
+      "text": "税率、付款比例、必备条款",
+      "textPreview": "税率、付款比例、必备条款",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "税率、付款比例、必备条款"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "税率、付款比例、必备条款",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "税率、付款比例、必备条款",
+              "fontSize": 15,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/il0rqd4v",
+      "id": "17",
+      "bbox": [
+        630,
+        380,
+        460,
+        110
+      ],
+      "geometry": "rect",
+      "fillColor": "#F0F0EE",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/tovahoza",
+      "id": "18",
+      "bbox": [
+        654,
+        408,
+        210,
+        40
+      ],
+      "geometry": "rect",
+      "text": "2小时→10分钟",
+      "textPreview": "2小时→10分钟",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "fontSize": 27,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2小时→10分钟"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2小时→10分钟",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "2小时→10分钟",
+              "fontSize": 27,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/032lszqt",
+      "id": "19",
+      "bbox": [
+        880,
+        404,
+        180,
+        24
+      ],
+      "geometry": "rect",
+      "text": "周报整理时间",
+      "textPreview": "周报整理时间",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "fontSize": 20,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "周报整理时间"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "周报整理时间",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "周报整理时间",
+              "fontSize": 20,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/czed8v6p",
+      "id": "20",
+      "bbox": [
+        880,
+        438,
+        180,
+        28
+      ],
+      "geometry": "rect",
+      "text": "按周报整理估算",
+      "textPreview": "按周报整理估算",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "fontSize": 15,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "按周报整理估算"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "按周报整理估算",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "按周报整理估算",
+              "fontSize": 15,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5kb6xkf6",
+      "id": "21",
+      "bbox": [
+        112,
+        558,
+        980,
+        30
+      ],
+      "geometry": "rect",
+      "text": "这些数字不是口号：样本审核结果显示通过 13 项、未通过 6 项、需人工看 3 项，合规通过率 59.1%。",
+      "textPreview": "这些数字不是口号：样本审核结果显示通过 13 项、未通过 6 项、需人工看 3 项，合规通过率 59.1%。",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "color": "#0A0A0A",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "这些数字不是口号：样本审核结果显示通过 13 项、未通过 6 项、需人工看 3 项，合规通过率 59.1%。"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "这些数字不是口号：样本审核结果显示通过 13 项、未通过 6 项、需人工看 3 项，合规通过率 59.1%。",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "color": "#0A0A0A"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "这些数字不是口号：样本审核结果显示通过 13 项、未通过 6 项、需人工看 3 项，合规通过率 59.1%。",
+              "fontSize": 18,
+              "color": "#0A0A0A"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ytsvu9kn",
+      "id": "22",
+      "bbox": [
+        72,
+        660,
+        1136,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4D4D2",
+      "lineWidth": 1
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/neloj2t8",
+      "id": "23",
+      "bbox": [
+        72,
+        674,
+        560,
+        20
+      ],
+      "geometry": "rect",
+      "text": "办公小浣熊 · 企业合同初审持续运营工作流",
+      "textPreview": "办公小浣熊 · 企业合同初审持续运营工作流",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "alignment": "left",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "办公小浣熊 · 企业合同初审持续运营工作流"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "办公小浣熊 · 企业合同初审持续运营工作流",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "办公小浣熊 · 企业合同初审持续运营工作流",
+              "fontSize": 11,
+              "color": "#737373"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cbulwval",
+      "id": "24",
+      "bbox": [
+        1160,
+        674,
+        48,
+        20
+      ],
+      "geometry": "rect",
+      "text": "08",
+      "textPreview": "08",
+      "resolvedFontSize": 11,
+      "resolvedTextStyle": {
+        "fontSize": 11,
+        "typeface": "+mn-lt",
+        "color": "#737373",
+        "bold": true,
+        "alignment": "right",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "08"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "08",
+          "resolvedTextStyle": {
+            "fontSize": 11,
+            "color": "#737373",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "08",
+              "fontSize": 11,
+              "color": "#737373",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

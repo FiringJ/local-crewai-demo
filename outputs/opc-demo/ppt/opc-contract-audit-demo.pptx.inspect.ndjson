@@ -1,0 +1,172 @@
+{"kind":"deck","id":"pr/q29ur9","name":"Deck"}
+{"kind":"layout","layoutId":"4b8613d2-0e14-45ba-bc95-bd52eeaf45ab","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"2544ef3a-47c4-4035-a2e3-8b652c47132c","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y6dy7r","slide":1,"title":"OPC 高手创造赛演示包","textShapes":11}
+{"kind":"textbox","id":"sh/5kb6xkf6","slide":1,"text":"OPC 高手创造赛演示包","textPreview":"OPC 高手创造赛演示包","textChars":12,"textLines":1,"bbox":[72,48,360,26]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":1,"text":"办公小浣熊把合同初审跑成持续运营流水线","textPreview":"办公小浣熊把合同初审跑成持续运营流水线","textChars":19,"textLines":1,"bbox":[72,118,740,140]}
+{"kind":"textbox","id":"sh/neloj2t8","slide":1,"text":"不是单点审阅工具：每日拉取、逐份初审、主体尽调、知识库沉淀、周报 PPT 自动生成。","textPreview":"不是单点审阅工具：每日拉取、逐份初审、主体尽调、知识库沉淀、周报 PPT 自动生成。","textChars":42,"textLines":1,"bbox":[74,286,660,78]}
+{"kind":"shape","id":"sh/cbulwval","slide":1,"bbox":[72,430,220,130]}
+{"kind":"textbox","id":"sh/5sneloj2","slide":1,"text":"4h→3m","textPreview":"4h→3m","textChars":5,"textLines":1,"bbox":[94,454,176,50]}
+{"kind":"textbox","id":"sh/u54zidon","slide":1,"text":"单份审核耗时","textPreview":"单份审核耗时","textChars":6,"textLines":1,"bbox":[94,512,176,30]}
+{"kind":"shape","id":"sh/nqxs72x4","slide":1,"bbox":[320,430,170,130]}
+{"kind":"textbox","id":"sh/gbq1oryt","slide":1,"text":"22","textPreview":"22","textChars":2,"textLines":1,"bbox":[342,454,126,50]}
+{"kind":"textbox","id":"sh/5wjudg7a","slide":1,"text":"规则证据","textPreview":"规则证据","textChars":4,"textLines":1,"bbox":[342,512,126,30]}
+{"kind":"shape","id":"sh/54zidony","slide":1,"bbox":[518,430,220,130]}
+{"kind":"textbox","id":"sh/cj6tovah","slide":1,"text":"59.1%","textPreview":"59.1%","textChars":5,"textLines":1,"bbox":[540,454,176,50]}
+{"kind":"textbox","id":"sh/nyd0z610","slide":1,"text":"样本合规率","textPreview":"样本合规率","textChars":5,"textLines":1,"bbox":[540,512,176,30]}
+{"kind":"shape","id":"sh/5gbq1ory","slide":1,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/cvixczed","slide":1,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"image","id":"im/pkzupwb2","slide":1,"name":"","geometry":"roundRect","alt":"Demo home screen","bbox":[820,88,388,470]}
+{"kind":"notes","id":"nt/y6dy7r","slide":1,"text":""}
+{"kind":"slide","id":"sl/d0c2di","slide":2,"title":"CREWAI 定位","textShapes":11}
+{"kind":"textbox","id":"sh/onyd0z61","slide":2,"text":"CREWAI 定位","textPreview":"CREWAI 定位","textChars":9,"textLines":1,"bbox":[72,42,620,26]}
+{"kind":"textbox","id":"sh/z25kb6xk","slide":2,"text":"CrewAI 是审核引擎节点里的编排层，不是作品主角","textPreview":"CrewAI 是审核引擎节点里的编排层，不是作品主角","textChars":26,"textLines":1,"bbox":[72,76,820,86]}
+{"kind":"textbox","id":"sh/6hcrmhk3","slide":2,"text":"作品主角是小浣熊网页端的持续运营能力；CrewAI 只负责把结构化证据交给 Agent 生成报告与汇报。","textPreview":"作品主角是小浣熊网页端的持续运营能力；CrewAI 只负责把结构化证据交给 Agent 生成报告与汇报。","textChars":52,"textLines":1,"bbox":[72,148,820,54]}
+{"kind":"shape","id":"sh/dg7adsji","slide":2,"bbox":[86,228,1080,86]}
+{"kind":"textbox","id":"sh/ovahoza1","slide":2,"text":"做什么","textPreview":"做什么","textChars":3,"textLines":1,"bbox":[116,250,140,28]}
+{"kind":"textbox","id":"sh/vahoza1g","slide":2,"text":"读取本地 22 条规则证据、知识库上下文、合同正文，顺序执行审核报告和汇报大纲任务。","textPreview":"读取本地 22 条规则证据、知识库上下文、合同正文，顺序执行审核报告和汇报大纲任务。","textChars":42,"textLines":1,"bbox":[274,246,830,42]}
+{"kind":"shape","id":"sh/6tovahoz","slide":2,"bbox":[86,340,1080,86]}
+{"kind":"textbox","id":"sh/dsji5sne","slide":2,"text":"不做什么","textPreview":"不做什么","textChars":4,"textLines":1,"bbox":[116,362,140,28]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":2,"text":"不负责定时任务、网页端联网尽调、知识库存取截图、PPT 网页端生成。","textPreview":"不负责定时任务、网页端联网尽调、知识库存取截图、PPT 网页端生成。","textChars":34,"textLines":1,"bbox":[274,358,830,42]}
+{"kind":"shape","id":"sh/q5o7qpg3","slide":2,"bbox":[86,452,1080,86]}
+{"kind":"textbox","id":"sh/jqh0fepk","slide":2,"text":"为什么需要","textPreview":"为什么需要","textChars":5,"textLines":1,"bbox":[116,474,140,28]}
+{"kind":"textbox","id":"sh/8bat47y1","slide":2,"text":"把确定性校验和语言生成分开：规则避免算错金额，Agent 负责解释风险和生成可读交付物。","textPreview":"把确定性校验和语言生成分开：规则避免算错金额，Agent 负责解释风险和生成可读交付物。","textChars":44,"textLines":1,"bbox":[274,470,830,42]}
+{"kind":"shape","id":"sh/1w7mp0bi","slide":2,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/qh0fepkz","slide":2,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/j2t83itg","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"notes","id":"nt/d0c2di","slide":2,"text":""}
+{"kind":"slide","id":"sl/8ci57r","slide":3,"title":"工作流骨架","textShapes":20}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":3,"text":"工作流骨架","textPreview":"工作流骨架","textChars":5,"textLines":1,"bbox":[72,42,620,26]}
+{"kind":"textbox","id":"sh/vu9knih4","slide":3,"text":"每日流水线处理合同；每周流水线维护红线并输出周报","textPreview":"每日流水线处理合同；每周流水线维护红线并输出周报","textChars":24,"textLines":1,"bbox":[72,76,820,86]}
+{"kind":"textbox","id":"sh/29gr2p8n","slide":3,"text":"规则引擎只作为第 6 步证据层，喂给小浣熊做语义复核和汇报。","textPreview":"规则引擎只作为第 6 步证据层，喂给小浣熊做语义复核和汇报。","textChars":30,"textLines":1,"bbox":[72,148,820,54]}
+{"kind":"shape","id":"sh/d8bat47y","slide":3,"bbox":[72,250,132,74]}
+{"kind":"textbox","id":"sh/knih4byh","slide":3,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[84,260,32,20]}
+{"kind":"textbox","id":"sh/v6psfil0","slide":3,"text":"定时任务","textPreview":"定时任务","textChars":4,"textLines":1,"bbox":[84,282,108,36]}
+{"kind":"shape","id":"sh/2lszqtcj","slide":3,"bbox":[238,250,132,74]}
+{"kind":"textbox","id":"sh/dcbulwva","slide":3,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[250,260,32,20]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":3,"text":"Agent 编排","textPreview":"Agent 编排","textChars":8,"textLines":1,"bbox":[250,282,108,36]}
+{"kind":"shape","id":"sh/6psfil0r","slide":3,"bbox":[404,250,132,74]}
+{"kind":"textbox","id":"sh/val87ed8","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[416,260,32,20]}
+{"kind":"textbox","id":"sh/kre1w7mp","slide":3,"text":"文档处理","textPreview":"文档处理","textChars":4,"textLines":1,"bbox":[416,282,108,36]}
+{"kind":"shape","id":"sh/dcbulwva","slide":3,"bbox":[570,250,132,74]}
+{"kind":"textbox","id":"sh/2x4nap4r","slide":3,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[582,260,32,20]}
+{"kind":"textbox","id":"sh/vixczed8","slide":3,"text":"联网尽调","textPreview":"联网尽调","textChars":4,"textLines":1,"bbox":[582,282,108,36]}
+{"kind":"shape","id":"sh/k3q5o7qp","slide":3,"bbox":[736,250,132,74]}
+{"kind":"textbox","id":"sh/donyd0z6","slide":3,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[748,260,32,20]}
+{"kind":"textbox","id":"sh/29gr2p8n","slide":3,"text":"知识库复核","textPreview":"知识库复核","textChars":5,"textLines":1,"bbox":[748,282,108,36]}
+{"kind":"shape","id":"sh/vu9knih4","slide":3,"bbox":[902,250,132,74]}
+{"kind":"textbox","id":"sh/judg7ads","slide":3,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[914,260,32,20]}
+{"kind":"textbox","id":"sh/u9knih4b","slide":3,"text":"规则证据","textPreview":"规则证据","textChars":4,"textLines":1,"bbox":[914,282,108,36]}
+{"kind":"shape","id":"sh/1032lszq","slide":3,"bbox":[1068,250,132,74]}
+{"kind":"textbox","id":"sh/cfa9w3m9","slide":3,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1080,260,32,20]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":3,"text":"报告/归档","textPreview":"报告/归档","textChars":5,"textLines":1,"bbox":[1080,282,108,36]}
+{"kind":"shape","id":"sh/u18jqh0f","slide":3,"bbox":[204,287,32,0]}
+{"kind":"shape","id":"sh/1orytsvu","slide":3,"bbox":[370,287,32,0]}
+{"kind":"shape","id":"sh/c7u54zid","slide":3,"bbox":[536,287,32,0]}
+{"kind":"shape","id":"sh/nap4r65w","slide":3,"bbox":[702,287,32,0]}
+{"kind":"shape","id":"sh/upwb2hwf","slide":3,"bbox":[868,287,32,0]}
+{"kind":"shape","id":"sh/4r65wjud","slide":3,"bbox":[1034,287,32,0]}
+{"kind":"shape","id":"sh/xc3ylc7u","slide":3,"bbox":[188,430,900,94]}
+{"kind":"textbox","id":"sh/mlkjm1cf","slide":3,"text":"每周五 17:00：法规/税率巡检 → 知识库红线补丁 → 周度数据分析 → 合同初审周报 PPT → 推送采购委员会","textPreview":"每周五 17:00：法规/税率巡检 → 知识库红线补丁 → 周度数据分析 → 合同初审周报 PPT → 推送采购委员会","textChars":59,"textLines":1,"bbox":[230,462,820,36]}
+{"kind":"shape","id":"sh/f6dcbulw","slide":3,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/4zidonyd","slide":3,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/xkf6dcbu","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"notes","id":"nt/8ci57r","slide":3,"text":""}
+{"kind":"slide","id":"sl/bhz9lk","slide":4,"title":"提交成熟度判断","textShapes":14}
+{"kind":"textbox","id":"sh/s36hcrmh","slide":4,"text":"提交成熟度判断","textPreview":"提交成熟度判断","textChars":7,"textLines":1,"bbox":[72,42,620,26]}
+{"kind":"textbox","id":"sh/zidonyd0","slide":4,"text":"可以提交，但要把“网页端真实能力证据”补齐","textPreview":"可以提交，但要把“网页端真实能力证据”补齐","textChars":21,"textLines":1,"bbox":[72,76,820,86]}
+{"kind":"textbox","id":"sh/a1gvy90j","slide":4,"text":"当前仓库已具备主文档、Prompt、Demo 和运行材料；评审分主要来自小浣熊网页端截图。","textPreview":"当前仓库已具备主文档、Prompt、Demo 和运行材料；评审分主要来自小浣熊网页端截图。","textChars":45,"textLines":1,"bbox":[72,148,820,54]}
+{"kind":"shape","id":"sh/hgn29gr2","slide":4,"bbox":[72,232,260,142]}
+{"kind":"textbox","id":"sh/svu9knih","slide":4,"text":"可提交骨架","textPreview":"可提交骨架","textChars":5,"textLines":1,"bbox":[94,256,216,50]}
+{"kind":"textbox","id":"sh/za1gvy90","slide":4,"text":"当前状态","textPreview":"当前状态","textChars":4,"textLines":1,"bbox":[94,314,216,30]}
+{"kind":"shape","id":"sh/ap4r65wj","slide":4,"bbox":[374,232,260,142]}
+{"kind":"textbox","id":"sh/h4byhgn2","slide":4,"text":"已跑通","textPreview":"已跑通","textChars":3,"textLines":1,"bbox":[396,256,216,50]}
+{"kind":"textbox","id":"sh/sji5snel","slide":4,"text":"本地 Demo","textPreview":"本地 Demo","textChars":7,"textLines":1,"bbox":[396,314,216,30]}
+{"kind":"shape","id":"sh/qh0fepkz","slide":4,"bbox":[676,232,260,142]}
+{"kind":"textbox","id":"sh/j2t83itg","slide":4,"text":"网页端截图","textPreview":"网页端截图","textChars":5,"textLines":1,"bbox":[698,256,216,50]}
+{"kind":"textbox","id":"sh/8nqxs72x","slide":4,"text":"缺口","textPreview":"缺口","textChars":2,"textLines":1,"bbox":[698,314,216,30]}
+{"kind":"shape","id":"sh/18jqh0fe","slide":4,"bbox":[78,447,9,9]}
+{"kind":"textbox","id":"sh/q5o7qpg3","slide":4,"text":"必须补拍：定时任务创建、联网检索开关和来源、@知识库读取、知识库写入、数据分析图表、PPT 生成、多轮调优。","textPreview":"必须补拍：定时任务创建、联网检索开关和来源、@知识库读取、知识库写入、数据分析图表、PPT 生成、多轮调优。","textChars":54,"textLines":1,"bbox":[100,440,1008,36]}
+{"kind":"shape","id":"sh/jqh0fepk","slide":4,"bbox":[78,499,9,9]}
+{"kind":"textbox","id":"sh/8bat47y1","slide":4,"text":"本地 Demo 可证明：合同解析、22 条结构化证据、数据洞察、报告和大纲生成。","textPreview":"本地 Demo 可证明：合同解析、22 条结构化证据、数据洞察、报告和大纲生成。","textChars":40,"textLines":1,"bbox":[100,492,1008,36]}
+{"kind":"shape","id":"sh/1w7mp0bi","slide":4,"bbox":[78,551,9,9]}
+{"kind":"textbox","id":"sh/uxc3ylc7","slide":4,"text":"讲述口径：小浣熊是运营主线，CrewAI/规则引擎是可体验审核节点。","textPreview":"讲述口径：小浣熊是运营主线，CrewAI/规则引擎是可体验审核节点。","textChars":34,"textLines":1,"bbox":[100,544,1008,36]}
+{"kind":"shape","id":"sh/ji5snelo","slide":4,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/bat47y1k","slide":4,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/mp0bi9s3","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"notes","id":"nt/bhz9lk","slide":4,"text":""}
+{"kind":"slide","id":"sl/genwas","slide":5,"title":"如何运转起来","textShapes":10}
+{"kind":"textbox","id":"sh/zqtcj6to","slide":5,"text":"如何运转起来","textPreview":"如何运转起来","textChars":6,"textLines":1,"bbox":[72,42,620,26]}
+{"kind":"textbox","id":"sh/obm58z25","slide":5,"text":"评委 3 分钟内可以复现本地审核引擎节点","textPreview":"评委 3 分钟内可以复现本地审核引擎节点","textChars":20,"textLines":1,"bbox":[72,76,820,86]}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":5,"text":"完整工作流在小浣熊网页端按截图清单复现，本地节点用于证明单份合同的链路输出。","textPreview":"完整工作流在小浣熊网页端按截图清单复现，本地节点用于证明单份合同的链路输出。","textChars":38,"textLines":1,"bbox":[72,148,820,54]}
+{"kind":"shape","id":"sh/6xkf6dcb","slide":5,"bbox":[92,220,1030,48]}
+{"kind":"textbox","id":"sh/zed8v6ps","slide":5,"text":"1. uv run crew_gui --no-open","textPreview":"1. uv run crew_gui --no-open","textChars":28,"textLines":1,"bbox":[116,233,980,24]}
+{"kind":"shape","id":"sh/oza1gvy9","slide":5,"bbox":[92,292,1030,48]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":5,"text":"2. 打开 http://127.0.0.1:7860","textPreview":"2. 打开 http://127.0.0.1:7860","textChars":27,"textLines":1,"bbox":[116,305,980,24]}
+{"kind":"shape","id":"sh/al87ed8b","slide":5,"bbox":[92,364,1030,48]}
+{"kind":"textbox","id":"sh/z61032ls","slide":5,"text":"3. 上传 knowledge/realistic_software_service_contract.txt","textPreview":"3. 上传 knowledge/realistic_software_service_contract.txt","textChars":55,"textLines":1,"bbox":[116,377,980,24]}
+{"kind":"shape","id":"sh/za1gvy90","slide":5,"bbox":[92,436,1030,48]}
+{"kind":"textbox","id":"sh/ap4r65wj","slide":5,"text":"4. 选择“仅规则引擎（离线演示）”或配置 SenseNova Key 后跑全链路","textPreview":"4. 选择“仅规则引擎（离线演示）”或配置 SenseNova Key 后跑全链路","textChars":41,"textLines":1,"bbox":[116,449,980,24]}
+{"kind":"shape","id":"sh/hgn29gr2","slide":5,"bbox":[92,508,1030,48]}
+{"kind":"textbox","id":"sh/svu9knih","slide":5,"text":"5. 查看：审核报告 / 数据洞察 / 工作流 / 汇报大纲 / JSON / 规则","textPreview":"5. 查看：审核报告 / 数据洞察 / 工作流 / 汇报大纲 / JSON / 规则","textChars":42,"textLines":1,"bbox":[116,521,980,24]}
+{"kind":"shape","id":"sh/zidonyd0","slide":5,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/a1gvy90j","slide":5,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/hoza1gvy","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"notes","id":"nt/genwas","slide":5,"text":""}
+{"kind":"slide","id":"sl/9nbqme","slide":6,"title":"本地演示结果","textShapes":14}
+{"kind":"textbox","id":"sh/6xkf6dcb","slide":6,"text":"本地演示结果","textPreview":"本地演示结果","textChars":6,"textLines":1,"bbox":[72,42,620,26]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":6,"text":"样本合同检出 3 项高风险，输出报告、数据洞察和大纲","textPreview":"样本合同检出 3 项高风险，输出报告、数据洞察和大纲","textChars":26,"textLines":1,"bbox":[72,76,820,86]}
+{"kind":"textbox","id":"sh/oza1gvy9","slide":6,"text":"这张证明审核引擎节点不是静态文档，而是能接受合同输入并产生结构化交付物。","textPreview":"这张证明审核引擎节点不是静态文档，而是能接受合同输入并产生结构化交付物。","textChars":36,"textLines":1,"bbox":[72,148,820,54]}
+{"kind":"shape","id":"sh/zqtcj6to","slide":6,"bbox":[72,214,170,126]}
+{"kind":"textbox","id":"sh/65wjudg7","slide":6,"text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[94,238,126,50]}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":6,"text":"通过","textPreview":"通过","textChars":2,"textLines":1,"bbox":[94,296,126,30]}
+{"kind":"shape","id":"sh/obm58z25","slide":6,"bbox":[268,214,170,126]}
+{"kind":"textbox","id":"sh/zupwb2hw","slide":6,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[290,238,126,50]}
+{"kind":"textbox","id":"sh/a9w3m94f","slide":6,"text":"不通过","textPreview":"不通过","textChars":3,"textLines":1,"bbox":[290,296,126,30]}
+{"kind":"shape","id":"sh/8bat47y1","slide":6,"bbox":[464,214,170,126]}
+{"kind":"textbox","id":"sh/1w7mp0bi","slide":6,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[486,238,126,50]}
+{"kind":"textbox","id":"sh/q5o7qpg3","slide":6,"text":"需复核","textPreview":"需复核","textChars":3,"textLines":1,"bbox":[486,296,126,30]}
+{"kind":"shape","id":"sh/jqh0fepk","slide":6,"bbox":[80,397,9,9]}
+{"kind":"textbox","id":"sh/8nqxs72x","slide":6,"text":"高风险项：税率合理性、付款比例合计、必备条款完整性","textPreview":"高风险项：税率合理性、付款比例合计、必备条款完整性","textChars":25,"textLines":1,"bbox":[102,390,588,36]}
+{"kind":"shape","id":"sh/18jqh0fe","slide":6,"bbox":[80,445,9,9]}
+{"kind":"textbox","id":"sh/qh0fepkz","slide":6,"text":"报告包含总体结论、关键字段、三组规则表格和可复制修改建议。","textPreview":"报告包含总体结论、关键字段、三组规则表格和可复制修改建议。","textChars":29,"textLines":1,"bbox":[102,438,588,36]}
+{"kind":"shape","id":"sh/j2t83itg","slide":6,"bbox":[80,493,9,9]}
+{"kind":"textbox","id":"sh/crmhk3q5","slide":6,"text":"数据洞察 Tab 输出合规率、风险分布、效率对比，供周报链路继续使用。","textPreview":"数据洞察 Tab 输出合规率、风险分布、效率对比，供周报链路继续使用。","textChars":35,"textLines":1,"bbox":[102,486,588,36]}
+{"kind":"shape","id":"sh/5wjudg7a","slide":6,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/gbq1oryt","slide":6,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/nuxc3ylc","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"image","id":"im/ed8bat47","slide":6,"name":"","geometry":"roundRect","alt":"Analytics tab screenshot","bbox":[760,206,420,330]}
+{"kind":"notes","id":"nt/9nbqme","slide":6,"text":""}
+{"kind":"slide","id":"sl/3xfnza","slide":7,"title":"截图证据","textShapes":6}
+{"kind":"textbox","id":"sh/crmhk3q5","slide":7,"text":"截图证据","textPreview":"截图证据","textChars":4,"textLines":1,"bbox":[72,42,620,26]}
+{"kind":"textbox","id":"sh/j6tovaho","slide":7,"text":"Demo 已产出可放进提交材料的本地运行截图","textPreview":"Demo 已产出可放进提交材料的本地运行截图","textChars":22,"textLines":1,"bbox":[72,76,820,86]}
+{"kind":"textbox","id":"sh/ulwval87","slide":7,"text":"这些截图证明本地审核节点可运行；小浣熊网页端能力截图仍需按清单补拍。","textPreview":"这些截图证明本地审核节点可运行；小浣熊网页端能力截图仍需按清单补拍。","textChars":34,"textLines":1,"bbox":[72,148,820,54]}
+{"kind":"textbox","id":"sh/uxc3ylc7","slide":7,"text":"输出文件：outputs/opc-demo/screenshots/01-home.png ... 07-rules.png；录屏：outputs/opc-demo/video/local-demo-flow.webm","textPreview":"输出文件：outputs/opc-demo/screenshots/01-home.png ... 07-rules.png；录屏：outputs/opc-demo/video/local-demo-flow.webm","textChars":109,"textLines":1,"bbox":[76,552,1050,38]}
+{"kind":"shape","id":"sh/1w7mp0bi","slide":7,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/8bat47y1","slide":7,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/ytsvu9kn","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"image","id":"im/obm58z25","slide":7,"name":"","geometry":"roundRect","alt":"Report tab screenshot","bbox":[72,206,340,300]}
+{"kind":"image","id":"im/hwfyxobm","slide":7,"name":"","geometry":"roundRect","alt":"Workflow tab screenshot","bbox":[470,206,340,300]}
+{"kind":"image","id":"im/65wjudg7","slide":7,"name":"","geometry":"roundRect","alt":"Briefing tab screenshot","bbox":[868,206,340,300]}
+{"kind":"notes","id":"nt/3xfnza","slide":7,"text":""}
+{"kind":"slide","id":"sl/mb9b50","slide":8,"title":"提交前最后一公里","textShapes":11}
+{"kind":"textbox","id":"sh/1orytsvu","slide":8,"text":"提交前最后一公里","textPreview":"提交前最后一公里","textChars":8,"textLines":1,"bbox":[72,42,620,26]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":8,"text":"把网页端真实过程补齐，作品形态就清楚了","textPreview":"把网页端真实过程补齐，作品形态就清楚了","textChars":19,"textLines":1,"bbox":[72,76,820,86]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":8,"text":"建议提交 PPT 中用 5 张小浣熊网页端截图 + 本地 Demo 录屏二维码/链接组合。","textPreview":"建议提交 PPT 中用 5 张小浣熊网页端截图 + 本地 Demo 录屏二维码/链接组合。","textChars":45,"textLines":1,"bbox":[72,148,820,54]}
+{"kind":"shape","id":"sh/cfa9w3m9","slide":8,"bbox":[108,227,9,9]}
+{"kind":"textbox","id":"sh/1032lszq","slide":8,"text":"S1 定时任务：每日 09:00 / 周五 17:00 调度界面","textPreview":"S1 定时任务：每日 09:00 / 周五 17:00 调度界面","textChars":32,"textLines":1,"bbox":[130,220,998,36]}
+{"kind":"shape","id":"sh/u9knih4b","slide":8,"bbox":[108,285,9,9]}
+{"kind":"textbox","id":"sh/judg7ads","slide":8,"text":"S4 联网检索：开启联网 + 乙方尽调结果 + 来源链接","textPreview":"S4 联网检索：开启联网 + 乙方尽调结果 + 来源链接","textChars":28,"textLines":1,"bbox":[130,278,998,36]}
+{"kind":"shape","id":"sh/cj6tovah","slide":8,"bbox":[108,343,9,9]}
+{"kind":"textbox","id":"sh/54zidony","slide":8,"text":"S5/S6 知识库：@知识库读取红线 + 写入主体画像/案例库","textPreview":"S5/S6 知识库：@知识库读取红线 + 写入主体画像/案例库","textChars":31,"textLines":1,"bbox":[130,336,998,36]}
+{"kind":"shape","id":"sh/t47y1kre","slide":8,"bbox":[108,401,9,9]}
+{"kind":"textbox","id":"sh/0je9cvix","slide":8,"text":"S7 数据分析：周趋势、Top5 风险、主体分布图表","textPreview":"S7 数据分析：周趋势、Top5 风险、主体分布图表","textChars":26,"textLines":1,"bbox":[130,394,998,36]}
+{"kind":"shape","id":"sh/byhgn29g","slide":8,"bbox":[108,459,9,9]}
+{"kind":"textbox","id":"sh/idonyd0z","slide":8,"text":"S9/S10 PPT 生成与多轮调优：第 1 轮 vs 第 2 轮对比","textPreview":"S9/S10 PPT 生成与多轮调优：第 1 轮 vs 第 2 轮对比","textChars":35,"textLines":1,"bbox":[130,452,998,36]}
+{"kind":"shape","id":"sh/tcj6tova","slide":8,"bbox":[106,560,970,58]}
+{"kind":"textbox","id":"sh/0rqd4vmt","slide":8,"text":"一句话讲法：小浣熊负责持续运营闭环，CrewAI/规则引擎负责其中可体验、可复现的单份审核节点。","textPreview":"一句话讲法：小浣熊负责持续运营闭环，CrewAI/规则引擎负责其中可体验、可复现的单份审核节点。","textChars":48,"textLines":1,"bbox":[132,578,910,24]}
+{"kind":"shape","id":"sh/b6xkf6dc","slide":8,"bbox":[72,664,1136,0]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":8,"text":"办公小浣熊 · 企业合同初审持续运营工作流","textPreview":"办公小浣熊 · 企业合同初审持续运营工作流","textChars":21,"textLines":1,"bbox":[72,674,520,18]}
+{"kind":"textbox","id":"sh/tovahoza","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1160,674,48,18]}
+{"kind":"notes","id":"nt/mb9b50","slide":8,"text":""}

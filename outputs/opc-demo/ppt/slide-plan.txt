@@ -1,0 +1,5 @@
+Mode: create
+Slide size: 1280x720
+Palette: paper #F7F8F6, ink #172033, blue #2F6F9F, red #C9463A, amber #B57A30, green #2D7D5A.
+Fonts: Aptos / Aptos Display fallback.
+Slides: 1 title, 2 CrewAI role, 3 workflow, 4 submit readiness, 5 run steps, 6 demo result, 7 evidence, 8 final checklist.

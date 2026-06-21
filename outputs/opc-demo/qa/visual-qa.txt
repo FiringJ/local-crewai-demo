@@ -1,0 +1,36 @@
+# Visual QA
+
+## Mechanical
+
+- PPTX exists and is non-empty: pass (`outputs/opc-demo/ppt/opc-contract-audit-demo.pptx`, ~3.1 MB)
+- Expected slide count: 8
+- Every final slide rendered: pass (`outputs/opc-demo/ppt/preview/slide-01.png` ... `slide-08.png`)
+- Contact sheet reviewed: pass (`outputs/opc-demo/ppt/preview-contact-sheet.png`)
+- Layout JSON reviewed: generated for all 8 slides
+- Source notes reviewed: pass (`outputs/opc-demo/ppt/source-notes.txt`)
+
+## Deck-Level
+
+- Storyline: pass. Deck answers what the work is, what CrewAI does, how the workflow runs, and what evidence exists.
+- Grid and spacing: pass. Slides use consistent 72 px margin, footer line, page marker, and restrained palette.
+- Traceability: pass. Metrics come from `outputs/opc-demo/review-response.json`; screenshots come from local Playwright capture.
+- Caveat disclosed: pass. Deck states that small-raccoon web screenshots are still needed for final judging evidence.
+
+## Slide-Level
+
+- Text fit: pass after adjusting slide 1 KPI from `4h→3min` to `4h→3m`.
+- Screenshot relevance: pass. Screenshots are actual local UI captures, not placeholder images.
+- Contrast: pass. Dark text on light background, accent colors limited to labels/KPIs.
+- Known compromise: screenshot thumbnails on slides 6-7 are evidence previews, not meant for reading full report text.
+
+## Issue Ledger
+
+| Issue | Slide(s) | Severity | Fix path | Status |
+|---|---:|---|---|---|
+| First KPI wrapped awkwardly | 1 | fix-before-delivery | Changed value to `4h→3m` and label to `单份审核耗时` | fixed |
+| Artifact-tool montage exported only first slide | all | accepted-tradeoff | Created `preview-contact-sheet.png` with bundled Python/PIL instead | accepted |
+
+## Final Decision
+
+- Pass/fail: pass
+- Remaining compromises to disclose: final submission still needs small-raccoon web-side screenshots per `docs/SCREENSHOT_CHECKLIST.md`.

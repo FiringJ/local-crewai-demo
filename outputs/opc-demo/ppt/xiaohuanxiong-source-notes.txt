@@ -1,0 +1,7 @@
+材料来源说明
+- 提交说明：docs/OPC_SUBMISSION.md。
+- 规则证据图示：docs/CREWAI_RULE_EVIDENCE_FLOW.md。
+- 小浣熊桌面端截图：2026-06-20 从本机应用真实截取。
+- 小浣熊任务运行录屏：outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/desktop-raccoon-task-run-verified.mov。
+- 本地审核台截图和样本统计：来自 outputs/opc-demo/ 目录下的样本合同运行结果。
+- 如实说明：当前对方公司风险查询保留了无可用联网工具时的降级截图，未包装成已完成工商查询。
