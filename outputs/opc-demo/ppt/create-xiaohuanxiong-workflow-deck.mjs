@@ -11,6 +11,9 @@ const LAYOUT = path.join(OUT, "ppt/xiaohuanxiong-layout");
 const QA = path.join(OUT, "qa");
 const SCREEN = path.join(OUT, "screenshots");
 const review = JSON.parse(await fs.readFile(path.join(OUT, "review-response.json"), "utf8"));
+const stats = review.analytics.compliance_summary;
+const passRate = review.analytics.pass_rate;
+const highRiskCount = review.analytics.risk_distribution["高风险"] ?? 0;
 
 await fs.mkdir(PREVIEW, { recursive: true });
 await fs.mkdir(LAYOUT, { recursive: true });
@@ -187,8 +190,8 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
   text(s, "让合同初审从\n人工盯单变成\n自动值守", { left: 72, top: 120, width: 420, height: 220 }, { fontSize: 44, bold: false, color: C.white });
   text(s, "面向采购和法务的日常合同初审：每天自动拉取待审合同，先查风险、再按清单核对、最后生成审核意见和周报。", { left: 74, top: 360, width: 420, height: 100 }, { fontSize: 17, color: C.white });
   metric(s, 72, 500, 130, 100, "约92%", "4h→3min", true);
-  metric(s, 214, 500, 110, 100, "22项", "固定检查", true);
-  metric(s, 336, 500, 130, 100, "59.1%", "样本通过率", true);
+  metric(s, 214, 500, 110, 100, `${stats.total}项`, "法规对齐检查", true);
+  metric(s, 336, 500, 130, 100, `${passRate}%`, "样本通过率", true);
   shape(s, { geometry: "line", position: { left: 560, top: 82, width: 640, height: 0 }, fill: "none", line: { style: "solid", fill: C.line, width: 1 } });
   await addImage(s, "outputs/opc-demo/ppt/assets/cover-raccoon-task-running-crop.png", { left: 560, top: 100, width: 640, height: 280 }, "小浣熊定时任务运行中局部截图", ROOT, "contain");
   text(s, "小浣熊桌面端真实任务", { left: 560, top: 400, width: 400, height: 28 }, { fontSize: 22, bold: false, color: C.ink });
@@ -229,8 +232,8 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
     ["逐份处理", "读合同并抽取字段"],
     ["查对方公司", "查询公开风险线索"],
     ["查内部资料", "读取红线和历史案例"],
-    ["固定检查", "核对金额税率付款"],
-    ["生成结果", "报告、归档、周报"],
+    ["规则参考", "26 项维度初筛信号"],
+    ["终局报告", "大模型复核+归档"],
   ];
   nodes.forEach((n, i) => {
     const x = 72 + i * 190;
@@ -275,11 +278,11 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
 {
   const s = p.slides.add();
   s.background.fill = C.paper;
-  title(s, "我的技术实现", "把容易漏的合同问题做成可复核证据", "不用让大模型直接猜结论，而是先把合同变成字段和证据，再交给小浣熊整理成审核意见。");
+  title(s, "我的技术实现", "规则参考层 + 大模型决策层，不是纯硬编码检索", "先把合同变成可复核的维度信号，再交给小浣熊结合 @知识库 产出终局审核报告。");
   const cols = [
     ["LAYER 01", "读合同\n抽取甲乙方、金额、税率、日期、付款比例", C.faint, C.ink],
-    ["LAYER 02", "固定清单\n22 项检查，覆盖财务、法务、文本一致性", C.accent, C.white],
-    ["LAYER 03", "小浣熊整理\n结合知识库和查询结果生成报告与周报", C.ink, C.white],
+    ["LAYER 02", "规则参考层\n26 项初筛（6 组·对接《民法典》等上位法）", C.accent, C.white],
+    ["LAYER 03", "大模型决策\n@知识库 + 全文复核 → 终局报告与周报", C.ink, C.white],
   ];
   cols.forEach((c, i) => {
     const x = 96 + i * 370;
@@ -288,7 +291,7 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
     text(s, c[1], { left: x + 24, top: 318, width: 250, height: 128 }, { fontSize: 20, color: c[3] });
     if (i < 2) shape(s, { geometry: "line", position: { left: x + 300, top: 362, width: 70, height: 0 }, fill: "none", line: { style: "solid", fill: C.line, width: 2 } });
   });
-  text(s, "这样既能展示技术能力，也能让审核结论有依据：每个风险都能回到合同原文和检查结果。", { left: 118, top: 550, width: 1000, height: 32 }, { fontSize: 19, bold: false, color: C.ink });
+  text(s, "引擎输出是初筛参考，非终局结论；语义类风险由大模型结合合同原文修正误报。", { left: 118, top: 550, width: 1000, height: 32 }, { fontSize: 19, bold: false, color: C.ink });
   footer(s, 5);
 }
 
@@ -296,14 +299,14 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
 {
   const s = p.slides.add();
   s.background.fill = C.paper;
-  title(s, "样本合同验证", "128 万元合同检出 3 项高风险", "这些数字来自仓库里的脱敏合同样本和本地审核结果，可以通过截图和结果文件复查。");
-  metric(s, 72, 220, 168, 118, String(review.analytics.compliance_summary.passed), "检查通过", false);
-  metric(s, 264, 220, 168, 118, String(review.analytics.compliance_summary.failed), "未通过", true);
-  metric(s, 456, 220, 168, 118, String(review.analytics.compliance_summary.needs_review), "需人工看", false);
+  title(s, "样本合同验证", `128 万元合同检出 ${highRiskCount} 项高风险`, "数字来自脱敏样本 `review-response.json`（规则参考层）；终局报告由小浣熊 @知识库 复核产出。");
+  metric(s, 72, 220, 168, 118, String(stats.passed), "检查通过", false);
+  metric(s, 264, 220, 168, 118, String(stats.failed), "未通过", true);
+  metric(s, 456, 220, 168, 118, String(stats.needs_review), "需人工看", false);
   bullet(s, [
-    { text: "异常税率：识别到 30%，需要改成适用税率。", accent: true, bold: true },
-    { text: "付款比例：识别到 0.03%，合计不等于 100%。", accent: true, bold: true },
-    { text: "必备条款：缺少或未识别合同标的，签署前必须补齐。", accent: true, bold: true },
+    { text: "异常税率：识别到 30%（R09），须改为法定档位。", accent: true, bold: true },
+    { text: "付款比例：识别到 0.03%，合计不等于 100%（R10）。", accent: true, bold: true },
+    { text: "争议解决：仲裁与诉讼并存（R23），签署前必须择一。", accent: true, bold: true },
   ], 80, 386, 610, 48);
   await addImage(s, "outputs/opc-demo/screenshots/03-analytics.png", { left: 760, top: 214, width: 420, height: 330 }, "本地审核台数据分析截图", ROOT, "contain");
   text(s, "可复查材料：样本合同、审核截图、规则统计结果均已放入提交材料包。", { left: 76, top: 584, width: 860, height: 28 }, { fontSize: 17, bold: false, color: C.accent });
@@ -332,8 +335,8 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
   title(s, "价值用数字说话", "省时间、少漏项、能沉淀、可汇报", "每个数字都对应现有截图、样本结果或明确估算口径。");
   const values = [
     ["92%", "单份合同预计节省时间", "人工约4小时，流程约3分钟", true],
-    ["22项", "固定检查覆盖", "财务12项、法务7项、文本3项", false],
-    ["3项", "样本高风险", "税率、付款比例、必备条款", false],
+    ["26项", "法规对齐检查清单", "6 组：效力·标的·价款·违约·担保·文本", false],
+    [`${highRiskCount}项`, "样本高风险", "税率·付款·争议解决等", false],
     ["2小时→10分钟", "周报整理时间", "按周报整理估算", false],
   ];
   values.forEach((v, i) => {
@@ -348,7 +351,7 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
     text(s, v[1], { left: bodyLeft, top: y + 24, width: bodyWidth, height: 24 }, { fontSize: 20, bold: false, color: v[3] ? C.white : C.ink });
     text(s, v[2], { left: bodyLeft, top: y + 58, width: bodyWidth, height: 28 }, { fontSize: 15, color: v[3] ? C.white : C.muted });
   });
-  text(s, "这些数字不是口号：样本审核结果显示通过 13 项、未通过 6 项、需人工看 3 项，合规通过率 59.1%。", { left: 112, top: 558, width: 980, height: 30 }, { fontSize: 18, bold: false, color: C.ink });
+  text(s, `样本统计：通过 ${stats.passed} 项、未通过 ${stats.failed} 项、需复核 ${stats.needs_review} 项，合规通过率 ${passRate}%。`, { left: 112, top: 558, width: 980, height: 30 }, { fontSize: 18, bold: false, color: C.ink });
   footer(s, 8);
 }
 
@@ -360,7 +363,7 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
   const script = [
     ["1", "看小浣熊任务", "证明每天九点的合同初审任务已经存在。"],
     ["2", "看运行录屏", "证明任务可手动触发，并出现运行中状态。"],
-    ["3", "看样本审核结果", "证明 22 项检查能发现具体合同风险。"],
+    ["3", "看样本审核结果", "证明 26 项维度初筛 + 大模型终局报告能发现具体风险。"],
     ["4", "看知识库和周报截图", "证明结果能沉淀，并可整理成管理层周报。"],
   ];
   script.forEach((row, i) => {
@@ -386,7 +389,7 @@ function stepNode(slide, x, y, w, label, cap, accent = false) {
   tag(s, "可验证", 586, 232, true, 116);
   bullet(s, [
     { text: "真实场景：企业采购合同每天进入待审队列，法务和财务需要快速判断能否签署。", bold: true },
-    { text: "完整流程：定时拉取、查询风险、读取知识库、固定检查、生成报告、沉淀周报。" },
+    { text: "完整流程：定时拉取、联网尽调、@知识库、规则参考初筛、大模型终局报告、沉淀周报。" },
     { text: "作品价值：单份从 4 小时降到约 3 分钟，周报从约 2 小时降到约 10 分钟。" },
     { text: "如实说明：当前网页端对方公司风险查询保留了无可用联网工具的降级截图，不包装成已完成工商查询。", accent: true },
   ], 128, 318, 980, 52);

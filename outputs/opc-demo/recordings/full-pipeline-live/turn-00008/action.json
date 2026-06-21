@@ -1,0 +1,23 @@
+{
+  "arguments" : {
+    "element_index" : 31,
+    "pid" : 24112,
+    "window_id" : 468
+  },
+  "click_point" : {
+    "x" : 0.5,
+    "y" : 368
+  },
+  "pid" : 24112,
+  "result_summary" : "✅ Performed AXPress on [31] AXLink \"\".",
+  "t_ms_from_session_start" : 67736,
+  "t_start_ms_from_session_start" : 64547,
+  "timestamp" : "2026-06-21T06:15:47Z",
+  "tool" : "click",
+  "window_bounds" : {
+    "height" : 32,
+    "width" : 1512,
+    "x" : 0,
+    "y" : 33
+  }
+}

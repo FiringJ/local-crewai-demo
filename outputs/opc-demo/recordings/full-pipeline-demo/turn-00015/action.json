@@ -1,0 +1,23 @@
+{
+  "arguments" : {
+    "element_index" : 137,
+    "pid" : 24112,
+    "window_id" : 468
+  },
+  "click_point" : {
+    "x" : 461,
+    "y" : 289
+  },
+  "pid" : 24112,
+  "result_summary" : "✅ Performed AXPress on [137] AXStaticText \"\".\n⚠️ Element does not advertise AXPress (actions: AXShowMenu, AXScrollToVisible). Action may have been a no-op. Retry with a pixel click (`click(pid, x, y)`) if the expected state change didn't happen.\n\n🪟 Action opened new window(s): Cua Driver.",
+  "t_ms_from_session_start" : 373943,
+  "t_start_ms_from_session_start" : 371124,
+  "timestamp" : "2026-06-21T05:46:30Z",
+  "tool" : "click",
+  "window_bounds" : {
+    "height" : 859,
+    "width" : 1512,
+    "x" : 0,
+    "y" : 33
+  }
+}

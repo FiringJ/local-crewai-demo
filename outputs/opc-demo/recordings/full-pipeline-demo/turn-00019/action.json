@@ -1,0 +1,20 @@
+{
+  "arguments" : {
+    "amount" : 2,
+    "by" : "page",
+    "direction" : "down",
+    "pid" : 24112
+  },
+  "pid" : 24112,
+  "result_summary" : "✅ Scrolled pid 24112 down via 2× pagedown keystroke(s).",
+  "t_ms_from_session_start" : 420644,
+  "t_start_ms_from_session_start" : 420640,
+  "timestamp" : "2026-06-21T05:47:17Z",
+  "tool" : "scroll",
+  "window_bounds" : {
+    "height" : 859,
+    "width" : 1512,
+    "x" : 0,
+    "y" : 33
+  }
+}

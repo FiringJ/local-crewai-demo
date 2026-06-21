@@ -1,5 +1,4 @@
-制作方式：guizang-ppt-skill 瑞士风 HTML 为设计源；提交 PPTX 由 html-to-pptx.mjs 逐页截图导出。
-页面尺寸：1280x720 · 主题：克莱因蓝 IKB · 文案经 humanizer-zh 润色。
-叙事顺序：真实场景 -> 完整工作流 -> 能力组合 -> 技术实现 -> 样本验证 -> 运行证据 -> 价值数据 -> 证据链 -> 收束。
+制作方式：guizang-ppt-skill 瑞士风 HTML + artifact-tool 同步 PPTX。
+页面尺寸：1280x720 · 主题：克莱因蓝 IKB。
+叙事顺序：真实场景 -> 小浣熊运行证据 -> 完整工作流 -> 规则清单定位 -> 样本审核结果 -> 证据链 -> 提交判断。
 页数：10。
-导出命令：cd outputs/opc-demo/ppt && node html-to-pptx.mjs

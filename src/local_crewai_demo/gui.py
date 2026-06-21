@@ -23,6 +23,7 @@ from local_crewai_demo.contract_review import (
     build_analytics_payload,
     build_briefing_outline,
     extract_text_from_file,
+    rule_reference_json,
 )
 from local_crewai_demo.crew import LocalCrewaiDemo
 
@@ -92,8 +93,8 @@ PROVIDERS = {
 }
 
 REVIEW_MODES = {
-    "rules_agent": "小浣熊全链路（推荐）",
-    "rules_only": "仅规则引擎（离线演示）",
+    "rules_agent": "智能审核（规则参考 + 大模型决策，推荐）",
+    "rules_only": "仅规则参考层（离线预览，无大模型）",
 }
 
 COMPETITION = {
@@ -156,7 +157,7 @@ COMPETITION = {
     "screenshot_doc": "docs/SCREENSHOT_CHECKLIST.md",
     "weekly_ppt_doc": "docs/WEEKLY_BRIEFING_PPT.md",
     "prompts_doc": "prompts/xiaohuanxiong_core_prompts.md",
-    "demo_role": "工作流中的审核引擎节点（步骤 3–8）",
+    "demo_role": "工作流中的审核节点：规则参考层 + 大模型终局报告",
 }
 
 WORKFLOW_TEMPLATE = [
@@ -165,7 +166,7 @@ WORKFLOW_TEMPLATE = [
     {"id": "doc", "module": "文档处理", "label": "解析合同并抽取关键字段"},
     {"id": "web", "module": "联网检索", "label": "乙方工商/涉诉/负面尽调"},
     {"id": "kb", "module": "知识库", "label": "@知识库 红线复核 + 案例沉淀"},
-    {"id": "rules", "module": "证据层", "label": "22 条规则结构化校验（本地）"},
+    {"id": "rules", "module": "证据层", "label": "规则参考层（维度初筛，供大模型复核）"},
     {"id": "da", "module": "数据分析", "label": "合规率与风险分布洞察"},
     {"id": "copy", "module": "文案", "label": "生成 Markdown 审核报告"},
     {"id": "ppt", "module": "汇报", "label": "单份大纲 / 周五周报 PPT"},
@@ -227,7 +228,14 @@ def _rules_config() -> dict[str, list[dict[str, str]]]:
     groups: dict[str, list[dict[str, str]]] = {}
     for rule in ALL_RULES:
         groups.setdefault(rule.group, []).append(
-            {"name": rule.name, "risk": rule.risk, "logic": rule.logic}
+            {
+                "code": rule.code,
+                "name": rule.name,
+                "risk": rule.risk,
+                "contract_types": rule.contract_types,
+                "legal_basis": rule.legal_basis,
+                "logic": rule.logic,
+            }
         )
     return groups
 
@@ -309,12 +317,13 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
                     "fileName": file_name,
                     "report": fallback_report,
                     "auditJson": audit_json(audit),
+                    "ruleReferenceJson": rule_reference_json(audit),
                     "analytics": analytics,
                     "briefing": briefing,
                     "workflow": _workflow_steps(agent_used=False),
                     "knowledgeSources": _knowledge_sources(),
                     "reportPath": str(output_path),
-                    "logs": "规则引擎 + 数据分析 + 汇报大纲已完成；文案/PPT 模块使用本地模板，未调用 SenseChat。",
+                    "logs": "规则参考层 + 数据分析 + 汇报大纲已完成（无大模型终局报告；请使用「智能审核」模式获取完整结论）。",
                 }
 
             os.chdir(PROJECT_ROOT)
@@ -329,6 +338,7 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
                 "file_name": file_name,
                 "contract_text": contract_text[:30000],
                 "audit_evidence_json": audit_json(audit),
+                "rule_reference_json": rule_reference_json(audit),
                 "knowledge_context": _load_knowledge_context(),
                 "current_date": datetime.now().strftime("%Y-%m-%d"),
             }
@@ -349,6 +359,7 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
                 "fileName": file_name,
                 "report": report,
                 "auditJson": audit_json(audit),
+                "ruleReferenceJson": rule_reference_json(audit),
                 "analytics": analytics,
                 "briefing": briefing,
                 "workflow": _workflow_steps(agent_used=True),
@@ -366,6 +377,7 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
             "fileName": locals().get("file_name", ""),
             "report": fallback,
             "auditJson": audit_json(audit_obj) if audit_obj else "",
+            "ruleReferenceJson": rule_reference_json(audit_obj) if audit_obj else "",
             "analytics": build_analytics_payload(audit_obj) if audit_obj else {},
             "briefing": build_briefing_outline(audit_obj) if audit_obj else "",
             "workflow": _workflow_steps(agent_used=False),

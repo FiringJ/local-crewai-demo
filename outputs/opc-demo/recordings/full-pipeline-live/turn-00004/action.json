@@ -1,0 +1,24 @@
+{
+  "arguments" : {
+    "pid" : 24112,
+    "window_id" : 468,
+    "x" : 1460,
+    "y" : 430
+  },
+  "click_point" : {
+    "x" : 730,
+    "y" : 248
+  },
+  "pid" : 24112,
+  "result_summary" : "✅ Posted click to pid 24112.",
+  "t_ms_from_session_start" : 35026,
+  "t_start_ms_from_session_start" : 29386,
+  "timestamp" : "2026-06-21T06:15:14Z",
+  "tool" : "click",
+  "window_bounds" : {
+    "height" : 32,
+    "width" : 1512,
+    "x" : 0,
+    "y" : 33
+  }
+}

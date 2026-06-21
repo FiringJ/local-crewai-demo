@@ -166,7 +166,7 @@ function workflowNode(slide, i, label, x, y, w = 132) {
   text(s, "办公小浣熊把合同初审跑成持续运营流水线", { left: 72, top: 118, width: 740, height: 140 }, { fontSize: 50, bold: true, color: C.ink });
   text(s, "不是单点审阅工具：每日拉取、逐份初审、主体尽调、知识库沉淀、周报 PPT 自动生成。", { left: 74, top: 286, width: 660, height: 78 }, { fontSize: 22, color: C.muted });
   card(s, 72, 430, 220, 130, "单份审核耗时", "4h→3m", C.red);
-  card(s, 320, 430, 170, 130, "规则证据", "22", C.navy);
+  card(s, 320, 430, 170, 130, "规则维度", `${review.analytics.compliance_summary.total}`, C.navy);
   card(s, 518, 430, 220, 130, "样本合规率", `${review.analytics.pass_rate}%`, C.amber);
   await screenshot(s, "01-home.png", { left: 820, top: 88, width: 388, height: 470 }, "Demo home screen");
   footer(s, 1);
@@ -178,7 +178,7 @@ function workflowNode(slide, i, label, x, y, w = 132) {
   s.background.fill = C.paper;
   title(s, "CREWAI 定位", "CrewAI 是审核引擎节点里的编排层，不是作品主角", "作品主角是小浣熊网页端的持续运营能力；CrewAI 只负责把结构化证据交给 Agent 生成报告与汇报。");
   const rows = [
-    ["做什么", "读取本地 22 条规则证据、知识库上下文、合同正文，顺序执行审核报告和汇报大纲任务。"],
+    ["做什么", "读取规则参考层 JSON、@知识库、合同正文，大模型产出终局审核报告与汇报大纲。"],
     ["不做什么", "不负责定时任务、网页端联网尽调、知识库存取截图、PPT 网页端生成。"],
     ["为什么需要", "把确定性校验和语言生成分开：规则避免算错金额，Agent 负责解释风险和生成可读交付物。"],
   ];
@@ -215,7 +215,7 @@ function workflowNode(slide, i, label, x, y, w = 132) {
   card(s, 676, 232, 260, 142, "缺口", "网页端截图", C.amber);
   bullet(s, [
     { text: "必须补拍：定时任务创建、联网检索开关和来源、@知识库读取、知识库写入、数据分析图表、PPT 生成、多轮调优。", color: C.red },
-    { text: "本地 Demo 可证明：合同解析、22 条结构化证据、数据洞察、报告和大纲生成。", color: C.green },
+    { text: `本地 Demo 可证明：合同解析、${review.analytics.compliance_summary.total} 维规则参考、数据洞察、终局报告和大纲生成。`, color: C.green },
     { text: "讲述口径：小浣熊是运营主线，CrewAI/规则引擎是可体验审核节点。", color: C.blue },
   ], 78, 440, 1030, 52);
   footer(s, 4);

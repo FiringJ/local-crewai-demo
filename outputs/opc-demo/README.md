@@ -9,6 +9,7 @@
 - `video/local-demo-flow.webm`：本地审核节点录屏。
 - `screenshots/01-home.png` 到 `screenshots/07-rules.png`：本地 Demo 截图证据。
 - `review-response.json`：样本合同审核接口返回结果。
+- **`opc-full-pipeline-demo.mp4`**：办公小浣熊桌面端 **全流程连续录屏**（约 66s @ 30fps，3024×1964，知识库 → 定时任务立刻运行 → 历史记录 → 云端会话闭环 + 92% 人力节约）。由 CuaDriver **SCStream 主屏连续视频**（`video_experimental=true`）采集，`recording render --no-zoom` 输出；旁注见 `recordings/full-pipeline-live/README.md`。
 
 ## 本地复现
 

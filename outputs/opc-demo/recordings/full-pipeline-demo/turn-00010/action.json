@@ -1,0 +1,24 @@
+{
+  "arguments" : {
+    "pid" : 24112,
+    "window_id" : 468,
+    "x" : 95,
+    "y" : 200
+  },
+  "click_point" : {
+    "x" : 47.5,
+    "y" : 133
+  },
+  "pid" : 24112,
+  "result_summary" : "✅ Posted click to pid 24112.\n\n🪟 Action opened new window(s): Cua Driver.",
+  "t_ms_from_session_start" : 216150,
+  "t_start_ms_from_session_start" : 213453,
+  "timestamp" : "2026-06-21T05:43:52Z",
+  "tool" : "click",
+  "window_bounds" : {
+    "height" : 859,
+    "width" : 1512,
+    "x" : 0,
+    "y" : 33
+  }
+}

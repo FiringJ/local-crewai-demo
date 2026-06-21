@@ -5,8 +5,14 @@ import warnings
 from datetime import datetime
 from pathlib import Path
 
-from local_crewai_demo.contract_review import audit_contract_text, audit_json, extract_text_from_file
+from local_crewai_demo.contract_review import (
+    audit_contract_text,
+    audit_json,
+    extract_text_from_file,
+    rule_reference_json,
+)
 from local_crewai_demo.crew import LocalCrewaiDemo
+from local_crewai_demo.gui import _load_knowledge_context
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -21,6 +27,8 @@ def _build_inputs(contract_path: Path) -> dict[str, str]:
         "file_name": contract_path.name,
         "contract_text": contract_text[:30000],
         "audit_evidence_json": audit_json(audit),
+        "rule_reference_json": rule_reference_json(audit),
+        "knowledge_context": _load_knowledge_context(),
         "current_date": datetime.now().strftime("%Y-%m-%d"),
     }
 
@@ -96,6 +104,8 @@ def run_with_trigger():
         "file_name": file_name,
         "contract_text": contract_text[:30000],
         "audit_evidence_json": audit_json(audit),
+        "rule_reference_json": rule_reference_json(audit),
+        "knowledge_context": _load_knowledge_context(),
         "current_date": datetime.now().strftime("%Y-%m-%d"),
     }
 

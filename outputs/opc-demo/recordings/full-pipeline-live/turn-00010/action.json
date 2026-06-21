@@ -1,0 +1,20 @@
+{
+  "arguments" : {
+    "amount" : 2,
+    "by" : "page",
+    "direction" : "up",
+    "pid" : 24112
+  },
+  "pid" : 24112,
+  "result_summary" : "✅ Scrolled pid 24112 up via 2× pageup keystroke(s).",
+  "t_ms_from_session_start" : 74703,
+  "t_start_ms_from_session_start" : 74702,
+  "timestamp" : "2026-06-21T06:15:54Z",
+  "tool" : "scroll",
+  "window_bounds" : {
+    "height" : 32,
+    "width" : 1512,
+    "x" : 0,
+    "y" : 33
+  }
+}

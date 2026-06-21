@@ -2,13 +2,13 @@
   "schema": "openai.presentation.layout/v4",
   "unit": "px",
   "slide": {
-    "aid": "sl/w0on7z",
-    "id": "w0on7z",
+    "aid": "sl/ksh1ih",
+    "id": "ksh1ih",
     "slide": 5,
-    "layoutId": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+    "layoutId": "fc1a56b1-29a8-4fae-a4b1-498d2fa39a60",
     "layoutName": "Title Slide",
     "layoutType": "title",
-    "masterLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+    "masterLayoutId": "2299e254-d2a6-4c0b-9225-69e033f02ca2",
     "masterLayoutName": "Master",
     "backgroundColor": "#FAFAF8",
     "frame": {
@@ -45,15 +45,15 @@
   "inheritedLayers": [
     {
       "scope": "layout",
-      "id": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+      "id": "fc1a56b1-29a8-4fae-a4b1-498d2fa39a60",
       "name": "Title Slide",
       "type": "title",
-      "parentLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "parentLayoutId": "2299e254-d2a6-4c0b-9225-69e033f02ca2",
       "elements": []
     },
     {
       "scope": "master",
-      "id": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "id": "2299e254-d2a6-4c0b-9225-69e033f02ca2",
       "name": "Master",
       "type": "master",
       "elements": []
@@ -64,7 +64,7 @@
       "order": 1,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/neloj2t8",
+      "aid": "sh/2hwfyxob",
       "id": "1",
       "bbox": [
         72,
@@ -80,7 +80,7 @@
       "order": 2,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/czed8v6p",
+      "aid": "sh/94fu18jq",
       "id": "2",
       "bbox": [
         72,
@@ -141,7 +141,7 @@
       "order": 3,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/5kb6xkf6",
+      "aid": "sh/kjm1cfa9",
       "id": "3",
       "bbox": [
         72,
@@ -150,8 +150,8 @@
         90
       ],
       "geometry": "rect",
-      "text": "把容易漏的合同问题做成可复核证据",
-      "textPreview": "把容易漏的合同问题做成可复核证据",
+      "text": "规则参考层 + 大模型决策层，不是纯硬编码检索",
+      "textPreview": "规则参考层 + 大模型决策层，不是纯硬编码检索",
       "resolvedFontSize": 36,
       "resolvedTextStyle": {
         "fontSize": 36,
@@ -170,14 +170,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "把容易漏的合同问题做成可复核证据"
+            "text": "规则参考层 + 大模型决策层，不是纯硬编码检索"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "把容易漏的合同问题做成可复核证据",
+          "text": "规则参考层 + 大模型决策层，不是纯硬编码检索",
           "resolvedTextStyle": {
             "fontSize": 36,
             "color": "#0A0A0A"
@@ -185,7 +185,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "把容易漏的合同问题做成可复核证据",
+              "text": "规则参考层 + 大模型决策层，不是纯硬编码检索",
               "fontSize": 36,
               "color": "#0A0A0A"
             }
@@ -199,7 +199,7 @@
       "order": 4,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/u54zidon",
+      "aid": "sh/ra5gbq1o",
       "id": "4",
       "bbox": [
         74,
@@ -208,8 +208,8 @@
         56
       ],
       "geometry": "rect",
-      "text": "不用让大模型直接猜结论，而是先把合同变成字段和证据，再交给小浣熊整理成审核意见。",
-      "textPreview": "不用让大模型直接猜结论，而是先把合同变成字段和证据，再交给小浣熊整理成审核意见。",
+      "text": "先把合同变成可复核的维度信号，再交给小浣熊结合 @知识库 产出终局审核报告。",
+      "textPreview": "先把合同变成可复核的维度信号，再交给小浣熊结合 @知识库 产出终局审核报告。",
       "resolvedFontSize": 18,
       "resolvedTextStyle": {
         "fontSize": 18,
@@ -228,14 +228,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "不用让大模型直接猜结论，而是先把合同变成字段和证据，再交给小浣熊整理成审核意见。"
+            "text": "先把合同变成可复核的维度信号，再交给小浣熊结合 @知识库 产出终局审核报告。"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "不用让大模型直接猜结论，而是先把合同变成字段和证据，再交给小浣熊整理成审核意见。",
+          "text": "先把合同变成可复核的维度信号，再交给小浣熊结合 @知识库 产出终局审核报告。",
           "resolvedTextStyle": {
             "fontSize": 18,
             "color": "#737373"
@@ -243,7 +243,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "不用让大模型直接猜结论，而是先把合同变成字段和证据，再交给小浣熊整理成审核意见。",
+              "text": "先把合同变成可复核的维度信号，再交给小浣熊结合 @知识库 产出终局审核报告。",
               "fontSize": 18,
               "color": "#737373"
             }
@@ -257,7 +257,7 @@
       "order": 5,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/nqxs72x4",
+      "aid": "sh/2p8nqxs7",
       "id": "5",
       "bbox": [
         96,
@@ -274,7 +274,7 @@
       "order": 6,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/cbulwval",
+      "aid": "sh/9gr2p8nq",
       "id": "6",
       "bbox": [
         120,
@@ -335,7 +335,7 @@
       "order": 7,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/5sneloj2",
+      "aid": "sh/gvy90je9",
       "id": "7",
       "bbox": [
         120,
@@ -418,7 +418,7 @@
       "order": 8,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/y90je9cv",
+      "aid": "sh/re1w7mp0",
       "id": "8",
       "bbox": [
         396,
@@ -434,7 +434,7 @@
       "order": 9,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/nuxc3ylc",
+      "aid": "sh/2t83itgf",
       "id": "9",
       "bbox": [
         466,
@@ -451,7 +451,7 @@
       "order": 10,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/36hcrmhk",
+      "aid": "sh/sneloj2t",
       "id": "10",
       "bbox": [
         490,
@@ -512,7 +512,7 @@
       "order": 11,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/eloj2t83",
+      "aid": "sh/l87ed8ba",
       "id": "11",
       "bbox": [
         490,
@@ -521,8 +521,8 @@
         128
       ],
       "geometry": "rect",
-      "text": "固定清单\n22 项检查，覆盖财务、法务、文本一致性",
-      "textPreview": "固定清单 | 22 项检查，覆盖财务、法务、文本一致性",
+      "text": "规则参考层\n26 项初筛（6 组·对接《民法典》等上位法）",
+      "textPreview": "规则参考层 | 26 项初筛（6 组·对接《民法典》等上位法）",
       "resolvedFontSize": 20,
       "resolvedTextStyle": {
         "fontSize": 20,
@@ -541,26 +541,26 @@
         "lines": [
           {
             "index": 1,
-            "text": "固定清单"
+            "text": "规则参考层"
           },
           {
             "index": 2,
-            "text": "22"
+            "text": "26 项初筛（6"
           },
           {
             "index": 3,
-            "text": "项检查，覆盖财务、法务"
+            "text": "组·对接《民法典》等上位"
           },
           {
             "index": 4,
-            "text": "、文本一致性"
+            "text": "法）"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "固定清单",
+          "text": "规则参考层",
           "resolvedTextStyle": {
             "fontSize": 20,
             "color": "#FFFFFF"
@@ -568,7 +568,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "固定清单",
+              "text": "规则参考层",
               "fontSize": 20,
               "color": "#FFFFFF"
             }
@@ -577,7 +577,7 @@
         },
         {
           "index": 2,
-          "text": "22 项检查，覆盖财务、法务、文本一致性",
+          "text": "26 项初筛（6 组·对接《民法典》等上位法）",
           "resolvedTextStyle": {
             "fontSize": 20,
             "color": "#FFFFFF"
@@ -585,7 +585,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "22 项检查，覆盖财务、法务、文本一致性",
+              "text": "26 项初筛（6 组·对接《民法典》等上位法）",
               "fontSize": 20,
               "color": "#FFFFFF"
             }
@@ -599,7 +599,7 @@
       "order": 12,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/lc7u54zi",
+      "aid": "sh/ahoza1gv",
       "id": "12",
       "bbox": [
         766,
@@ -615,7 +615,7 @@
       "order": 13,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/wra5gbq1",
+      "aid": "sh/32lszqtc",
       "id": "13",
       "bbox": [
         836,
@@ -632,7 +632,7 @@
       "order": 14,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/7u54zido",
+      "aid": "sh/szqtcj6t",
       "id": "14",
       "bbox": [
         860,
@@ -693,7 +693,7 @@
       "order": 15,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/ed8bat47",
+      "aid": "sh/lkjm1cfa",
       "id": "15",
       "bbox": [
         860,
@@ -702,8 +702,8 @@
         128
       ],
       "geometry": "rect",
-      "text": "小浣熊整理\n结合知识库和查询结果生成报告与周报",
-      "textPreview": "小浣熊整理 | 结合知识库和查询结果生成报告与周报",
+      "text": "大模型决策\n@知识库 + 全文复核 → 终局报告与周报",
+      "textPreview": "大模型决策 | @知识库 + 全文复核 → 终局报告与周报",
       "resolvedFontSize": 20,
       "resolvedTextStyle": {
         "fontSize": 20,
@@ -722,22 +722,22 @@
         "lines": [
           {
             "index": 1,
-            "text": "小浣熊整理"
+            "text": "大模型决策"
           },
           {
             "index": 2,
-            "text": "结合知识库和查询结果生"
+            "text": "@知识库 + 全文复核 →"
           },
           {
             "index": 3,
-            "text": "成报告与周报"
+            "text": "终局报告与周报"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "小浣熊整理",
+          "text": "大模型决策",
           "resolvedTextStyle": {
             "fontSize": 20,
             "color": "#FFFFFF"
@@ -745,7 +745,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "小浣熊整理",
+              "text": "大模型决策",
               "fontSize": 20,
               "color": "#FFFFFF"
             }
@@ -754,7 +754,7 @@
         },
         {
           "index": 2,
-          "text": "结合知识库和查询结果生成报告与周报",
+          "text": "@知识库 + 全文复核 → 终局报告与周报",
           "resolvedTextStyle": {
             "fontSize": 20,
             "color": "#FFFFFF"
@@ -762,7 +762,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "结合知识库和查询结果生成报告与周报",
+              "text": "@知识库 + 全文复核 → 终局报告与周报",
               "fontSize": 20,
               "color": "#FFFFFF"
             }
@@ -776,7 +776,7 @@
       "order": 16,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/l0rqd4vm",
+      "aid": "sh/at47y1kr",
       "id": "16",
       "bbox": [
         118,
@@ -785,8 +785,8 @@
         32
       ],
       "geometry": "rect",
-      "text": "这样既能展示技术能力，也能让审核结论有依据：每个风险都能回到合同原文和检查结果。",
-      "textPreview": "这样既能展示技术能力，也能让审核结论有依据：每个风险都能回到合同原文和检查结果。",
+      "text": "引擎输出是初筛参考，非终局结论；语义类风险由大模型结合合同原文修正误报。",
+      "textPreview": "引擎输出是初筛参考，非终局结论；语义类风险由大模型结合合同原文修正误报。",
       "resolvedFontSize": 19,
       "resolvedTextStyle": {
         "fontSize": 19,
@@ -805,14 +805,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "这样既能展示技术能力，也能让审核结论有依据：每个风险都能回到合同原文和检查结果。"
+            "text": "引擎输出是初筛参考，非终局结论；语义类风险由大模型结合合同原文修正误报。"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "这样既能展示技术能力，也能让审核结论有依据：每个风险都能回到合同原文和检查结果。",
+          "text": "引擎输出是初筛参考，非终局结论；语义类风险由大模型结合合同原文修正误报。",
           "resolvedTextStyle": {
             "fontSize": 19,
             "color": "#0A0A0A"
@@ -820,7 +820,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "这样既能展示技术能力，也能让审核结论有依据：每个风险都能回到合同原文和检查结果。",
+              "text": "引擎输出是初筛参考，非终局结论；语义类风险由大模型结合合同原文修正误报。",
               "fontSize": 19,
               "color": "#0A0A0A"
             }
@@ -834,7 +834,7 @@
       "order": 17,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/wfyxobm5",
+      "aid": "sh/3ex0nuxc",
       "id": "17",
       "bbox": [
         72,
@@ -850,7 +850,7 @@
       "order": 18,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/7mp0bi9s",
+      "aid": "sh/w3m94fu1",
       "id": "18",
       "bbox": [
         72,
@@ -908,7 +908,7 @@
       "order": 19,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/e1w7mp0b",
+      "aid": "sh/loj2t83i",
       "id": "19",
       "bbox": [
         1160,

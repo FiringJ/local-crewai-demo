@@ -23,17 +23,23 @@ REVIEW = "需复核"
 
 @dataclass(frozen=True)
 class Rule:
+    code: str
     group: str
     name: str
     risk: str
+    contract_types: str
+    legal_basis: str
     logic: str
 
 
 @dataclass
 class Finding:
+    code: str
     group: str
     rule_name: str
     risk_level: str
+    contract_types: str
+    legal_basis: str
     status: str
     evidence: str
     recommendation: str
@@ -61,28 +67,240 @@ class ContractFields:
 
 
 ALL_RULES: tuple[Rule, ...] = (
-    Rule("财务条款审核", "合同金额大小写一致性", HIGH, "大写与数字金额须完全一致"),
-    Rule("财务条款审核", "产品明细合计与总金额一致性", HIGH, "单价 x 数量 = 金额；合计 = 总额（+/- 0.01）"),
-    Rule("财务条款审核", "金额合规检测", HIGH, "不含税 x 税率 = 税额；不含税 + 税额 = 含税总额"),
-    Rule("财务条款审核", "税率合理性", HIGH, "须为 6% / 9% / 13% / 1% / 3% / 免税 / 0% 之一"),
-    Rule("财务条款审核", "付款比例合计", HIGH, "分阶段付款比例合计须等于 100%"),
-    Rule("财务条款审核", "付款条件明确性", MEDIUM, "付款节点和期限须明确"),
-    Rule("财务条款审核", "付款方式明确性", MEDIUM, "须为银行转账 / 承兑汇票 / 第三方支付"),
-    Rule("财务条款审核", "币别一致性", MEDIUM, "全文涉及金额的币别前后一致"),
-    Rule("财务条款审核", "验收/交付标准明确性", MEDIUM, "须明确交付完成的判定标准"),
-    Rule("财务条款审核", "滞纳金/违约金合理性", MEDIUM, "逾期违约金日费率 <= 0.05%"),
-    Rule("财务条款审核", "履约保证金条款", MEDIUM, "须明确退还条件与时间节点"),
-    Rule("财务条款审核", "连带责任条款", MEDIUM, "三方关系须明确各方债权债务"),
-    Rule("法务合规审核", "签约主体名称一致性", HIGH, "首部、尾部签章处、正文须完全一致"),
-    Rule("法务合规审核", "签约主体信息完整性", HIGH, "甲乙双方名称、地址、联系方式不为空"),
-    Rule("法务合规审核", "必备条款完整性", HIGH, "须含主体、标的、数量、价款、期限、违约、争议解决"),
-    Rule("法务合规审核", "合同日期合理性", MEDIUM, "签订日期 <= 生效日期 <= 到期日期"),
-    Rule("法务合规审核", "违约金上限合理性", LOW, "须设上限（不超过合同总额 20%）"),
-    Rule("法务合规审核", "违约对等性检查", LOW, "甲乙双方违约金比例差异 <= 50%"),
-    Rule("法务合规审核", "不可抗力条款", LOW, "须含范围、通知时限、责任豁免方式"),
-    Rule("文本质量审核", "内部一致性检测", MEDIUM, "跨条款无矛盾，付款条件与交付条款不冲突"),
-    Rule("文本质量审核", "数字计算校验", LOW, "单价 x 数量 = 金额（每行）；分项合计 = 总额"),
-    Rule("文本质量审核", "错别字/语义错误检测", LOW, "检测错别字、用词不当、语义歧义"),
+    Rule(
+        "R01",
+        "I. 合同效力与主体",
+        "签约主体信息完整性",
+        HIGH,
+        "通用",
+        "《民法典》第143、470条；《市场主体登记管理条例》第3、11条",
+        "甲乙双方名称、住所、联系方式等主体信息不为空且可识别",
+    ),
+    Rule(
+        "R02",
+        "I. 合同效力与主体",
+        "签约主体名称一致性",
+        HIGH,
+        "通用",
+        "《民法典》第470、502条；《电子签名法》第3条",
+        "首部、签章处、正文中的主体称谓须完全一致",
+    ),
+    Rule(
+        "R03",
+        "I. 合同效力与主体",
+        "必备条款完整性",
+        HIGH,
+        "通用",
+        "《民法典》第470条；法释〔2023〕13号第2条",
+        "须含主体、标的、数量、价款、履行期限、违约责任、争议解决",
+    ),
+    Rule(
+        "R04",
+        "I. 合同效力与主体",
+        "合同日期合理性",
+        MEDIUM,
+        "通用",
+        "《民法典》第502、510条；法释〔2023〕13号第7条",
+        "签订日期 ≤ 生效日期 ≤ 到期/终止日期，时间顺序清晰",
+    ),
+    Rule(
+        "R05",
+        "II. 标的与履行",
+        "验收/交付标准明确性",
+        MEDIUM,
+        "买卖/承揽/技术服务/混合",
+        "《民法典》第621、622、781、843条",
+        "须明确交付物、验收标准、检验/异议期限及不合格处置",
+    ),
+    Rule(
+        "R06",
+        "III. 价款税务与结算",
+        "合同金额大小写一致性",
+        HIGH,
+        "通用",
+        "《民法典》第510条；中国人民银行《支付结算办法》",
+        "合同价款数字金额与大写金额须完全一致",
+    ),
+    Rule(
+        "R07",
+        "III. 价款税务与结算",
+        "产品明细合计与总金额一致性",
+        HIGH,
+        "买卖/混合",
+        "《民法典》第596条；《增值税法》第21条",
+        "单价 × 数量 = 行金额；明细合计 = 合同总价（±0.01）",
+    ),
+    Rule(
+        "R08",
+        "III. 价款税务与结算",
+        "金额合规检测",
+        HIGH,
+        "通用",
+        "《增值税法》第19、21条；《民法典》第510条",
+        "不含税金额 × 税率 = 税额；不含税 + 税额 = 含税总额",
+    ),
+    Rule(
+        "R09",
+        "III. 价款税务与结算",
+        "税率合理性",
+        HIGH,
+        "通用",
+        "《增值税法》第10—12条；财政部 税务总局公告2021年第9号等",
+        "适用税率须为法定税率档：13%/9%/6%/3%/1%/0%/免税",
+    ),
+    Rule(
+        "R10",
+        "III. 价款税务与结算",
+        "付款比例合计",
+        HIGH,
+        "通用",
+        "《民法典》第634条；国务院《保障中小企业款项支付条例》第8—10条",
+        "分期付款各期比例合计须等于 100%",
+    ),
+    Rule(
+        "R11",
+        "III. 价款税务与结算",
+        "付款条件明确性",
+        MEDIUM,
+        "通用",
+        "《保障中小企业款项支付条例》第9、10条；《民法典》第526条",
+        "付款节点、触发条件与期限须明确可执行",
+    ),
+    Rule(
+        "R12",
+        "III. 价款税务与结算",
+        "付款方式明确性",
+        MEDIUM,
+        "通用",
+        "中国人民银行《支付结算办法》；《民法典》第510条",
+        "须明确银行转账、票据或其他法定结算方式",
+    ),
+    Rule(
+        "R13",
+        "III. 价款税务与结算",
+        "币别一致性",
+        MEDIUM,
+        "涉外/多币种",
+        "《外汇管理条例》第5条；《民法典》第510条",
+        "全文计价与结算币别须一致；涉外合同须明确汇率机制",
+    ),
+    Rule(
+        "R14",
+        "IV. 违约救济与争议",
+        "滞纳金/违约金合理性",
+        MEDIUM,
+        "通用",
+        "《民法典》第585条；法释〔2023〕13号第65、66条",
+        "逾期违约金日费率宜 ≤ 万分之五；过高可依585条请求调减",
+    ),
+    Rule(
+        "R15",
+        "IV. 违约救济与争议",
+        "违约金上限合理性",
+        LOW,
+        "通用",
+        "《民法典》第585条第2款；法释〔2023〕13号第65条",
+        "宜约定违约金上限（常见不超过合同总价20%）",
+    ),
+    Rule(
+        "R16",
+        "IV. 违约救济与争议",
+        "违约对等性检查",
+        LOW,
+        "通用",
+        "《民法典》第6条；法释〔2023〕13号第6条",
+        "甲乙双方违约责任不宜显失公平，比例差异宜 ≤ 50%",
+    ),
+    Rule(
+        "R17",
+        "IV. 违约救济与争议",
+        "不可抗力条款",
+        LOW,
+        "通用",
+        "《民法典》第180、590条",
+        "须含不可抗力范围、通知/证明义务、责任豁免与履行顺延",
+    ),
+    Rule(
+        "R18",
+        "V. 担保与多方关系",
+        "履约保证金条款",
+        MEDIUM,
+        "买卖/工程/混合",
+        "《民法典》第586、688条",
+        "须明确保证金比例、退还条件与时间节点",
+    ),
+    Rule(
+        "R19",
+        "V. 担保与多方关系",
+        "连带责任条款",
+        MEDIUM,
+        "三方/联合体",
+        "《民法典》第518、592条",
+        "多方关系须明确各方身份、债务边界与追偿安排",
+    ),
+    Rule(
+        "R20",
+        "VI. 文本一致与表述",
+        "内部一致性检测",
+        MEDIUM,
+        "通用",
+        "《民法典》第510、142条",
+        "付款、日期、金额等跨条款信息不得相互冲突",
+    ),
+    Rule(
+        "R21",
+        "VI. 文本一致与表述",
+        "数字计算校验",
+        LOW,
+        "通用",
+        "《民法典》第142条；法释〔2023〕13号第19条",
+        "可识别数字字段的计算关系须正确",
+    ),
+    Rule(
+        "R22",
+        "VI. 文本一致与表述",
+        "错别字/语义错误检测",
+        LOW,
+        "通用",
+        "《民法典》第142、496条",
+        "不得存在明显错别字、模糊词或影响理解的歧义表述",
+    ),
+    Rule(
+        "R23",
+        "IV. 违约救济与争议",
+        "争议解决方式唯一性",
+        HIGH,
+        "通用",
+        "《仲裁法》第5条；《民事诉讼法》第35条；《民法典》第470条",
+        "不得同时绑定仲裁与诉讼；须明确单一争议解决机构或管辖法院",
+    ),
+    Rule(
+        "R24",
+        "III. 价款税务与结算",
+        "价税表述明确性",
+        MEDIUM,
+        "通用",
+        "《增值税法》第19—21条；《民法典》第510条",
+        "须明确合同金额是否含税、价税分离方式及开票要求",
+    ),
+    Rule(
+        "R25",
+        "II. 标的与履行",
+        "知识产权归属条款",
+        HIGH,
+        "技术服务/软件开发/混合",
+        "《民法典》第845—850条",
+        "技术开发/服务类合同须约定成果归属、许可范围与背景知识产权",
+    ),
+    Rule(
+        "R26",
+        "II. 标的与履行",
+        "保密义务条款",
+        MEDIUM,
+        "通用",
+        "《民法典》第501、503条；《反不正当竞争法》第9条",
+        "须约定保密信息范围、保密期限及法定例外",
+    ),
 )
 
 
@@ -176,10 +394,18 @@ def format_markdown_report(report: dict[str, object]) -> str:
     ]
 
     for group, findings in groups.items():
-        lines.extend([f"## {group}", "", "| 规则 | 风险 | 结论 | 依据 | 修改建议 |", "| --- | --- | --- | --- | --- |"])
+        lines.extend(
+            [
+                f"## {group}",
+                "",
+                "| 编号 | 规则 | 风险 | 结论 | 依据 | 修改建议 |",
+                "| --- | --- | --- | --- | --- | --- |",
+            ]
+        )
         for finding in findings:
             lines.append(
-                "| {rule_name} | {risk_level} | {status} | {evidence} | {recommendation} |".format(
+                "| {code} | {rule_name} | {risk_level} | {status} | {evidence} | {recommendation} |".format(
+                    code=_escape_table(str(finding.get("code", ""))),
                     rule_name=_escape_table(str(finding["rule_name"])),
                     risk_level=_escape_table(str(finding["risk_level"])),
                     status=_escape_table(str(finding["status"])),
@@ -233,12 +459,19 @@ def _run_rule(rule: Rule, text: str, fields: ContractFields) -> Finding:
         "内部一致性检测": _check_internal_consistency,
         "数字计算校验": _check_numeric_validation,
         "错别字/语义错误检测": _check_text_quality,
+        "争议解决方式唯一性": _check_dispute_resolution_unique,
+        "价税表述明确性": _check_tax_price_label,
+        "知识产权归属条款": _check_ip_ownership,
+        "保密义务条款": _check_confidentiality_clause,
     }
     status, evidence, recommendation = checks[rule.name](text, fields)
     return Finding(
+        code=rule.code,
         group=rule.group,
         rule_name=rule.name,
         risk_level=rule.risk,
+        contract_types=rule.contract_types,
+        legal_basis=rule.legal_basis,
         status=status,
         evidence=evidence,
         recommendation=recommendation,
@@ -657,7 +890,7 @@ def _check_party_information(_text: str, fields: ContractFields) -> tuple[str, s
 def _check_required_clauses(text: str, _fields: ContractFields) -> tuple[str, str, str]:
     required = {
         "主体": r"甲方|乙方|签约主体",
-        "标的": r"标的|采购内容|服务内容|产品名称",
+        "标的": r"标的|采购内容|服务内容|产品名称|产品/服务|服务明细|交付成果|工作成果|项目内容",
         "数量": r"数量|规格|明细",
         "价款": r"价款|金额|总价|合同价",
         "期限": r"期限|有效期|履行期限|交付时间|服务期|生效日期|到期日期|终止日期",
@@ -761,6 +994,48 @@ def _check_text_quality(text: str, _fields: ContractFields) -> tuple[str, str, s
             evidence.append("存在连续重复标点")
         return FAIL, "；".join(evidence), "将模糊词替换为明确期限、金额、标准或责任边界，并修正重复标点。"
     return PASS, "未识别明显错别字、模糊词或重复标点。", "无需修改。"
+
+
+def _check_dispute_resolution_unique(text: str, _fields: ContractFields) -> tuple[str, str, str]:
+    has_arbitration = bool(re.search(r"提交.{0,30}仲裁|仲裁委员会|仲裁裁决|仲裁机构", text))
+    has_litigation = bool(re.search(r"人民法院|向法院起诉|提起诉讼|诉讼解决|管辖法院", text))
+    if has_arbitration and has_litigation:
+        return (
+            FAIL,
+            "同时约定仲裁与诉讼，争议解决方式冲突。",
+            "择一保留：建议统一为仲裁或诉讼，并明确机构/管辖法院。",
+        )
+    if not has_arbitration and not has_litigation:
+        return REVIEW, "未识别明确的争议解决方式。", "补充仲裁或诉讼条款，并明确机构/管辖法院。"
+    mechanism = "仲裁" if has_arbitration else "诉讼"
+    return PASS, f"争议解决方式单一明确（{mechanism}）。", "无需修改。"
+
+
+def _check_tax_price_label(text: str, fields: ContractFields) -> tuple[str, str, str]:
+    if fields.total_amount is None:
+        return REVIEW, "未识别合同总金额，无法核对价税表述。", "明确合同总价是否含税及发票类型。"
+    if re.search(r"含税|不含税|价税合计|价税分离|增值税.{0,6}发票", text):
+        return PASS, "已识别价税相关表述。", "无需修改。"
+    return REVIEW, "未识别含税/不含税或价税分离表述。", "明确合同金额是否含税、税率及开票要求。"
+
+
+def _check_ip_ownership(text: str, _fields: ContractFields) -> tuple[str, str, str]:
+    tech_markers = ("软件开发", "技术服务", "技术成果", "源代码", "交付成果", "实施服务", "系统开发")
+    if not any(marker in text for marker in tech_markers):
+        return PASS, "非技术服务/开发类合同，知识产权归属规则不适用。", "无需修改。"
+    if re.search(r"知识产权|成果归属|著作权|专利权|技术成果归属|背景知识产权", text):
+        return PASS, "已识别知识产权/成果归属条款。", "无需修改。"
+    return (
+        FAIL,
+        "技术服务/开发类合同未识别知识产权归属约定。",
+        "补充背景知识产权、交付成果归属、许可范围及改进成果归属。",
+    )
+
+
+def _check_confidentiality_clause(text: str, _fields: ContractFields) -> tuple[str, str, str]:
+    if re.search(r"保密义务|保密信息|商业秘密|保守秘密|保密期限|保密协议", text):
+        return PASS, "已识别保密相关条款。", "无需修改。"
+    return REVIEW, "未识别保密义务条款。", "建议补充保密信息范围、期限、例外情形及违约责任。"
 
 
 def _parse_number_amount(value: str, unit: str | None = None) -> Decimal:
@@ -1003,7 +1278,7 @@ def build_briefing_outline(report: dict[str, object]) -> str:
         "",
         "## 第 4 页 · 合规结果总览",
         (
-            f"- 22 项规则：通过 {stats['passed']} / 不通过 {stats['failed']} / 需复核 {stats['needs_review']}"
+            f"- 固定检查 {stats['total_rules']} 项：通过 {stats['passed']} / 不通过 {stats['failed']} / 需复核 {stats['needs_review']}"
         ),
         f"- 总体结论：**{conclusion}**",
         "- 建议动作：高风险项必须修订后方可签署",
@@ -1044,3 +1319,39 @@ def build_briefing_outline(report: dict[str, object]) -> str:
 
 def audit_json(report: dict[str, object]) -> str:
     return json.dumps({key: value for key, value in report.items() if key != "markdown"}, ensure_ascii=False, indent=2)
+
+
+def build_rule_reference_payload(report: dict[str, object]) -> dict[str, object]:
+    """Format rule-engine output as LLM reference dimensions — not binding verdicts."""
+    dimensions: list[dict[str, str]] = []
+    groups = report["rule_groups"]  # type: ignore[index]
+    for group_name, findings in groups.items():
+        for item in findings:
+            dimensions.append(
+                {
+                    "code": str(item.get("code", "")),
+                    "group": group_name,
+                    "dimension": str(item["rule_name"]),
+                    "legal_basis": str(item.get("legal_basis", "")),
+                    "contract_types": str(item.get("contract_types", "")),
+                    "engine_signal": str(item["status"]),
+                    "engine_evidence": str(item["evidence"]),
+                    "engine_suggestion": str(item["recommendation"]),
+                }
+            )
+    return {
+        "reference_role": "本地规则引擎 · 审核维度初筛参考（非终局结论）",
+        "usage_instruction": (
+            "通读合同全文并结合知识库红线自行复核每个维度。"
+            "输出最终判断时标注：采纳引擎 / 修正（附理由）/ 需人工复核。"
+            "数值与公式类（金额、税率、付款比例合计）优先采信引擎计算；"
+            "语义与完备性类（标的、条款冲突、表述歧义）以模型解读为准，可修正引擎误报。"
+        ),
+        "extracted_fields": report.get("fields"),
+        "engine_summary": report.get("risk_statistics"),
+        "dimensions": dimensions,
+    }
+
+
+def rule_reference_json(report: dict[str, object]) -> str:
+    return json.dumps(build_rule_reference_payload(report), ensure_ascii=False, indent=2)

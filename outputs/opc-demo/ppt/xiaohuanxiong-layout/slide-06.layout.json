@@ -2,13 +2,13 @@
   "schema": "openai.presentation.layout/v4",
   "unit": "px",
   "slide": {
-    "aid": "sl/on338m",
-    "id": "on338m",
+    "aid": "sl/55cmk5",
+    "id": "55cmk5",
     "slide": 6,
-    "layoutId": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+    "layoutId": "fc1a56b1-29a8-4fae-a4b1-498d2fa39a60",
     "layoutName": "Title Slide",
     "layoutType": "title",
-    "masterLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+    "masterLayoutId": "2299e254-d2a6-4c0b-9225-69e033f02ca2",
     "masterLayoutName": "Master",
     "backgroundColor": "#FAFAF8",
     "frame": {
@@ -45,15 +45,15 @@
   "inheritedLayers": [
     {
       "scope": "layout",
-      "id": "d936e13b-fc6e-4235-8c89-eca9192232fd",
+      "id": "fc1a56b1-29a8-4fae-a4b1-498d2fa39a60",
       "name": "Title Slide",
       "type": "title",
-      "parentLayoutId": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "parentLayoutId": "2299e254-d2a6-4c0b-9225-69e033f02ca2",
       "elements": []
     },
     {
       "scope": "master",
-      "id": "6f151c77-b9ff-4170-a457-b00f983e44ae",
+      "id": "2299e254-d2a6-4c0b-9225-69e033f02ca2",
       "name": "Master",
       "type": "master",
       "elements": []
@@ -64,7 +64,7 @@
       "order": 1,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/ex0nuxc3",
+      "aid": "sh/0nuxc3yl",
       "id": "1",
       "bbox": [
         72,
@@ -80,7 +80,7 @@
       "order": 2,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/loj2t83i",
+      "aid": "sh/72x4nap4",
       "id": "2",
       "bbox": [
         72,
@@ -141,7 +141,7 @@
       "order": 3,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/w3m94fu1",
+      "aid": "sh/ih4byhgn",
       "id": "3",
       "bbox": [
         72,
@@ -150,8 +150,8 @@
         90
       ],
       "geometry": "rect",
-      "text": "128 万元合同检出 3 项高风险",
-      "textPreview": "128 万元合同检出 3 项高风险",
+      "text": "128 万元合同检出 4 项高风险",
+      "textPreview": "128 万元合同检出 4 项高风险",
       "resolvedFontSize": 36,
       "resolvedTextStyle": {
         "fontSize": 36,
@@ -170,14 +170,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "128 万元合同检出 3 项高风险"
+            "text": "128 万元合同检出 4 项高风险"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "128 万元合同检出 3 项高风险",
+          "text": "128 万元合同检出 4 项高风险",
           "resolvedTextStyle": {
             "fontSize": 36,
             "color": "#0A0A0A"
@@ -185,7 +185,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "128 万元合同检出 3 项高风险",
+              "text": "128 万元合同检出 4 项高风险",
               "fontSize": 36,
               "color": "#0A0A0A"
             }
@@ -199,7 +199,7 @@
       "order": 4,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/3q5o7qpg",
+      "aid": "sh/pkzupwb2",
       "id": "4",
       "bbox": [
         74,
@@ -208,8 +208,8 @@
         56
       ],
       "geometry": "rect",
-      "text": "这些数字来自仓库里的脱敏合同样本和本地审核结果，可以通过截图和结果文件复查。",
-      "textPreview": "这些数字来自仓库里的脱敏合同样本和本地审核结果，可以通过截图和结果文件复查。",
+      "text": "数字来自脱敏样本 `review-response.json`（规则参考层）；终局报告由小浣熊 @知识库 复核产出。",
+      "textPreview": "数字来自脱敏样本 `review-response.json`（规则参考层）；终局报告由小浣熊 @知识库 复核产出。",
       "resolvedFontSize": 18,
       "resolvedTextStyle": {
         "fontSize": 18,
@@ -228,14 +228,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "这些数字来自仓库里的脱敏合同样本和本地审核结果，可以通过截图和结果文件复查。"
+            "text": "数字来自脱敏样本 `review-response.json`（规则参考层）；终局报告由小浣熊 @知识库 复核产出。"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "这些数字来自仓库里的脱敏合同样本和本地审核结果，可以通过截图和结果文件复查。",
+          "text": "数字来自脱敏样本 `review-response.json`（规则参考层）；终局报告由小浣熊 @知识库 复核产出。",
           "resolvedTextStyle": {
             "fontSize": 18,
             "color": "#737373"
@@ -243,7 +243,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "这些数字来自仓库里的脱敏合同样本和本地审核结果，可以通过截图和结果文件复查。",
+              "text": "数字来自脱敏样本 `review-response.json`（规则参考层）；终局报告由小浣熊 @知识库 复核产出。",
               "fontSize": 18,
               "color": "#737373"
             }
@@ -257,7 +257,7 @@
       "order": 5,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/e9cvixcz",
+      "aid": "sh/0z61032l",
       "id": "5",
       "bbox": [
         72,
@@ -274,7 +274,7 @@
       "order": 6,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/lwval87e",
+      "aid": "sh/7ed8bat4",
       "id": "6",
       "bbox": [
         90,
@@ -283,8 +283,8 @@
         48
       ],
       "geometry": "rect",
-      "text": "13",
-      "textPreview": "13",
+      "text": "16",
+      "textPreview": "16",
       "resolvedFontSize": 39,
       "resolvedTextStyle": {
         "fontSize": 39,
@@ -303,14 +303,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "13"
+            "text": "16"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "13",
+          "text": "16",
           "resolvedTextStyle": {
             "fontSize": 39,
             "color": "#0A0A0A"
@@ -318,7 +318,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "13",
+              "text": "16",
               "fontSize": 39,
               "color": "#0A0A0A"
             }
@@ -332,7 +332,7 @@
       "order": 7,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/wb2hwfyx",
+      "aid": "sh/itgfmlkj",
       "id": "7",
       "bbox": [
         90,
@@ -390,7 +390,7 @@
       "order": 8,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/32lszqtc",
+      "aid": "sh/pwb2hwfy",
       "id": "8",
       "bbox": [
         264,
@@ -407,7 +407,7 @@
       "order": 9,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/ahoza1gv",
+      "aid": "sh/0bi9s36h",
       "id": "9",
       "bbox": [
         282,
@@ -416,8 +416,8 @@
         48
       ],
       "geometry": "rect",
-      "text": "6",
-      "textPreview": "6",
+      "text": "7",
+      "textPreview": "7",
       "resolvedFontSize": 39,
       "resolvedTextStyle": {
         "fontSize": 39,
@@ -436,14 +436,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "6"
+            "text": "7"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "6",
+          "text": "7",
           "resolvedTextStyle": {
             "fontSize": 39,
             "color": "#FFFFFF"
@@ -451,7 +451,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "6",
+              "text": "7",
               "fontSize": 39,
               "color": "#FFFFFF"
             }
@@ -465,7 +465,7 @@
       "order": 10,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/cj6tovah",
+      "aid": "sh/u18jqh0f",
       "id": "10",
       "bbox": [
         282,
@@ -523,7 +523,7 @@
       "order": 11,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/54zidony",
+      "aid": "sh/jm1cfa9w",
       "id": "11",
       "bbox": [
         456,
@@ -540,7 +540,7 @@
       "order": 12,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/udg7adsj",
+      "aid": "sh/c7u54zid",
       "id": "12",
       "bbox": [
         474,
@@ -598,7 +598,7 @@
       "order": 13,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/nyd0z610",
+      "aid": "sh/1orytsvu",
       "id": "13",
       "bbox": [
         474,
@@ -656,7 +656,7 @@
       "order": 14,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/cvixczed",
+      "aid": "sh/u9knih4b",
       "id": "14",
       "bbox": [
         80,
@@ -672,7 +672,7 @@
       "order": 15,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/5gbq1ory",
+      "aid": "sh/judg7ads",
       "id": "15",
       "bbox": [
         104,
@@ -681,8 +681,8 @@
         36
       ],
       "geometry": "rect",
-      "text": "异常税率：识别到 30%，需要改成适用税率。",
-      "textPreview": "异常税率：识别到 30%，需要改成适用税率。",
+      "text": "异常税率：识别到 30%（R09），须改为法定档位。",
+      "textPreview": "异常税率：识别到 30%（R09），须改为法定档位。",
       "resolvedFontSize": 18,
       "resolvedTextStyle": {
         "fontSize": 18,
@@ -702,14 +702,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "异常税率：识别到 30%，需要改成适用税率。"
+            "text": "异常税率：识别到 30%（R09），须改为法定档位。"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "异常税率：识别到 30%，需要改成适用税率。",
+          "text": "异常税率：识别到 30%（R09），须改为法定档位。",
           "resolvedTextStyle": {
             "fontSize": 18,
             "color": "#0A0A0A",
@@ -718,7 +718,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "异常税率：识别到 30%，需要改成适用税率。",
+              "text": "异常税率：识别到 30%（R09），须改为法定档位。",
               "fontSize": 18,
               "color": "#0A0A0A",
               "bold": true
@@ -733,7 +733,7 @@
       "order": 16,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/upwb2hwf",
+      "aid": "sh/cfa9w3m9",
       "id": "16",
       "bbox": [
         80,
@@ -749,7 +749,7 @@
       "order": 17,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/nap4r65w",
+      "aid": "sh/1032lszq",
       "id": "17",
       "bbox": [
         104,
@@ -758,8 +758,8 @@
         36
       ],
       "geometry": "rect",
-      "text": "付款比例：识别到 0.03%，合计不等于 100%。",
-      "textPreview": "付款比例：识别到 0.03%，合计不等于 100%。",
+      "text": "付款比例：识别到 0.03%，合计不等于 100%（R10）。",
+      "textPreview": "付款比例：识别到 0.03%，合计不等于 100%（R10）。",
       "resolvedFontSize": 18,
       "resolvedTextStyle": {
         "fontSize": 18,
@@ -779,14 +779,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "付款比例：识别到 0.03%，合计不等于 100%。"
+            "text": "付款比例：识别到 0.03%，合计不等于 100%（R10）。"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "付款比例：识别到 0.03%，合计不等于 100%。",
+          "text": "付款比例：识别到 0.03%，合计不等于 100%（R10）。",
           "resolvedTextStyle": {
             "fontSize": 18,
             "color": "#0A0A0A",
@@ -795,7 +795,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "付款比例：识别到 0.03%，合计不等于 100%。",
+              "text": "付款比例：识别到 0.03%，合计不等于 100%（R10）。",
               "fontSize": 18,
               "color": "#0A0A0A",
               "bold": true
@@ -810,7 +810,7 @@
       "order": 18,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/c7u54zid",
+      "aid": "sh/udg7adsj",
       "id": "18",
       "bbox": [
         80,
@@ -826,7 +826,7 @@
       "order": 19,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/1orytsvu",
+      "aid": "sh/nyd0z610",
       "id": "19",
       "bbox": [
         104,
@@ -835,8 +835,8 @@
         36
       ],
       "geometry": "rect",
-      "text": "必备条款：缺少或未识别合同标的，签署前必须补齐。",
-      "textPreview": "必备条款：缺少或未识别合同标的，签署前必须补齐。",
+      "text": "争议解决：仲裁与诉讼并存（R23），签署前必须择一。",
+      "textPreview": "争议解决：仲裁与诉讼并存（R23），签署前必须择一。",
       "resolvedFontSize": 18,
       "resolvedTextStyle": {
         "fontSize": 18,
@@ -856,14 +856,14 @@
         "lines": [
           {
             "index": 1,
-            "text": "必备条款：缺少或未识别合同标的，签署前必须补齐。"
+            "text": "争议解决：仲裁与诉讼并存（R23），签署前必须择一。"
           }
         ]
       },
       "paragraphs": [
         {
           "index": 1,
-          "text": "必备条款：缺少或未识别合同标的，签署前必须补齐。",
+          "text": "争议解决：仲裁与诉讼并存（R23），签署前必须择一。",
           "resolvedTextStyle": {
             "fontSize": 18,
             "color": "#0A0A0A",
@@ -872,7 +872,7 @@
           "runs": [
             {
               "index": 1,
-              "text": "必备条款：缺少或未识别合同标的，签署前必须补齐。",
+              "text": "争议解决：仲裁与诉讼并存（R23），签署前必须择一。",
               "fontSize": 18,
               "color": "#0A0A0A",
               "bold": true
@@ -887,7 +887,7 @@
       "order": 20,
       "kind": "image",
       "scope": "slide",
-      "aid": "im/a5gbq1or",
+      "aid": "im/cvixczed",
       "id": "20",
       "bbox": [
         760,
@@ -903,7 +903,7 @@
         "geometry": "rect"
       },
       "asset": {
-        "assetId": "b8584c28-d971-43fc-84e9-68052cbba167",
+        "assetId": "8cd90b6d-0c2c-446c-ad9c-5bbb089e4f52",
         "contentType": "image/png",
         "byteLength": 662379
       }
@@ -912,7 +912,7 @@
       "order": 21,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/czed8v6p",
+      "aid": "sh/m94fu18j",
       "id": "21",
       "bbox": [
         76,
@@ -970,7 +970,7 @@
       "order": 22,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/neloj2t8",
+      "aid": "sh/x0nuxc3y",
       "id": "22",
       "bbox": [
         72,
@@ -986,7 +986,7 @@
       "order": 23,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/ytsvu9kn",
+      "aid": "sh/4fu18jqh",
       "id": "23",
       "bbox": [
         72,
@@ -1044,7 +1044,7 @@
       "order": 24,
       "kind": "shape",
       "scope": "slide",
-      "aid": "sh/5sneloj2",
+      "aid": "sh/fil0rqd4",
       "id": "24",
       "bbox": [
         1160,
