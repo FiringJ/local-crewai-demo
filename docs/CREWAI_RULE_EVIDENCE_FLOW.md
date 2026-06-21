@@ -1,24 +1,29 @@
-# CrewAI 与 22 条确定性规则证据流
+# CrewAI 与确定性规则证据流
 
 这份说明回答三个问题：
 
-1. 22 条确定性校验从何而来。
+1. 固定检查清单从何而来。
 2. CrewAI 如何接收合同正文。
 3. 规则引擎产出的结构化证据如何进入 CrewAI，并在报告与周报大纲中发挥作用。
 
-## 1. 22 条规则从何而来
+## 1. 固定检查清单从何而来
 
-这 22 条不是运行时联网检索出来的法规条文，也不是 CrewAI 临场生成的规则，而是项目内置的一组“合同初审确定性清单”。
+规则清单位于 [contract_review.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/contract_review.py:69) 的 `ALL_RULES`：**条数不固定**，当前随法规与合同类型扩展（实现时以 `len(ALL_RULES)` 为准）。每条均对应国家级法律法规（见 [`knowledge/contract_audit_framework.md`](../knowledge/contract_audit_framework.md)）。
 
-规则清单位于 [src/local_crewai_demo/contract_review.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/contract_review.py:63) 的 `ALL_RULES`，按企业合同初审常见职责拆成三组：
+按六组职责拆分，并按合同类型（T1 买卖 / T2 技术服务 / T3 承揽 / T4 混合）区分适用边界：
 
-| 规则组 | 数量 | 主要覆盖 |
-|---|---:|---|
-| 财务条款审核 | 12 | 金额大小写、明细合计、税额税率、付款比例、付款方式、币别、交付验收、违约金、保证金 |
-| 法务合规审核 | 7 | 主体一致性、主体信息完整性、必备条款、日期、违约金上限、违约对等、不可抗力 |
-| 文本质量审核 | 3 | 内部一致性、数字计算、错别字/语义歧义 |
+| 规则组 | 数量（当前） | 主要覆盖 | 核心法律依据 |
+|---|---:|---|---|
+| I. 合同效力与主体 | 4 | 主体资格、名称一致、必备条款、日期 | 《民法典》143、470、502条 |
+| II. 标的与履行 | 3 | 交付验收、知识产权、保密 | 《民法典》621、845—850条 |
+| III. 价款税务与结算 | 9 | 金额、税率、付款、价税表述 | 《增值税法》；《保障中小企业款项支付条例》 |
+| IV. 违约救济与争议 | 5 | 违约金、对等性、不可抗力、争议解决 | 《民法典》585、590条；《仲裁法》5条 |
+| V. 担保与多方关系 | 2 | 保证金、连带责任 | 《民法典》586、518、592条 |
+| VI. 文本一致与表述 | 3 | 跨条款一致、计算、语病 | 《民法典》510、142、496条 |
 
-它们的来源口径是：把企业采购/服务合同初审中高频、可用程序稳定判断的事项固化为本地规则；把需要语义判断、历史画像、法规红线、主体尽调的事项交给小浣熊的知识库、联网检索和 Agent 编排。也就是说，规则引擎只负责“能确定就确定”的结构化证据，不负责替代法务判断。
+明细见 [`knowledge/contract_audit_rules.md`](../knowledge/contract_audit_rules.md)。
+
+它们的来源口径是：把 **国家法律法规中可程序稳定判断** 的事项固化为本地规则；把需要深度语义判断、历史画像、主体尽调的事项交给小浣熊的知识库与联网检索。
 
 ## 2. 本地审核节点如何处理合同
 
@@ -28,7 +33,7 @@ flowchart TD
     B --> C["contract_text<br/>合同正文"]
     C --> D["_normalize_text()<br/>统一空白与格式"]
     D --> E["_extract_fields()<br/>抽取主体、金额、税率、日期、付款比例、明细"]
-    D --> F["ALL_RULES<br/>3 组 22 条确定性规则"]
+    D --> F["ALL_RULES<br/>固定检查清单（条数随 ALL_RULES 扩展）"]
     E --> G["_run_rule()<br/>逐条调用 _check_* 校验函数"]
     F --> G
     G --> H["findings<br/>每条规则的状态、风险、证据、建议"]
@@ -44,7 +49,7 @@ flowchart TD
 | 环节 | 代码位置 | 作用 |
 |---|---|---|
 | 文件转文本 | [contract_review.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/contract_review.py:95) | 从 PDF/DOCX/TXT 等文件抽取合同正文 |
-| 规则清单 | [contract_review.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/contract_review.py:63) | 定义 3 组 22 条确定性校验 |
+| 规则清单 | [contract_review.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/contract_review.py:69) | 定义固定检查项及法律依据 |
 | 审核入口 | [contract_review.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/contract_review.py:107) | 标准化正文、抽字段、跑规则、汇总结论 |
 | GUI 上传处理 | [gui.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/gui.py:269) | 接收前端上传/粘贴合同并触发审核 |
 | CLI 输入处理 | [main.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/main.py:17) | 命令行模式下读取样本合同并构造 CrewAI 输入 |
@@ -54,7 +59,7 @@ flowchart TD
 CrewAI 本身不是先去解析文件。项目先在本地把合同处理成两份输入，再交给 CrewAI：
 
 1. `contract_text`：合同全文，最多截取前 30000 字符。
-2. `audit_evidence_json`：22 条规则跑完后的结构化证据。
+2. `audit_evidence_json`：固定检查跑完后的结构化证据。
 
 GUI 模式下，这两份输入在 [gui.py](/Users/firingj/Projects/local_crewai_demo/src/local_crewai_demo/gui.py:328) 构造：
 
@@ -81,39 +86,23 @@ audit = audit_contract_text(contract_text, contract_path.name)
 合同全文如下：
 {contract_text}
 
-系统已经按 3 组 22 条规则完成字段抽取和精确计算校验，结构化结果如下：
+系统已经按固定检查清单完成字段抽取和精确计算校验，结构化结果如下：
 {audit_evidence_json}
 ```
 
-## 4. CrewAI 在这里的作用
+## 4. CrewAI / 大模型在这里的作用
 
 ```mermaid
 flowchart LR
-    A["合同正文 contract_text"] --> D["CrewAI 输入 inputs"]
-    B["22 条规则证据 audit_evidence_json"] --> D
-    C["@知识库 knowledge_context<br/>法务红线、历史风险、案例口径"] --> D
-    E["当前日期 / 文件名"] --> D
-
-    D --> F["Task 1: contract_audit_report_task"]
-    F --> G["Agent: contract_auditor<br/>把规则证据 + 知识库红线组织成审核报告"]
-    G --> H["report.md<br/>合同初审报告"]
-
-    H --> I["Task 2: executive_briefing_task<br/>依赖上一任务结果"]
-    B --> I
-    I --> J["Agent: briefing_specialist<br/>生成管理层 PPT 大纲"]
-    J --> K["briefing.md<br/>周报/PPT 生成 Prompt"]
+    A["合同全文"] --> D["大模型输入"]
+    B["rule_reference_json<br/>规则维度初筛参考"] --> D
+    C["@知识库 knowledge_context"] --> D
+    D --> E["contract_auditor<br/>终局决策者"]
+    E --> F["report.md<br/>含 engine_signal vs 最终结论"]
+    F --> G["briefing_specialist<br/>PPT 大纲"]
 ```
 
-所以 CrewAI 的定位不是“替代规则引擎”，而是工作流编排和报告生成层：
-
-| 能力 | 在本项目中的具体作用 |
-|---|---|
-| 接收合同正文 | 通过 `contract_text` 进入任务 Prompt，用于解释条款语境 |
-| 接收规则证据 | 通过 `audit_evidence_json` 进入任务 Prompt，作为不可随意改写的判定依据 |
-| 接收知识库 | 通过 `knowledge_context` 注入法务红线和历史案例口径 |
-| 多 Agent 顺序编排 | 先生成合同审核报告，再基于报告与证据生成管理层汇报大纲 |
-| 约束模型输出 | 任务模板要求“不得改变结构化结果中的通过/不通过/需复核判断” |
-| 可选联网 | 当 `SENSENOVA_SEARCH_ENABLE=true` 时，通过 LiteLLM `extra_body.search_enable=true` 打开小浣熊/商汤模型原生联网检索能力 |
+**规则参考层**负责列出应检查的维度与初筛信号；**大模型**负责终局判断与报告。数值类优先采信引擎；语义类可修正误报并须引用合同原文。
 
 ## 5. 规则证据在报告中的作用
 
@@ -133,5 +122,5 @@ flowchart TD
 
 一句话总结：
 
-> 22 条规则负责把合同里能确定判断的内容变成“结构化证据”；CrewAI 负责把合同正文、结构化证据、知识库红线和后续汇报任务串成可读、可复核、可沉淀的工作流产物。
+> 规则参考层提供应查维度与初筛信号；大模型结合知识库产出终局报告；人做法务终审。
 

@@ -26,7 +26,7 @@
 | S3 | 定时任务右侧菜单出现“立刻运行” | 任务可手动触发，便于评委理解 |
 | S4 | 任务运行中或运行完成后的摘要 | 不是只写了方案，确实跑过 |
 | S5 | 知识库文件上传成功或被引用 | 法务红线和案例能复用 |
-| S6 | 合同字段抽取或 22 项检查结果 | 固定检查清单能给小浣熊提供证据 |
+| S6 | 合同字段抽取或固定检查结果 | 检查清单能给小浣熊提供证据 |
 | S7 | 数据分析结果或周报生成过程 | 每周复盘闭环成立 |
 
 ---
@@ -40,7 +40,9 @@
 | 任务运行中 | `outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/03-task-running-manual-trigger.png` | 封面或运行证据页 |
 | 任务完成摘要 | `outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/06-task-complete-summary-updated.png` | 证明运行后有结果 |
 | 任务运行录屏 | `outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/desktop-raccoon-task-run-verified.mov` | 提交材料包必放 |
+| **全流程录屏（推荐）** | `outputs/opc-demo/opc-full-pipeline-demo.mp4`（副本：`outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/opc-full-pipeline-demo.mp4`） | 知识库 + 定时立刻运行 + 历史完成 + 云端 7 步闭环 + 人力节约 92%；**SCStream 连续主屏视频**（1987 帧，见 `recordings/full-pipeline-live/`） |
 | 截图包总说明 | `outputs/xiaohuanxiong-screenshot-pack/MANIFEST.md` | 解释每张图的含义 |
+| 知识库冲突复核 + 联网尽调补充 | `outputs/opc-demo/screenshots/cua-evidence-kb-due-diligence-supplement.png` | S5/S6：@知识库 三组冲突表、乙方尽调带来源、人力节约 92%、audit JSON 口径 |
 
 ---
 
@@ -62,7 +64,7 @@
 1. 先展示小浣熊入口：评委知道作品形态是什么。
 2. 再展示定时任务：说明它是持续工作流，不是单次问答。
 3. 展示任务运行录屏：证明它能被触发。
-4. 展示合同字段和 22 项检查：说明风险判断有依据。
+4. 展示合同字段和固定检查：说明风险判断有依据。
 5. 展示知识库：说明经验能沉淀。
 6. 展示数据分析和周报：说明管理层能看到复盘结果。
 
@@ -70,4 +72,4 @@
 
 ## 如实说明
 
-当前材料已经证明了小浣熊桌面端任务创建、手动触发、运行中状态和完成摘要。对方公司公开风险查询在当前截图中保留了“没有可用联网工具”的降级结果，提交时不要写成已完成真实工商查询；可以说明这是完整工作流中的位置，后续开启联网后补齐真实查询截图。
+当前材料已经证明了小浣熊桌面端任务创建、手动触发、运行中状态和完成摘要。云端工作台会话 `cua-evidence-kb-due-diligence-supplement.png` 已展示联网尽调（检索 10 个网页来源）、知识库规则冲突复核与 `review-response.json` 校准口径；若乙方名称与工商登记不完全一致，应如实保留「需人工复核」说明，不要写成已线下核实主体。
