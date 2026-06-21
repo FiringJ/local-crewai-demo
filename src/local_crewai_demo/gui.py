@@ -98,11 +98,23 @@ REVIEW_MODES = {
 
 COMPETITION = {
     "event": "商汤小浣熊 OPC 高手创造赛",
-    "scene": "企业合同初审工作台",
-    "tagline": "一人 + 办公小浣熊，跑通法务初审全链路",
-    "pain_point": "传统合同初审需法务+财务双线核对，单份约 4 小时，计算项易漏检",
-    "value_proposition": "22 项规则秒级校验 + 知识库语义复核 + 数据洞察 + 汇报大纲，约 3 分钟出结论",
+    "scene": "企业合同初审持续运营工作流",
+    "tagline": "定时任务 + 办公小浣熊能力矩阵，跑通法务初审流水线",
+    "pain_point": "传统初审来一份审一份，单份约 4 小时；主体风险与法规变化无法持续沉淀",
+    "value_proposition": "每日 09:00 自动拉合同、联网尽调、知识库闭环；周五 17:00 周报 PPT；单份约 3 分钟",
     "capabilities": [
+        {
+            "id": "schedule",
+            "module": "定时任务",
+            "label": "每日拉合同 / 每周法规与周报",
+            "icon": "schedule",
+        },
+        {
+            "id": "agent",
+            "module": "Agent",
+            "label": "单份合同多步编排",
+            "icon": "agent",
+        },
         {
             "id": "doc",
             "module": "文档处理",
@@ -110,15 +122,21 @@ COMPETITION = {
             "icon": "doc",
         },
         {
+            "id": "web",
+            "module": "联网检索",
+            "label": "乙方主体尽调（工商/涉诉）",
+            "icon": "web",
+        },
+        {
             "id": "kb",
             "module": "知识库",
-            "label": "法务红线与修改话术",
+            "label": "红线 @复核 + 案例沉淀",
             "icon": "kb",
         },
         {
             "id": "da",
             "module": "数据分析",
-            "label": "合规率与风险分布洞察",
+            "label": "合规率、风险分布、周报趋势",
             "icon": "da",
         },
         {
@@ -130,20 +148,27 @@ COMPETITION = {
         {
             "id": "ppt",
             "module": "汇报/PPT",
-            "label": "管理层汇报大纲",
+            "label": "单份汇报 + 周报 PPT 大纲",
             "icon": "ppt",
         },
     ],
     "submission_doc": "docs/OPC_SUBMISSION.md",
+    "screenshot_doc": "docs/SCREENSHOT_CHECKLIST.md",
+    "weekly_ppt_doc": "docs/WEEKLY_BRIEFING_PPT.md",
     "prompts_doc": "prompts/xiaohuanxiong_core_prompts.md",
+    "demo_role": "工作流中的审核引擎节点（步骤 3–8）",
 }
 
 WORKFLOW_TEMPLATE = [
+    {"id": "schedule", "module": "定时任务", "label": "工作日 09:00 拉取待审合同（网页端）"},
+    {"id": "agent", "module": "Agent", "label": "编排解析→尽调→复核→报告"},
     {"id": "doc", "module": "文档处理", "label": "解析合同并抽取关键字段"},
-    {"id": "kb", "module": "知识库", "label": "加载法务知识库辅助语义判断"},
-    {"id": "da", "module": "数据分析", "label": "计算 22 项规则合规率与风险分布"},
+    {"id": "web", "module": "联网检索", "label": "乙方工商/涉诉/负面尽调"},
+    {"id": "kb", "module": "知识库", "label": "@知识库 红线复核 + 案例沉淀"},
+    {"id": "rules", "module": "证据层", "label": "22 条规则结构化校验（本地）"},
+    {"id": "da", "module": "数据分析", "label": "合规率与风险分布洞察"},
     {"id": "copy", "module": "文案", "label": "生成 Markdown 审核报告"},
-    {"id": "ppt", "module": "汇报", "label": "输出 6 页管理层汇报大纲"},
+    {"id": "ppt", "module": "汇报", "label": "单份大纲 / 周五周报 PPT"},
 ]
 
 
@@ -182,11 +207,18 @@ def _load_knowledge_context(max_chars: int = 12000) -> str:
 def _workflow_steps(agent_used: bool) -> list[dict[str, str]]:
     steps: list[dict[str, str]] = []
     for template in WORKFLOW_TEMPLATE:
+        step_id = template["id"]
         provider = "本地引擎"
-        if template["id"] in {"kb", "copy", "ppt"} and agent_used:
+        if step_id in {"schedule", "web"}:
+            provider = "办公小浣熊网页端"
+        elif step_id == "agent" and agent_used:
+            provider = "办公小浣熊 Agent"
+        elif step_id in {"kb", "copy", "ppt"} and agent_used:
             provider = "办公小浣熊 / SenseChat-5"
-        elif template["id"] == "kb" and not agent_used:
+        elif step_id == "kb" and not agent_used:
             provider = "本地知识库"
+        elif step_id == "rules":
+            provider = "本地规则引擎（证据层）"
         steps.append({**template, "provider": provider, "status": "completed"})
     return steps
 
