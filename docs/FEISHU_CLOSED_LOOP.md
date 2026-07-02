@@ -249,6 +249,9 @@ uv run python scripts/feishu_contract_loop.py --dry-run
 | 结构化记录 | NO.001（首条闭环沉淀） | `record_id=recvoeB1MmNoBO`，表 `tblqAZavMQaIZUR9` |
 | 主体画像（docx，闭环自动写回） | 【主体画像】北京智链数科技术有限公司 | https://my.feishu.cn/wiki/DsZSwpZc1iRALIknUN2cvesxn7U |
 | 主体画像（docx，闭环自动写回） | 【主体画像】深圳智能设备有限公司 | https://my.feishu.cn/wiki/IFJcwWVDBiUCQwkaUxOcLn5Rnpf |
+| **真实底稿合同（docx）** | 真实底稿合同-医院绩效系统57.95万 | https://my.feishu.cn/wiki/QO6XwIY6siV3G3k8eogcs6aLnRb |
+| 审核报告（NO.003 自动写回） | 【审核报告】真实底稿合同-医院绩效系统57.95万 | https://my.feishu.cn/wiki/XdSOwX4z8ix668kfUc9ciC8Unod |
+| **主体画像（真实主体 + 真实尽调）** | 【主体画像】上海东旦软件开发有限公司 | https://my.feishu.cn/wiki/YENLwg2wli4PWbkirl9ce9UlnVE |
 
 ### 审核结果（rules_only · 零 LLM token）
 
@@ -260,7 +263,7 @@ uv run python scripts/feishu_contract_loop.py --dry-run
   - R09 税率合理性 → 识别不合规税率 **30%**（应为 6/9/13/1/3%/免税/0% 之一）
   - R10 付款比例合计 → 各阶段合计仅 **0.03%**（应等于 100%）
   - R23 争议解决方式唯一性 → 同时约定仲裁与诉讼，方式冲突
-- Token 计量：混合架构实耗 **14,931 token**，相对纯 LLM 节省 **17.6%**
+- Token 计量：混合架构实耗 **14,931 token**，相对纯 LLM 节省 **17.6%**（tiktoken 估算口径；对外统一使用下文 A/B 实测 25.2%）
 - 效率：单份人工约 4h → 混合架构约 3min（**估算**，非计时实测）
 
 ### 审核结果（rules_agent · LLM 复核 · NO.002 · 2026-07-03）
@@ -272,6 +275,28 @@ uv run python scripts/feishu_contract_loop.py --dry-run
 - Token：混合架构 **13,729 token**，节省 **14.7%**
 - 报告写回：https://my.feishu.cn/wiki/GGZ1w8UAAitfnqksJXIc2GxVnL1
 - 原文：https://my.feishu.cn/wiki/M8tewyKTviWOklkNxsucjm2Wn2d
+
+### 审核结果（NO.003 · 真实底稿合同 · 2026-07-03）
+
+- 合同：**真实底稿合同-医院绩效系统57.95万** —— 依据中国政府采购网真实中标公告还原（明光市中医院绩效管理系统采购项目（二次），项目编号 czmgcg202512-010，成交 579,500 元，公示 2025-12-29）；甲乙双方、项目、金额均为真实公开信息，条款为演示拟制并在文首声明
+- 总体结论：**不通过（3 项高风险）**，通过率 **69.2%**
+- 高风险命中：R09 不合规税率 10% · R10 付款比例合计 110% · R23 仲裁/诉讼冲突
+- **真实联网尽调**（乙方：上海东旦软件开发有限公司）：0 失信、0 行政处罚、0 经营异常；2 条历史涉诉（（2015）沪知民初字第788号，**该司为原告**维权案）；高新技术企业、10 项软著、明光市中医院存量服务商 → **风险等级：低**，结论已写回主体画像
+- 尽调写回命令：`--write-dd "上海东旦软件开发有限公司" --findings-file …`（Skill 第 3 步同款通道）
+
+### Token 节省口径（A/B 真实调用实测 · 2026-07-03）
+
+早期版本中「节省 17.6%」为 tiktoken 估算口径（`build_token_savings_profile()`，对纯 LLM 场景的输入输出做建模估计）。为回应「数据依据」问题，新增 `scripts/token_ab_test.py` 做**双架构真实调用 A/B**（同一合同、同一模型 deepseek-chat，token 数取 API 返回 usage，零估算）：
+
+| 架构 | 轮次 | prompt | completion | 合计 |
+| --- | --- | --- | --- | --- |
+| A · 纯 LLM 从头审 | 轮1 逐项检查 | 9,813 | 2,725 | 12,538 |
+| A · 纯 LLM 从头审 | 轮2 汇总报告 | 4,059 | 1,730 | 5,789 |
+| **A 合计** | 2 | | | **18,327** |
+| B · 混合架构（本作品） | 规则引擎 26 项 | 0 | 0 | **0** |
+| B · 混合架构（本作品） | 单轮复核+报告 | 11,603 | 2,102 | 13,705 |
+
+**实测节省 4,622 tokens（25.2%）**。结果存档 `outputs/token-ab-result.json`，可复现：`uv run python scripts/token_ab_test.py`。对外口径统一为「A/B 实测节省 25.2%」；估算模型仍保留在 GUI 中用于逐单展示。
 
 ### 多维表格写入字段（NO.001 实测值）
 

@@ -1,0 +1,28 @@
+{
+  "contract": "real_based_hospital_contract.txt",
+  "model": "deepseek-chat",
+  "arch_a_pure_llm": {
+    "round1": {
+      "prompt_tokens": 9813,
+      "completion_tokens": 2725,
+      "total_tokens": 12538
+    },
+    "round2": {
+      "prompt_tokens": 4059,
+      "completion_tokens": 1730,
+      "total_tokens": 5789
+    },
+    "total": 18327
+  },
+  "arch_b_hybrid": {
+    "llm": {
+      "prompt_tokens": 11603,
+      "completion_tokens": 2102,
+      "total_tokens": 13705
+    },
+    "rule_engine_tokens": 0,
+    "total": 13705
+  },
+  "savings_tokens": 4622,
+  "savings_percent": 25.2
+}

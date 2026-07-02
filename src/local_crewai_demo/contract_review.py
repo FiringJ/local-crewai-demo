@@ -706,11 +706,13 @@ def _extract_tax_rates(text: str) -> list[float]:
 def _extract_payment_percentages(text: str) -> list[float]:
     values: list[float] = []
     for line in text.splitlines():
-        if "违约金" in line:
+        # 滞纳金/违约金/利息/保证金行的费率不是付款比例，跳过避免误报
+        if re.search(r"违约金|滞纳金|利息|逾期|保证金", line):
             continue
-        if re.search(r"付款|预付|首付款|进度款|尾款|结算|价款", line):
-            for match in re.finditer(r"(\d+(?:\.\d+)?)\s*%", line):
-                values.append(float(match.group(1)))
+        if not re.search(r"付款|支付|预付|首付款|进度款|尾款|结算|价款", line):
+            continue
+        for match in re.finditer(r"(?:支付|比例|总价|价款|合同价|金额)[^%\n]{0,12}?(\d+(?:\.\d+)?)\s*%", line):
+            values.append(float(match.group(1)))
     return values
 
 
@@ -881,9 +883,14 @@ def _check_acceptance_delivery(text: str, _fields: ContractFields) -> tuple[str,
 
 
 def _check_late_fee(text: str, _fields: ContractFields) -> tuple[str, str, str]:
+    # 兼容两种语序：「0.05%/日」与「每逾期一日按…0.05% 支付违约金」
     rates = [
         float(match.group(1))
         for match in re.finditer(r"(?:逾期|滞纳金|违约金|迟延)[^。\n%]{0,24}(\d+(?:\.\d+)?)\s*%\s*(?:/|每)?日", text)
+    ]
+    rates += [
+        float(match.group(1))
+        for match in re.finditer(r"(?:每逾期一日|每日|每延迟一日)[^。\n%]{0,24}?(\d+(?:\.\d+)?)\s*%", text)
     ]
     if not rates:
         return REVIEW, "未识别到按日计算的滞纳金或违约金费率。", "如约定逾期违约金，应明确日费率且不超过 0.05%。"
