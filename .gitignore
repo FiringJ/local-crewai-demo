@@ -2,6 +2,7 @@
 .venv/
 __pycache__/
 .DS_Store
+_archive/
 frontend/node_modules/
 frontend/dist/
 outputs/opc-demo/ppt/node_modules/
@@ -9,3 +10,4 @@ outputs/opc-demo/ppt/node_modules/
 report.md
 briefing.md
 *.pyc
+scripts/.feishu_loop_state.json

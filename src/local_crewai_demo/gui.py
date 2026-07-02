@@ -23,9 +23,15 @@ from local_crewai_demo.contract_review import (
     build_analytics_payload,
     build_briefing_outline,
     extract_text_from_file,
+    extract_text_with_profile,
     rule_reference_json,
 )
 from local_crewai_demo.crew import LocalCrewaiDemo
+from local_crewai_demo.pdf_markdown import (
+    TokenSavingsProfile,
+    build_token_savings_profile,
+    token_savings_markdown,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -99,9 +105,9 @@ REVIEW_MODES = {
 
 COMPETITION = {
     "event": "商汤小浣熊 OPC 高手创造赛",
-    "scene": "企业合同初审持续运营工作流",
-    "tagline": "定时任务 + 办公小浣熊能力矩阵，跑通法务初审流水线",
-    "pain_point": "传统初审来一份审一份，单份约 4 小时；主体风险与法规变化无法持续沉淀",
+    "scene": "企业合同审查持续运营工作流",
+    "tagline": "定时任务 + 办公小浣熊能力矩阵，跑通法务审查流水线",
+    "pain_point": "传统审查来一份审一份，单份约 4 小时；主体风险与法规变化无法持续沉淀",
     "value_proposition": "每日 09:00 自动拉合同、联网尽调、知识库闭环；周五 17:00 周报 PPT；单份约 3 分钟",
     "capabilities": [
         {
@@ -205,6 +211,63 @@ def _load_knowledge_context(max_chars: int = 12000) -> str:
     return "\n\n".join(chunks)[:max_chars]
 
 
+def _load_rules_definition() -> str:
+    """加载 26 条规则定义全文，用于量化纯 LLM 场景需要把规则作为输入的 token 成本。"""
+    rules_path = PROJECT_ROOT / "knowledge" / "contract_audit_rules.md"
+    if rules_path.exists():
+        return rules_path.read_text(encoding="utf-8", errors="replace")
+    return ""
+
+
+# SenseChat-5 / GPT-4o 量级的参考单价（元 / 1K tokens），用于成本估算展示。
+_TOKEN_PRICE_PER_K = {"input": 0.035, "output": 0.105}
+
+
+def _extract_token_usage(result: object) -> dict[str, object]:
+    """从 CrewOutput.token_usage（UsageMetrics）提取实际 token 消耗。"""
+    usage = getattr(result, "token_usage", None)
+    if usage is None:
+        return {}
+    fields = (
+        "total_tokens",
+        "prompt_tokens",
+        "cached_prompt_tokens",
+        "completion_tokens",
+        "reasoning_tokens",
+        "cache_creation_tokens",
+        "successful_requests",
+    )
+    out: dict[str, object] = {}
+    for f in fields:
+        out[f] = int(getattr(usage, f, 0) or 0)
+    prompt = int(out.get("prompt_tokens", 0) or 0)
+    completion = int(out.get("completion_tokens", 0) or 0)
+    out["estimated_cost_cny"] = round(
+        prompt / 1000 * _TOKEN_PRICE_PER_K["input"] + completion / 1000 * _TOKEN_PRICE_PER_K["output"],
+        4,
+    )
+    return out
+
+
+def _build_token_savings(
+    contract_text: str,
+    raw_text: str,
+    audit: dict[str, object],
+    knowledge_context: str,
+    rules_definition: str,
+) -> tuple[TokenSavingsProfile, str]:
+    """构建 token 节省 profile 和可展示的 Markdown 摘要。"""
+    rule_ref = rule_reference_json(audit)
+    profile = build_token_savings_profile(
+        raw_text=raw_text or contract_text,
+        markdown_text=contract_text,
+        rule_reference_json=rule_ref,
+        knowledge_context=knowledge_context,
+        rules_definition_text=rules_definition,
+    )
+    return profile, token_savings_markdown(profile)
+
+
 def _workflow_steps(agent_used: bool) -> list[dict[str, str]]:
     steps: list[dict[str, str]] = []
     for template in WORKFLOW_TEMPLATE:
@@ -288,13 +351,15 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
         with tempfile.TemporaryDirectory() as temp_dir:
             contract_text = payload.get("contractText", "").strip()
             file_name = payload.get("fileName", "pasted_contract.txt").strip() or "pasted_contract.txt"
+            raw_text = contract_text  # 粘贴文本时 raw == md
 
             if upload:
                 uploaded_name, content = upload
                 file_name = Path(uploaded_name).name or "uploaded_contract"
                 temp_path = Path(temp_dir) / file_name
                 temp_path.write_bytes(content)
-                contract_text = extract_text_from_file(temp_path)
+                # PDF 走结构化 Markdown，同时拿到 raw 纯文本用于 token 对比
+                contract_text, raw_text, _ = extract_text_with_profile(temp_path)
 
             if not contract_text:
                 return {
@@ -309,6 +374,13 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
             briefing = build_briefing_outline(audit)
             output_path.write_text(fallback_report, encoding="utf-8")
 
+            # token 节省量化（规则引擎 vs 纯 LLM 架构对比）
+            rules_definition = _load_rules_definition()
+            knowledge_context = _load_knowledge_context()
+            token_profile, token_savings_md = _build_token_savings(
+                contract_text, raw_text, audit, knowledge_context, rules_definition
+            )
+
             if mode == "rules_only":
                 return {
                     "ok": True,
@@ -320,6 +392,13 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
                     "ruleReferenceJson": rule_reference_json(audit),
                     "analytics": analytics,
                     "briefing": briefing,
+                    "tokenSavings": token_savings_md,
+                    "tokenSavingsProfile": {
+                        "savingsTokens": token_profile.savings_tokens,
+                        "savingsPercent": token_profile.savings_percent,
+                        "hybridTotalTokens": token_profile.scenarios[1].total_tokens,
+                        "pureLlmTotalTokens": token_profile.scenarios[0].total_tokens,
+                    },
                     "workflow": _workflow_steps(agent_used=False),
                     "knowledgeSources": _knowledge_sources(),
                     "reportPath": str(output_path),
@@ -339,13 +418,16 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
                 "contract_text": contract_text[:30000],
                 "audit_evidence_json": audit_json(audit),
                 "rule_reference_json": rule_reference_json(audit),
-                "knowledge_context": _load_knowledge_context(),
+                "knowledge_context": knowledge_context,
                 "current_date": datetime.now().strftime("%Y-%m-%d"),
             }
 
             buffer = io.StringIO()
             with redirect_stdout(buffer), redirect_stderr(buffer):
                 result = LocalCrewaiDemo().crew().kickoff(inputs=inputs)
+
+            # 捕获 CrewAI 实际 token 消耗（导师反馈：跑一次任务消耗多少 token）
+            token_usage = _extract_token_usage(result)
 
             report = _read_report(report_file, previous_report_mtime) or str(result)
             briefing = (
@@ -362,6 +444,14 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
                 "ruleReferenceJson": rule_reference_json(audit),
                 "analytics": analytics,
                 "briefing": briefing,
+                "tokenUsage": token_usage,
+                "tokenSavings": token_savings_md,
+                "tokenSavingsProfile": {
+                    "savingsTokens": token_profile.savings_tokens,
+                    "savingsPercent": token_profile.savings_percent,
+                    "hybridTotalTokens": token_profile.scenarios[1].total_tokens,
+                    "pureLlmTotalTokens": token_profile.scenarios[0].total_tokens,
+                },
                 "workflow": _workflow_steps(agent_used=True),
                 "knowledgeSources": _knowledge_sources(),
                 "reportPath": str(output_path),
@@ -370,6 +460,7 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
     except Exception:
         fallback = locals().get("fallback_report", "")
         audit_obj = locals().get("audit")
+        token_profile_obj = locals().get("token_profile")
         return {
             "ok": bool(fallback),
             "mode": "rules_fallback",
@@ -380,6 +471,13 @@ def _run_contract_review(payload: dict[str, str], upload: tuple[str, bytes] | No
             "ruleReferenceJson": rule_reference_json(audit_obj) if audit_obj else "",
             "analytics": build_analytics_payload(audit_obj) if audit_obj else {},
             "briefing": build_briefing_outline(audit_obj) if audit_obj else "",
+            "tokenSavings": locals().get("token_savings_md", ""),
+            "tokenSavingsProfile": {
+                "savingsTokens": token_profile_obj.savings_tokens,
+                "savingsPercent": token_profile_obj.savings_percent,
+                "hybridTotalTokens": token_profile_obj.scenarios[1].total_tokens,
+                "pureLlmTotalTokens": token_profile_obj.scenarios[0].total_tokens,
+            } if token_profile_obj else {},
             "workflow": _workflow_steps(agent_used=False),
             "knowledgeSources": _knowledge_sources(),
             "reportPath": str(output_path) if fallback else "",
@@ -454,6 +552,9 @@ class GuiHandler(SimpleHTTPRequestHandler):
         super().do_GET()
 
     def do_POST(self) -> None:
+        if self.path == "/api/feishu-loop":
+            self._handle_feishu_loop()
+            return
         if self.path != "/api/review":
             self.send_error(404)
             return
@@ -473,6 +574,37 @@ class GuiHandler(SimpleHTTPRequestHandler):
                 return
 
         self._send_json(_run_contract_review(payload, upload))
+
+    def _handle_feishu_loop(self) -> None:
+        """HTTP 触发飞书合同审核闭环（webhook fallback）。"""
+        length = int(self.headers.get("content-length", "0"))
+        body = self.rfile.read(length)
+        dry_run = False
+        if body:
+            try:
+                payload = json.loads(body.decode("utf-8"))
+                dry_run = bool(payload.get("dryRun"))
+            except json.JSONDecodeError:
+                self.send_error(400, "Invalid JSON")
+                return
+        try:
+            import sys
+
+            scripts_dir = PROJECT_ROOT / "scripts"
+            if str(scripts_dir) not in sys.path:
+                sys.path.insert(0, str(scripts_dir))
+            import feishu_contract_loop as loop  # type: ignore[import-untyped]
+
+            result = loop.run_once(dry_run=dry_run)
+            self._send_json({"ok": True, **result})
+        except Exception as exc:
+            self._send_json(
+                {
+                    "ok": False,
+                    "error": str(exc),
+                    "traceback": traceback.format_exc(),
+                }
+            )
 
     def _send_json(self, payload: dict[str, object]) -> None:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")

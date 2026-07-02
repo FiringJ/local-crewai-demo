@@ -184,11 +184,11 @@ export default function App() {
                 {config?.competition?.event ?? "商汤小浣熊 OPC 高手创造赛"}
               </p>
               <h1 className="archive-title">
-                {config?.competition?.scene ?? "企业合同初审工作台"}
+                {config?.competition?.scene ?? "企业合同审查工作台"}
               </h1>
               <p className="archive-tagline">
                 {config?.competition?.tagline ??
-                  "一人 + 办公小浣熊，跑通法务初审全链路"}
+                  "一人 + 办公小浣熊，跑通法务审查全链路"}
               </p>
             </div>
 

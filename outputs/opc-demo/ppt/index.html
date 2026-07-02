@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>办公小浣熊 · 企业合同初审持续运营工作流</title>
+<title>办公小浣熊 · 企业合同审查持续运营工作流 · 复赛</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
@@ -1180,9 +1180,68 @@
     .grid-2-7-5,.grid-2-6-6,.grid-2-8-4,.grid-2-4-8{grid-template-columns:1fr}
     .grid-12{grid-template-columns:repeat(6,1fr)}
   }
+/* OPC 合同初审 deck · 页面专用扩展（assemble-deck 注入） */
 
-  /* submission deck: hide HTML preview controls */
-  #hint,#nav{display:none!important}
+.image-hero-workflow{display:flex;flex-direction:column;height:100%;min-height:0}
+.image-hero-workflow .hero-head{flex-shrink:0;padding:3.6vh 5vw 1vh}
+.image-hero-workflow .hero-head .chrome-min{padding:0;margin-bottom:1vh}
+.image-hero-workflow .hero-head h2{font-size:min(3.8vw,6.8vh)!important;line-height:1!important}
+.image-hero-workflow .hero-shot{
+  flex:1;min-height:0;padding:0 2.4vw 1vh;display:flex;align-items:stretch
+}
+.image-hero-workflow .hero-shot .frame-img{
+  flex:1;width:100%;height:100%;max-height:none;aspect-ratio:unset;min-height:0
+}
+.image-hero-workflow .hero-shot .frame-img img{width:100%;height:100%;object-fit:contain;object-position:center center}
+.image-hero-workflow .image-hero-foot{
+  flex-shrink:0;display:grid;grid-template-columns:5fr 7fr;gap:2.4vw;
+  padding:1.2vh 5vw calc(var(--nav-safe-bottom)*0.5);
+  border-top:1px solid var(--border-subtle);align-items:end
+}
+.image-hero-workflow .image-hero-foot .t-body{font-size:max(14px,.88vw);line-height:1.45}
+.image-hero-workflow .image-hero-foot .image-hero-stats{gap:1.6vw}
+.image-hero-workflow .image-hero-foot .stat-nb{font-size:min(3vw,5.2vh)!important;line-height:.95}
+
+.screenshot-fill{flex:1;min-height:0;display:grid!important}
+.screenshot-fill figure{display:flex;flex-direction:column;min-height:0;height:100%}
+.screenshot-fill .frame-img{flex:1;min-height:0;height:auto!important;max-height:none!important;aspect-ratio:unset}
+.screenshot-fill .frame-img img{object-fit:contain;object-position:center top}
+.screenshot-head{margin-bottom:1.4vh!important}
+.screenshot-head h2{font-size:min(4vw,7vh)!important}
+
+.prompt-block{
+  font-family:var(--mono);font-size:max(11px,.68vw);line-height:1.48;
+  background:var(--grey-1);color:var(--text-secondary);
+  border-top:2px solid var(--accent);padding:1.4vh 1.2vw;
+  white-space:pre-wrap;overflow:hidden;flex:1;min-height:0
+}
+.slide.dark .prompt-block{background:rgba(255,255,255,.06);color:rgba(255,255,255,.84)}
+.prompt-split{display:grid;grid-template-columns:5fr 7fr;gap:2vw;flex:1;min-height:0;align-items:stretch}
+.prompt-split .frame-img{flex:1;min-height:0;height:100%!important;max-height:none!important;aspect-ratio:unset}
+.section-pill{
+  display:inline-block;font-family:var(--mono);font-size:max(12px,.7vw);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);padding:.35vh .8vw;margin-bottom:1vh
+}
+.slide.dark .section-pill{color:var(--accent-bright);border-color:rgba(255,255,255,.35)}
+
+/* S06 数据页：内容区较多时压缩 KPI 塔高度，避免底部脚注被裁切 */
+.bar-towers-compact{
+  flex:0 0 auto!important;
+  align-items:end;
+  margin-top:0;
+  margin-bottom:1.2vh!important;
+}
+.bar-towers-compact .cap{height:4vh;margin-bottom:.3vh}
+.bar-towers-compact .body-block{min-height:0!important;padding:1.4vh 1vw 1.2vh}
+.bar-towers-compact .body-block.h-4{min-height:14vh!important}
+.bar-towers-compact .body-block.h-3{min-height:12vh!important}
+.bar-towers-compact .body-block.h-2{min-height:10vh!important}
+.bar-towers-compact .body-block.h-1{min-height:8.5vh!important}
+.bar-towers-compact .nb{font-size:max(18px,2.4vw)!important}
+.slide-kpi-dense .kpi-head{margin-bottom:1vh!important}
+.slide-kpi-dense .kpi-head h2{font-size:min(4.2vw,7.4vh)!important}
+.slide-kpi-dense .kpi-footnote{margin-top:1vh!important;padding-bottom:calc(var(--nav-safe-bottom)*0.35)}
 
 </style>
 </head>
@@ -1233,37 +1292,39 @@
   <div class="canvas-card">
     <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min">
-      <div class="l">办公小浣熊 · 赛道二提交材料</div>
-      <div class="r">01 / 10</div>
+      <div class="l">办公小浣熊 · 企业合同审查</div>
+      <div class="r">01 / 12</div>
     </div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:2.6vh">
-      <div data-anim="kicker" class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em">CONTRACT REVIEW · CONTINUOUS OPS</div>
-      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(6.4vw,11.2vh);line-height:.96;letter-spacing:-.025em;color:#fff">办公小浣熊<br/><span style="font-style:italic;font-weight:300">赋能</span>企业合同审查持续运营</h1>
+      <div data-anim="kicker" class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em">企业合同审查 · 飞书闭环 · 三层可复用 skill</div>
+      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.8vw,10.2vh);line-height:.96;letter-spacing:-.025em;color:#fff">办公小浣熊<br/><span style="font-style:italic;font-weight:300">赋能</span>企业合同审查持续运营</h1>
       <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
-        <div data-anim="lead" class="lead" style="max-width:58ch;color:rgba(255,255,255,.86);font-weight:300">采购和法务每天收到的合同，交给小浣熊按固定流程初审；有问题的标出来，人来做判断。每周五再自动整理一份周报。</div>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2vw;margin-top:1vh">
-          <div><div class="t-meta" style="color:rgba(255,255,255,.55)">TIME SAVED</div><div style="font-family:var(--sans);font-weight:200;font-size:min(4vw,7vh);color:#fff;margin-top:.6vh">约92%</div><div class="t-body-sm" style="color:rgba(255,255,255,.7)">4小时 → 3分钟</div></div>
-          <div><div class="t-meta" style="color:rgba(255,255,255,.55)">CHECKLIST</div><div style="font-family:var(--sans);font-weight:200;font-size:min(4vw,7vh);color:#fff;margin-top:.6vh">26项</div><div class="t-body-sm" style="color:rgba(255,255,255,.7)">法规对齐 · 6 组维度</div></div>
+        <div data-anim="lead" class="lead" style="max-width:60ch;color:rgba(255,255,255,.86);font-weight:300">复赛打通飞书知识库闭环：合同写入即自动审核，报告写回知识库、结构化记录入多维表格；三层 skill 让规则层零 token，人工初审约 4h、流水线约 3min（估算）。</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.4vw;margin-top:1vh">
+          <div><div class="t-meta" style="color:rgba(255,255,255,.55)">触发</div><div class="t-body-sm" style="color:rgba(255,255,255,.82);margin-top:.5vh">飞书知识库 · 09:00 定时</div></div>
+          <div><div class="t-meta" style="color:rgba(255,255,255,.55)">编排</div><div class="t-body-sm" style="color:rgba(255,255,255,.82);margin-top:.5vh">三层 skill · 七步 Agent</div></div>
+          <div><div class="t-meta" style="color:rgba(255,255,255,.55)">证据</div><div class="t-body-sm" style="color:rgba(255,255,255,.82);margin-top:.5vh">规则 + 知识库 + 尽调</div></div>
+          <div><div class="t-meta" style="color:rgba(255,255,255,.55)">交付</div><div class="t-body-sm" style="color:rgba(255,255,255,.82);margin-top:.5vh">报告写回 · 多维表格 · 周报</div></div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:end;margin-top:1vh">
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">小浣熊挑战赛 · 赛道二</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">小浣熊挑战赛 · 赛道二 · 复赛</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Slide 02 · S19 Four Cards -->
+<!-- Slide 02 · 场景与痛点 -->
 <section class="slide light" data-layout="S19" data-animate="four-cards">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">真实业务场景 · Context</div>
-      <div class="r">02 / 10</div>
+      <div class="l">场景与痛点</div>
+      <div class="r">02 / 12</div>
     </div>
     <div data-anim="line" style="flex:1;display:flex;flex-direction:column;gap:5vh;padding:0">
       <div style="height:2px;background:var(--accent);width:80px"></div>
-      <div style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.8vw,10.2vh);line-height:.96;letter-spacing:-.03em;color:var(--text-primary)">企业合同初审是日常活<br/>量大、审得慢，细则处特别容易漏</div>
-      <p class="t-body" style="max-width:52ch;font-weight:300;color:var(--text-secondary)">针对的是企业合同初审里那些天天重复、又容易出错的环节。</p>
+      <div style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.8vw,10.2vh);line-height:.96;letter-spacing:-.03em;color:var(--text-primary)">企业合同审查是日常活<br/>量大、审得慢，细则处特别容易漏</div>
+      <p class="t-body" style="max-width:52ch;font-weight:300;color:var(--text-secondary)">针对的是企业合同审查里那些天天重复、又容易出错的环节——一份合同，法务财务业务各看一遍，单份常常 4 小时。</p>
       <div data-anim="up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.2vw;flex:1;align-content:start;margin-top:2vh">
         <div class="card-fill" style="padding:2.4vh 1.4vw;display:flex;flex-direction:column;gap:1.2vh;min-height:22vh">
           <div class="t-meta">— 01 / VOLUME</div>
@@ -1281,197 +1342,308 @@
           <p class="t-body-sm" style="margin-top:auto">30% 税率、0.03% 付款比例、缺标的，签完才发现就晚了。</p>
         </div>
         <div class="card-fill" style="padding:2.4vh 1.4vw;display:flex;flex-direction:column;gap:1.2vh;min-height:22vh">
-          <div class="t-meta">— 04 / REPORT</div>
-          <h3 class="t-h-prod">周报还得手工凑</h3>
-          <p class="t-body-sm" style="margin-top:auto">每周统计合规率、高频风险、重点供应商，整理一遍大约 2 小时。</p>
+          <div class="t-meta">— 04 / SEDIMENT</div>
+          <h3 class="t-h-prod">审完不留痕</h3>
+          <p class="t-body-sm" style="margin-top:auto">规则、案例、主体画像无法持续沉淀；换个同事又从零审一遍。</p>
         </div>
       </div>
-      <p data-anim="up" class="t-body-sm nav-safe-bottom-tight" style="margin-top:2.4vh;max-width:56ch;color:var(--text-secondary);border-top:1px solid var(--border-subtle);padding-top:2vh">因此，接下来看办公小浣熊如何用 AI 分担合同初审里的重复核对：常规项交给系统，人专注异常和最终把关。</p>
+      <p data-anim="up" class="t-body-sm nav-safe-bottom-tight" style="margin-top:2.4vh;max-width:58ch;color:var(--text-secondary);border-top:1px solid var(--border-subtle);padding-top:2vh">痛点不是「能不能审」，而是<strong style="font-weight:500">每天重复审、多人接力审、细则容易漏、审完还沉淀不下来</strong>。</p>
     </div>
   </div>
 </section>
 
-<!-- Slide 03 · S11 Horizontal Timeline -->
-<section class="slide light" data-layout="S11" data-animate="timeline-walk">
+<!-- Slide 03 · 传统方案局限 -->
+<section class="slide light" data-layout="S20" data-animate="stacked-ledger">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">接上页 · 工作流怎么串</div>
-      <div class="r">03 / 10</div>
+      <div class="l">传统方案局限</div>
+      <div class="r">03 / 12</div>
     </div>
-    <div data-anim="line" style="display:flex;flex-direction:column;gap:2vh;margin-bottom:3vh">
-      <div class="t-cat">FROM CONTEXT · WORKFLOW</div>
-      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.2vw,9.2vh);line-height:.96;letter-spacing:-.03em;color:var(--text-primary)">工作日自动初审<br/>周五统一复盘</h2>
-      <p class="t-body-sm" style="max-width:52ch;color:var(--text-secondary)">量、慢、漏项、周报——用一条流水线逐步处理，工作日自动跑，周五再统一复盘。</p>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh;margin-bottom:2vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.8vw,8.6vh);line-height:.96;letter-spacing:-.03em">之前怎么解决？<br/>为什么还不够？</h2>
+      <p class="t-body-sm" style="max-width:56ch;color:var(--text-secondary)">单次问答、手工表格和纯脚本，都解决不了「每天都要跑、每次都要一致、每项都要留痕、还要接进企业工具」。</p>
     </div>
-    <div class="timeline-h" data-anim="up">
-      <div class="tl-row" style="grid-template-columns:repeat(6,1fr)">
-        <div class="th-node up accent">
-          <div class="dot"></div>
-          <div class="label"><span class="yr">工作日09:00</span><span class="name">拉取合同</span></div>
-        </div>
-        <div class="th-node down">
-          <div class="dot"></div>
-          <div class="label"><span class="name" style="font-size:max(15px,1vw);font-weight:300;color:var(--text-secondary)">抽取字段</span></div>
-        </div>
-        <div class="th-node up">
-          <div class="dot"></div>
-          <div class="label"><span class="name" style="font-size:max(15px,1vw);font-weight:300;color:var(--text-secondary)">查对方公司</span></div>
-        </div>
-        <div class="th-node down">
-          <div class="dot"></div>
-          <div class="label"><span class="name" style="font-size:max(15px,1vw);font-weight:300;color:var(--text-secondary)">读知识库</span></div>
-        </div>
-        <div class="th-node up">
-          <div class="dot"></div>
-          <div class="label"><span class="name" style="font-size:max(15px,1vw);font-weight:300;color:var(--text-secondary)">规则参考复核</span></div>
-        </div>
-        <div class="th-node down accent">
-          <div class="dot"></div>
-          <div class="label"><span class="yr">周五 17:00</span><span class="name">周报归档</span></div>
-        </div>
+    <div data-anim="ledger" style="display:flex;flex-direction:column;flex:1">
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2vh 0;border-bottom:1px solid var(--border-subtle)">
+        <div class="t-meta">方案 A</div>
+        <div><h3 class="t-h-prod">人工 + Excel 清单</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">单份约 4 小时，多角色各看一遍；漏项难追溯，周五汇总靠手工统计。</p></div>
       </div>
-    </div>
-    <div class="card-fill nav-safe-bottom-tight" style="margin-top:auto;padding:2.2vh 1.8vw;border-left:2px solid var(--accent)">
-      <p class="t-body-sm" style="color:var(--text-secondary)">周五汇总趋势和风险排行，出采购委员会周报；对方公司画像和法务红线写回知识库，下次直接复用。</p>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2vh 0;border-bottom:1px solid var(--border-subtle)">
+        <div class="t-meta">方案 B</div>
+        <div><h3 class="t-h-prod">一次性 Chat 提问</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">无定时任务、无知识库沉淀、无多轮调优记录；每次从零解释规则，全量 token 喂给模型。</p></div>
+      </div>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2vh 0;border-bottom:1px solid var(--border-subtle)">
+        <div class="t-meta">方案 C</div>
+        <div><h3 class="t-h-prod">纯规则引擎 / 脚本</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">数值类准确但语义类误报多；不接飞书、不出可读报告、不生成周报和主体画像。</p></div>
+      </div>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2vh 0;border-bottom:2px solid var(--accent)">
+        <div class="t-meta" style="color:var(--accent)">本方案</div>
+        <div><h3 class="t-h-prod" style="color:var(--accent)">小浣熊持续运营流水线 · 复赛版</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">三层 skill（PDF结构化·规则引擎·LLM复核）+ 飞书知识库闭环 + 七步 Agent；定时拉取 → 规则作证据 → 报告写回飞书 → 多维表格沉淀；人只复核异常。</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Slide 04 · S04 Six Cells -->
+<!-- Slide 04 · 核心 Prompt -->
+<section class="slide dark" data-layout="S22" data-animate="image-hero">
+  <div class="canvas-card" style="padding:5.6vh 5vw 4vh;display:flex;flex-direction:column;gap:1.6vh;overflow:hidden">
+    <div class="chrome-min" style="margin-bottom:0">
+      <div class="l">核心 Prompt</div>
+      <div class="r">04 / 12</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1vh;flex-shrink:0">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.2vw,7.4vh);line-height:.96;letter-spacing:-.03em;color:var(--paper)">可直接粘贴的 Agent 全链路 Prompt</h2>
+      <p class="t-body-sm" style="max-width:58ch;color:rgba(255,255,255,.78)">以下为核心摘录；完整 Prompt 见随附文档。规则引擎输出作必查维度，逐维输出 engine_signal vs 最终结论。</p>
+    </div>
+    <div data-anim="img" class="prompt-split" style="flex:1;min-height:0">
+      <pre class="prompt-block" data-anim="title-block">你是办公小浣熊合同审查 Agent（云端工作台，已开启联网与 @知识库）。对附件合同按顺序执行，每步简短汇报：
+
+1. 【文档处理】抽取关键字段 JSON
+2. 【联网检索】尽调乙方工商/失信/涉诉/负面（必须附来源链接）
+3. 【知识库 + 规则参考】@contract_audit_kb @contract_audit_rules：红线复核；将规则引擎 dimensions 作必查维度，逐维输出 engine_signal vs 最终结论
+4. 【数据分析】基于终局结论输出通过率与风险分布
+5. 【文案】Markdown 审核报告（含维度对照表）
+6. 【知识库写入】主体画像 + 案例摘要
+7. 【汇报】6 页 PPT 大纲
+
+规则：不得编造；数值类优先采信规则引擎；语义类以模型解读为准。</pre>
+      <div class="frame-img fit-contain swiss-lined"><img src="images/10-prompt-ready.png" alt="小浣熊云端工作台粘贴 Prompt 并附合同待发" data-image-slot="s22-hero-21x9" loading="eager"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Slide 05 · 模块组合 -->
 <section class="slide light" data-layout="S04" data-animate="grid-reveal">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">小浣熊做什么 · Capabilities</div>
-      <div class="r">04 / 10</div>
+      <div class="l">模块组合</div>
+      <div class="r">05 / 12</div>
     </div>
-    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
-      <div class="t-cat">SIX MODULES</div>
-      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.2vw,9.2vh);line-height:.96;letter-spacing:-.03em">六项能力驱动合同审查</h2>
-      <p class="t-body-sm" style="max-width:46ch">利用小浣熊的六项能力打造合同审查流水线</p>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.8vw,8.6vh);line-height:.96;letter-spacing:-.03em">六项能力如何协作</h2>
+      <p class="t-body-sm" style="max-width:54ch">不是单点功能堆砌：定时任务触发 → Agent 编排七步 → 各模块接力产出证据与交付物，结果沉淀回飞书。</p>
     </div>
     <div class="sub-grid-3-2">
       <div class="sub-card"><i data-lucide="clock"></i><span class="nb-corner">01</span><div class="ttl">定时任务</div><div class="desc">工作日9点触发，自动拉待审合同</div></div>
-      <div class="sub-card"><i data-lucide="globe"></i><span class="nb-corner">02</span><div class="ttl">联网检索</div><div class="desc">抽字段后查对方公司公开风险</div></div>
+      <div class="sub-card"><i data-lucide="globe"></i><span class="nb-corner">02</span><div class="ttl">联网检索</div><div class="desc">小浣熊尽调乙方，结论写回主体画像</div></div>
       <div class="sub-card"><i data-lucide="database"></i><span class="nb-corner">03</span><div class="ttl">知识库</div><div class="desc">对照法务红线和历史案例</div></div>
-      <div class="sub-card"><i data-lucide="bar-chart-3"></i><span class="nb-corner">04</span><div class="ttl">数据分析</div><div class="desc">26 维初筛 + 终局结论统计</div></div>
-      <div class="sub-card"><i data-lucide="presentation"></i><span class="nb-corner">05</span><div class="ttl">演示文稿</div><div class="desc">周五自动生成委员会周报</div></div>
+      <div class="sub-card"><i data-lucide="bar-chart-3"></i><span class="nb-corner">04</span><div class="ttl">数据分析</div><div class="desc">26 维审查 + 终局结论统计</div></div>
+      <div class="sub-card"><i data-lucide="presentation"></i><span class="nb-corner">05</span><div class="ttl">演示文稿</div><div class="desc">周五汇总本周审查数据成 PPT</div></div>
       <div class="sub-card accent"><i data-lucide="messages-square"></i><span class="nb-corner">06</span><div class="ttl">对话协作</div><div class="desc">把各步结果串成审核意见</div></div>
     </div>
-    <p class="t-body-emp nav-safe-bottom-tight" style="margin-top:2vh;max-width:62ch">工作日自动机器审查待审核合同，交由人工复审，到周五统一复盘归档，六项能力逐步接力，法务复核异常项，做最终判断。</p>
+    <p class="t-body-emp nav-safe-bottom-tight" style="margin-top:2vh;max-width:64ch">协作顺序：09:00 定时任务经 Skill 触发本地闭环 → 报告/记录/画像写回飞书 → 小浣熊对待尽调主体<strong style="font-weight:500">原生联网检索</strong> → 尽调结论回填主体画像 → 周五 PPT 模块输出本周汇总。各用所长，全流程无降级。</p>
   </div>
 </section>
 
-<!-- Slide 05 · S05 Three Layers -->
+<!-- Slide 06 · 小浣熊编排 · 双入口架构 -->
 <section class="slide dark" data-layout="S05" data-animate="stack-build">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">我的技术实现 · Evidence Stack</div>
-      <div class="r">05 / 10</div>
+      <div class="l">小浣熊编排 · 双入口架构</div>
+      <div class="r">06 / 12</div>
     </div>
-    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh">
-      <div class="t-cat on-dark">THREE LAYERS</div>
-      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.2vw,9.2vh);line-height:.96;letter-spacing:-.03em;color:var(--paper)">每条风险都能回溯<br/>先做成能核对的证据</h2>
-      <p class="t-body-sm" style="max-width:50ch;color:rgba(255,255,255,.78)">读合同抽字段 → 规则引擎给出 26 项维度初筛参考 → 小浣熊 @知识库 全文复核，产出终局审核报告（非纯硬编码检索）。</p>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.4vw,7.8vh);line-height:.96;letter-spacing:-.03em;color:var(--paper)">按能力分工：本地做精确，小浣熊做联网与编排</h2>
+      <p class="t-body-sm" style="max-width:58ch;color:rgba(255,255,255,.78)">一条 MCP 双向流水线：小浣熊定时触发本地审核并拿回待尽调清单，联网尽调后把结论写回主体画像——各用所长，全流程无降级。</p>
+    </div>
+    <div class="stack-row" style="grid-template-columns:1fr 1fr;gap:1.6vw">
+      <div class="stack-block b-accent" style="min-height:28vh">
+        <div class="layer-nb">本地三层 skill · 精确 + 凭证</div>
+        <i data-lucide="layers" class="lucide"></i>
+        <div class="layer-ttl">Skill 触发本地闭环</div>
+        <div class="layer-desc">PDF 结构化 → 26 项规则 → LLM 复核 → 报告 / 多维表格 / 主体画像（审核历史）写回飞书；返回待尽调主体清单</div>
+        <div class="layer-tag">contract-review-loop skill</div>
+      </div>
+      <div class="stack-block b-grey" style="min-height:28vh">
+        <div class="layer-nb">小浣熊 · 联网 + 编排</div>
+        <i data-lucide="globe" class="lucide"></i>
+        <div class="layer-ttl">联网尽调 → 回填画像</div>
+        <div class="layer-desc">09:00 定时任务原生联网检索乙方工商 / 失信 / 涉诉 / 负面（附来源链接），结论回填画像尽调节；云端七步 Agent 作语义复核入口</div>
+        <div class="layer-tag">小浣熊桌面端 定时任务 + 技能</div>
+      </div>
+    </div>
+    <p class="t-meta nav-safe-bottom-tight" style="margin-top:2vh;color:rgba(255,255,255,.62)">实测 2026-07-03：2 份主体画像已写回飞书 wiki（审核历史 + 尽调结论）· MCP server 同步备好，待桌面端开放入口</p>
+  </div>
+</section>
+
+<!-- Slide 07 · 复赛升级① 三层可复用 skill（零 Token 架构） -->
+<section class="slide dark" data-layout="S05" data-animate="stack-build">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">复赛升级 ① · 三层可复用 skill</div>
+      <div class="r">07 / 12</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.6vw,8.2vh);line-height:.96;letter-spacing:-.03em;color:var(--paper)">三层 skill：规则层零 token，只让 LLM 做语义</h2>
+      <p class="t-body-sm" style="max-width:56ch;color:rgba(255,255,255,.78)">把合同审查拆成三层可复用 skill——结构化与数值计算零 token，LLM 只在语义判断与报告生成时消耗，混合架构相对纯 LLM 节省 17.6%。</p>
     </div>
     <div class="stack-row">
       <div class="stack-block b-grey">
-        <div class="layer-nb">LAYER 01</div>
+        <div class="layer-nb">SKILL 01</div>
         <i data-lucide="file-text" class="lucide"></i>
-        <div class="layer-ttl">读合同</div>
-        <div class="layer-desc">抽甲乙方、金额、税率、日期、付款比例</div>
-        <div class="layer-tag">Parse · Extract</div>
+        <div class="layer-ttl">PDF 结构化 skill</div>
+        <div class="layer-desc">PyMuPDF 还原合同层级与表格，零 token 抽甲乙方、金额、税率、日期、付款比例</div>
+        <div class="layer-tag">Parse · 0 token</div>
       </div>
       <div class="stack-block b-accent">
-        <div class="layer-nb">LAYER 02</div>
+        <div class="layer-nb">SKILL 02</div>
         <i data-lucide="list-checks" class="lucide"></i>
-        <div class="layer-ttl">规则参考层</div>
-        <div class="layer-desc">26 项初筛信号（6 组·对接上位法），供大模型复核</div>
-        <div class="layer-tag">Reference · Dimensions</div>
+        <div class="layer-ttl">规则引擎 skill</div>
+        <div class="layer-desc">26 项精确计算金额/税率/付款比例，对接上位法初筛；Decimal 级数值，零 token</div>
+        <div class="layer-tag">Rules · 0 token</div>
       </div>
       <div class="stack-block b-ink">
-        <div class="layer-nb">LAYER 03</div>
+        <div class="layer-nb">SKILL 03</div>
         <i data-lucide="sparkles" class="lucide"></i>
-        <div class="layer-ttl">大模型决策</div>
-        <div class="layer-desc">@知识库 + 全文复核 → 终局报告与周报</div>
-        <div class="layer-tag">Decision · Report</div>
+        <div class="layer-ttl">LLM 复核 skill</div>
+        <div class="layer-desc">LLM 复核 skill：语义判断与报告生成（演示 LLM：DeepSeek，可平替 SenseChat）</div>
+        <div class="layer-tag">LLM · 语义层</div>
       </div>
     </div>
-    <p class="t-meta nav-safe-bottom-tight" style="margin-top:2vh;color:rgba(255,255,255,.62)">每条风险都能回到合同原文和检查结果 · AUDIT TRAIL</p>
+    <p class="t-meta nav-safe-bottom-tight" style="margin-top:2vh;color:rgba(255,255,255,.62)">三层 skill 可跨合同复用 · 每条风险都能回到合同原文与规则编号 · AUDIT TRAIL</p>
   </div>
 </section>
 
-<!-- Slide 06 · S22 Image Hero -->
-<section class="slide light" data-layout="S22" data-animate="image-hero">
-  <div class="canvas-card" style="padding:0;display:flex;flex-direction:column;overflow:hidden">
-    <div data-anim="img" style="position:relative;flex:0 0 58%;overflow:hidden;background:var(--grey-1)">
-      <img src="images/01-cover-raccoon.png" alt="办公小浣熊合同初审流水线运行中" data-image-slot="s22-hero-21x9" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center center;background:var(--paper)">
-      <div class="chrome-min" style="position:absolute;top:0;left:0;right:0;padding:5.6vh 5vw 0">
-        <div class="l">样本合同验证 · Sample Audit</div>
-        <div class="r">06 / 10</div>
+<!-- Slide 08 · 复赛升级② 飞书知识库闭环 -->
+<section class="slide light" data-layout="S14" data-animate="grid-reveal">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">复赛升级 ② · 飞书知识库闭环</div>
+      <div class="r">08 / 12</div>
+    </div>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1vh;margin-bottom:2.4vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.6vw,8.2vh);line-height:.96;letter-spacing:-.03em">写入即审，审完即回，闭环沉淀</h2>
+      <p class="t-body-sm" style="max-width:60ch;color:var(--text-secondary)">合同写进飞书知识库 → 脚本轮询检测 → 三层 skill 审核 → 报告写回知识库 + 结构化记录入多维表格，每条结果都可追溯。</p>
+    </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;flex:0 0 auto;align-items:stretch">
+      <div class="card-fill" style="padding:2vh 1vw;display:flex;flex-direction:column;gap:.8vh;min-height:20vh">
+        <div class="t-meta">01</div>
+        <i data-lucide="upload-cloud" style="width:2vw;height:2vw;color:var(--text-secondary)"></i>
+        <div class="t-h-prod" style="font-size:max(16px,1.5vw)">写入合同</div>
+        <div class="t-body-sm" style="margin-top:auto;color:var(--text-secondary)">飞书知识库新增 docx</div>
       </div>
-      <div data-anim="title-block" style="position:absolute;left:5vw;top:11vh;background:var(--paper);padding:2.4vh 2.4vw;max-width:42vw;border-top:2px solid var(--accent)">
-        <div style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.6vw,8.2vh);line-height:1;letter-spacing:-.035em;color:var(--text-primary)">128 万元样本<br/>检出 4 项高风险</div>
+      <div class="card-fill" style="padding:2vh 1vw;display:flex;flex-direction:column;gap:.8vh;min-height:20vh;border-left:1px dashed var(--border-subtle)">
+        <div class="t-meta">02</div>
+        <i data-lucide="radar" style="width:2vw;height:2vw;color:var(--text-secondary)"></i>
+        <div class="t-h-prod" style="font-size:max(16px,1.5vw)">轮询检测</div>
+        <div class="t-body-sm" style="margin-top:auto;color:var(--text-secondary)">feishu_contract_loop.py</div>
+      </div>
+      <div class="card-fill" style="padding:2vh 1vw;display:flex;flex-direction:column;gap:.8vh;min-height:20vh;border-left:1px dashed var(--border-subtle)">
+        <div class="t-meta">03</div>
+        <i data-lucide="layers" style="width:2vw;height:2vw;color:var(--text-secondary)"></i>
+        <div class="t-h-prod" style="font-size:max(16px,1.5vw)">三层审核</div>
+        <div class="t-body-sm" style="margin-top:auto;color:var(--text-secondary)">规则 + 知识库 + 尽调</div>
+      </div>
+      <div class="card-fill" style="padding:2vh 1vw;display:flex;flex-direction:column;gap:.8vh;min-height:20vh;border-left:1px dashed var(--border-subtle)">
+        <div class="t-meta">04</div>
+        <i data-lucide="file-output" style="width:2vw;height:2vw;color:var(--text-secondary)"></i>
+        <div class="t-h-prod" style="font-size:max(16px,1.5vw)">报告写回</div>
+        <div class="t-body-sm" style="margin-top:auto;color:var(--text-secondary)">docx 挂回知识库</div>
+      </div>
+      <div class="card-fill" style="padding:2vh 1vw;display:flex;flex-direction:column;gap:.8vh;min-height:20vh;border-left:1px dashed var(--border-subtle)">
+        <div class="t-meta">05</div>
+        <i data-lucide="table-2" style="width:2vw;height:2vw;color:var(--text-secondary)"></i>
+        <div class="t-h-prod" style="font-size:max(16px,1.5vw)">表格 + 画像</div>
+        <div class="t-body-sm" style="margin-top:auto;color:var(--text-secondary)">结构化记录 + 主体档案沉淀</div>
       </div>
     </div>
-    <div data-anim="kpi" class="image-hero-body">
-      <div class="t-body" style="max-width:48ch;font-weight:300">规则参考层 26 项初筛 + JSON 证据在材料包；终局结论由小浣熊结合 @知识库 复核产出。</div>
-      <div class="image-hero-stats" style="gap:4vw">
-        <div style="display:flex;flex-direction:column;gap:.6vh"><div style="height:1px;background:var(--ink)"></div><div class="t-meta">PASSED</div><div style="font-family:var(--sans);font-weight:200;font-size:min(4.6vw,7.6vh);line-height:.95">16</div><div style="height:1px;background:var(--border-subtle);margin-top:auto"></div><p class="t-body-sm">检查通过</p></div>
-        <div style="display:flex;flex-direction:column;gap:.6vh"><div style="height:1px;background:var(--ink)"></div><div class="t-meta">FAILED</div><div style="font-family:var(--sans);font-weight:200;font-size:min(4.6vw,7.6vh);line-height:.95">7</div><div style="height:1px;background:var(--border-subtle);margin-top:auto"></div><p class="t-body-sm">未通过</p></div>
-        <div style="display:flex;flex-direction:column;gap:.6vh"><div style="height:1px;background:var(--ink)"></div><div class="t-meta">REVIEW</div><div style="font-family:var(--sans);font-weight:200;font-size:min(4.6vw,7.6vh);line-height:.95;letter-spacing:-.04em;color:var(--accent)">3</div><div style="height:1px;background:var(--border-subtle);margin-top:auto"></div><p class="t-body-sm">需人工复核</p></div>
-      </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.2vw;border-top:2px solid var(--accent);padding-top:1.6vh;margin-top:2.6vh">
+      <div><div class="t-meta">SAMPLE</div><div class="t-h-prod" style="margin-top:.4vh;font-size:max(20px,2.2vw)">128<span class="t-body-sm" style="font-weight:400">万元</span></div><p class="t-body-sm" style="margin-top:.3vh;color:var(--text-secondary)">脱敏软件服务合同</p></div>
+      <div><div class="t-meta">HIT</div><div class="t-h-prod" style="margin-top:.4vh;color:var(--accent);font-size:max(20px,2.2vw)">3<span class="t-body-sm" style="font-weight:400;color:var(--text-secondary)"> 项高风险</span></div><p class="t-body-sm" style="margin-top:.3vh;color:var(--text-secondary)">税率·付款·争议解决</p></div>
+      <div><div class="t-meta">WRITEBACK</div><div class="t-h-prod" style="margin-top:.4vh;font-size:max(20px,2.2vw)">2713<span class="t-body-sm" style="font-weight:400"> 字</span></div><p class="t-body-sm" style="margin-top:.3vh;color:var(--text-secondary)">报告写回飞书 wiki</p></div>
+      <div><div class="t-meta">RECORD</div><div class="t-h-prod" style="margin-top:.4vh;font-size:max(20px,2.2vw)">NO.001</div><p class="t-body-sm" style="margin-top:.3vh;color:var(--text-secondary)">多维表格已入库</p></div>
     </div>
+    <p class="t-body-sm nav-safe-bottom-tight" style="margin-top:1.6vh;color:var(--text-helper)">实测 2026-07-03：NO.001 rules_only（128万·3高风险）+ NO.002 rules_agent（200万·LLM复核）+ 2 份主体画像写回</p>
   </div>
 </section>
 
-<!-- Slide 07 · S16 Multi-card Brief (screenshots) -->
+<!-- Slide 09 · 调优过程 · 六步跑通（小浣熊真实界面） -->
 <section class="slide dark" data-layout="S16" data-animate="grid-reveal">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">真实运行证据 · Desktop Task</div>
-      <div class="r">07 / 10</div>
+      <div class="l">调优过程 · 六步跑通</div>
+      <div class="r">09 / 12</div>
     </div>
-    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;margin-bottom:3vh">
-      <div class="t-cat on-dark">VISUAL PROOF</div>
-      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.2vw,9.2vh);line-height:.96;letter-spacing:-.03em;color:var(--paper)">任务建好了，也手动跑通过</h2>
-      <p class="t-body-sm" style="max-width:50ch;color:rgba(255,255,255,.78)">桌面端有截图和录屏：能看到任务创建、菜单触发和运行中状态。</p>
+    <div data-anim="line" class="screenshot-head" style="display:flex;flex-direction:column;gap:1vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;line-height:.96;letter-spacing:-.03em;color:var(--paper)">附合同 → 贴 Prompt → 入库 → 多轮 → 编排 → 运行</h2>
+      <p class="t-body-sm" style="max-width:60ch;color:rgba(255,255,255,.78)">从样本合同、Prompt 措辞到红线入库，再到多轮调优与定时任务跑通——以下均为办公小浣熊真实界面。</p>
     </div>
-    <div class="sub-grid-3-2" style="grid-template-columns:repeat(3,1fr);grid-template-rows:1fr;gap:1.4vw;flex:1">
-      <figure style="margin:0;display:flex;flex-direction:column;gap:1vh;min-width:0">
-        <div class="frame-img r-16x10 fit-contain swiss-lined"><img src="images/07-evidence-01.png" alt="定时任务创建成功，进入待执行列表" data-image-slot="s16-brief-16x10"></div>
-        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">任务已创建</figcaption>
+    <div class="sub-grid-3-2 screenshot-fill" style="grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:1vw 1.2vw">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.4vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/10-prompt-attach.png" alt="选取脱敏合同样本附件" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">① 附合同样本</figcaption>
       </figure>
-      <figure style="margin:0;display:flex;flex-direction:column;gap:1vh;min-width:0">
-        <div class="frame-img r-16x10 fit-contain swiss-lined"><img src="images/07-evidence-02.png" alt="任务菜单含立刻运行入口" data-image-slot="s16-brief-16x10"></div>
-        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">可立即运行</figcaption>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.4vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/10-prompt-ready.png" alt="粘贴七步 Agent Prompt 待发" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">② 贴 Prompt 原词</figcaption>
       </figure>
-      <figure style="margin:0;display:flex;flex-direction:column;gap:1vh;min-width:0">
-        <div class="frame-img r-16x10 fit-contain swiss-lined"><img src="images/07-evidence-03.png" alt="手动触发后任务运行中" data-image-slot="s16-brief-16x10"></div>
-        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">运行中</figcaption>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.4vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/10-kb-upload.png" alt="上传法务红线与规则清单至知识库" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">③ 知识库入库</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.4vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/10-tuning-running.png" alt="任务规划画布多轮生成中" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">④ 多轮调优运行中</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.4vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/10-agent-orchestration.png" alt="Agent 步骤拆分与编排" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">⑤ Agent 编排拆解</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.4vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/07-evidence-03.png" alt="桌面端定时任务手动触发运行中" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">⑥ 运行验证 · 运行中</figcaption>
+      </figure>
+    </div>
+    <p class="t-meta nav-safe-bottom-tight" style="margin-top:1.2vh;color:rgba(255,255,255,.55)">注：部分截图为早期 22 项规则映射；当前引擎已扩展至 26 项并对接上位法。</p>
+  </div>
+</section>
+
+<!-- Slide 10 · 最终交付物 -->
+<section class="slide dark" data-layout="S16" data-animate="grid-reveal">
+  <div class="canvas-card">
+    <div class="chrome-min">
+      <div class="l">最终交付物</div>
+      <div class="r">10 / 12</div>
+    </div>
+    <div data-anim="line" class="screenshot-head" style="display:flex;flex-direction:column;gap:1vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;line-height:.96;letter-spacing:-.03em;color:var(--paper)">单份审核报告 · 尽调证据 · 每周汇总 PPT</h2>
+      <p class="t-body-sm" style="max-width:58ch;color:rgba(255,255,255,.78)">单份跑完出 Markdown 报告并写回飞书知识库；周五定时任务把本周数据汇总成演示文稿大纲。</p>
+    </div>
+    <div class="sub-grid-3-2 screenshot-fill" style="grid-template-columns:repeat(3,1fr);grid-template-rows:1fr;gap:1vw">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.6vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/06-contract-report.png" alt="合同审查 Markdown 报告" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">审核报告（写回飞书）</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.6vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/07-due-diligence-run.png" alt="规则复核与联网尽调画布" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">尽调 + 规则证据</figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:.6vh;min-width:0">
+        <div class="frame-img fit-contain swiss-lined"><img src="images/08-weekly-ppt.png" alt="周五汇总：本周审查数据生成 PPT 大纲" data-image-slot="s16-brief-16x10"></div>
+        <figcaption class="t-body-sm" style="color:rgba(255,255,255,.78)">每周汇总 PPT</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- Slide 08 · S06 KPI Tower -->
-<section class="slide light" data-layout="S06" data-animate="measure-up">
+<!-- Slide 11 · 数据与价值 · 实测 -->
+<section class="slide light slide-kpi-dense" data-layout="S06" data-animate="measure-up">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">价值用数字说话 · Impact</div>
-      <div class="r">08 / 10</div>
+      <div class="l">数据与价值 · 实测 + 估算</div>
+      <div class="r">11 / 12</div>
     </div>
-    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;margin-bottom:2vh">
-      <div class="t-cat">QUANTIFIED VALUE</div>
-      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.2vw,9.2vh);line-height:.96;letter-spacing:-.03em">省时、少漏、能留档</h2>
-      <p class="t-body-sm" style="max-width:46ch">下面数字要么有截图和样本支撑，要么写明了估算口径。</p>
+    <div data-anim="line" class="kpi-head" style="display:flex;flex-direction:column;gap:.8vh;margin-bottom:1vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.2vw,7.4vh);line-height:.96;letter-spacing:-.03em">省时、少漏、能沉淀、可汇报</h2>
+      <p class="t-body-sm" style="max-width:56ch">风险命中与 Token 节省来自 128 万元样本实测；单份 4h→3min 为人工初审 vs 流水线耗时估算。</p>
     </div>
-    <div class="bar-towers nav-safe-bottom">
+    <div class="bar-towers bar-towers-compact">
       <div class="bar-tower">
         <div class="cap"><i data-lucide="timer"></i></div>
         <div class="body-block h-4 b-accent">
           <div class="lbl">TIME</div>
           <div class="nb">92<span class="unit">%</span></div>
-          <div class="sub">单份约 4h → 3min</div>
+          <div class="sub">约 4h → 3min（估算）</div>
         </div>
       </div>
       <div class="bar-tower">
@@ -1486,103 +1658,76 @@
         <div class="cap"><i data-lucide="alert-triangle"></i></div>
         <div class="body-block h-2">
           <div class="lbl">RISK</div>
-          <div class="nb">4<span class="unit">项</span></div>
+          <div class="nb">3<span class="unit">项</span></div>
           <div class="sub">税率 · 付款 · 争议解决</div>
         </div>
       </div>
       <div class="bar-tower">
-        <div class="cap"><i data-lucide="file-bar-chart"></i></div>
+        <div class="cap"><i data-lucide="zap"></i></div>
         <div class="body-block h-1">
-          <div class="lbl">REPORT</div>
-          <div class="nb" style="font-size:max(16px,2.2vw)">2h→10m</div>
-          <div class="sub">周报整理（估算）</div>
+          <div class="lbl">TOKEN</div>
+          <div class="nb">17.6<span class="unit">%</span></div>
+          <div class="sub">混合架构节省</div>
         </div>
       </div>
     </div>
+    <div data-anim="up" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2vw;border-top:2px solid var(--accent);padding-top:1.4vh">
+      <div>
+        <div class="t-meta">FOR LEGAL</div>
+        <h3 class="t-h-prod" style="margin-top:.4vh">人只看异常</h3>
+        <p class="t-body-sm" style="margin-top:.3vh;color:var(--text-secondary)">26 项常规核对机器跑；法务复核高风险和需人工项。</p>
+      </div>
+      <div>
+        <div class="t-meta">FOR PROCUREMENT</div>
+        <h3 class="t-h-prod" style="margin-top:.4vh">队列不断档</h3>
+        <p class="t-body-sm" style="margin-top:.3vh;color:var(--text-secondary)">飞书知识库写入即审；周五自动出本周汇总 PPT。</p>
+      </div>
+      <div>
+        <div class="t-meta">FOR ORG</div>
+        <h3 class="t-h-prod" style="margin-top:.4vh">越跑越准</h3>
+        <p class="t-body-sm" style="margin-top:.3vh;color:var(--text-secondary)">报告、审核记录、主体画像写回飞书 wiki + 多维表格，形成组织记忆。</p>
+      </div>
+    </div>
+    <p class="t-body-sm kpi-footnote" style="color:var(--text-helper)">实测（128万·NO.001）：通过 17/26 · 不通过 6 · 需复核 3 · 通过率 65.4% · 3 高风险 · 混合架构 14931 token、节省 17.6% · TIME 92% 为估算非计时实测</p>
   </div>
 </section>
 
-<!-- Slide 09 · S20 Stacked KPI Ledger -->
-<section class="slide dark" data-layout="S20" data-animate="stacked-ledger">
+<!-- Slide 12 · 随附材料 -->
+<section class="slide light" data-layout="S20" data-animate="stacked-ledger">
   <div class="canvas-card">
     <div class="chrome-min">
-      <div class="l">提交材料怎么证明作品 · Evidence Chain</div>
-      <div class="r">09 / 10</div>
+      <div class="l">随附材料</div>
+      <div class="r">12 / 12</div>
     </div>
-    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.4vh;margin-bottom:4vh">
-      <div class="t-cat on-dark">VERIFICATION PATH</div>
-      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.2vw,9.2vh);line-height:.96;letter-spacing:-.03em;color:var(--paper)">评委按这四步看</h2>
-      <p class="t-body-sm" style="max-width:50ch;color:rgba(255,255,255,.78)">材料能串起来：建任务 → 跑任务 → 看结果 → 做周报。</p>
+    <div data-anim="line" style="display:flex;flex-direction:column;gap:1.2vh;margin-bottom:1.6vh">
+      <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.6vw,8.2vh);line-height:.96;letter-spacing:-.03em">与本 PPT 一并提交</h2>
+      <p class="t-body-sm" style="max-width:58ch;color:var(--text-secondary)">以下材料单独上传为附件，便于对照本稿中的流程与截图；飞书闭环可现场打开链接演示。</p>
     </div>
     <div data-anim="ledger" style="display:flex;flex-direction:column;flex:1">
-      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:2.8vh 0;border-bottom:1px solid rgba(255,255,255,.15)">
-        <div class="ledger-num" style="font-family:var(--sans);font-weight:200;font-size:min(5vw,8vh);color:var(--paper)">01</div>
-        <div class="ledger-label"><div class="t-h-prod" style="color:var(--paper)">看小浣熊任务</div><p class="t-body-sm" style="color:rgba(255,255,255,.78);margin-top:.6vh">确认每天九点的初审任务已经建好。</p></div>
-        <div class="ledger-icon"><i data-lucide="calendar-clock" style="width:2vw;height:2vw;color:rgba(255,255,255,.7)"></i></div>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:1.8vh 0;border-bottom:1px solid var(--border-subtle)">
+        <div class="t-meta">VIDEO</div>
+        <div><h3 class="t-h-prod">全流程演示录屏</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">约 2 分钟 · 知识库 → 定时任务 → 手动运行 → 云端 Agent 闭环</p></div>
+        <div class="ledger-icon"><i data-lucide="video" style="width:2vw;height:2vw;color:var(--accent)"></i></div>
       </div>
-      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:2.8vh 0;border-bottom:1px solid rgba(255,255,255,.15)">
-        <div class="ledger-num" style="font-family:var(--sans);font-weight:200;font-size:min(5vw,8vh);color:var(--paper)">02</div>
-        <div class="ledger-label"><div class="t-h-prod" style="color:var(--paper)">看运行录屏</div><p class="t-body-sm" style="color:rgba(255,255,255,.78);margin-top:.6vh">确认任务能手动触发，界面会出现运行中状态。</p></div>
-        <div class="ledger-icon"><i data-lucide="video" style="width:2vw;height:2vw;color:rgba(255,255,255,.7)"></i></div>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:1.8vh 0;border-bottom:1px solid var(--border-subtle)">
+        <div class="t-meta">PROMPT</div>
+        <div><h3 class="t-h-prod">Prompt + 知识库与规则</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">七步 Agent · 定时/周五汇总 Prompt · 红线 · 26 项规则 · 脱敏合同样本</p></div>
+        <div class="ledger-icon"><i data-lucide="file-code" style="width:2vw;height:2vw;color:var(--accent)"></i></div>
       </div>
-      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:2.8vh 0;border-bottom:1px solid rgba(255,255,255,.15)">
-        <div class="ledger-num" style="font-family:var(--sans);font-weight:200;font-size:min(5vw,8vh);color:var(--paper)">03</div>
-        <div class="ledger-label"><div class="t-h-prod" style="color:var(--paper)">看样本审核结果</div><p class="t-body-sm" style="color:rgba(255,255,255,.78);margin-top:.6vh">确认 26 项维度初筛 + 终局报告能抓到具体风险。</p></div>
-        <div class="ledger-icon"><i data-lucide="shield-check" style="width:2vw;height:2vw;color:rgba(255,255,255,.7)"></i></div>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:1.8vh 0;border-bottom:1px solid var(--border-subtle)">
+        <div class="t-meta">LOOP</div>
+        <div><h3 class="t-h-prod">飞书闭环 demo 链接</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">知识库「合同审查闭环demo」+ 多维表格「合同审查记录」· 可现场打开</p></div>
+        <div class="ledger-icon"><i data-lucide="link" style="width:2vw;height:2vw;color:var(--accent)"></i></div>
       </div>
-      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:2.8vh 0;border-bottom:2px solid var(--accent)">
-        <div class="ledger-num" style="font-family:var(--sans);font-weight:200;font-size:min(5vw,8vh);color:var(--accent)">04</div>
-        <div class="ledger-label"><div class="t-h-prod" style="color:var(--accent)">看知识库和周报</div><p class="t-body-sm" style="color:rgba(255,255,255,.78);margin-top:.6vh">确认结果能沉淀，也能整理成给管理层的周报。</p></div>
-        <div class="ledger-icon"><i data-lucide="archive" style="width:2vw;height:2vw;color:var(--accent)"></i></div>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:1.8vh 0;border-bottom:1px solid var(--border-subtle)">
+        <div class="t-meta">SKILL</div>
+        <div><h3 class="t-h-prod">小浣熊 Skill 接入说明</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">skills/contract-review-loop · 定时任务经 Skill 触发本地闭环（MCP server 备用）</p></div>
+        <div class="ledger-icon"><i data-lucide="plug" style="width:2vw;height:2vw;color:var(--accent)"></i></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Slide 10 · SWISS-CLOSING-ASCII -->
-<section class="slide split" data-layout="SWISS-CLOSING-ASCII" data-animate="split-statement">
-  <div class="canvas-card">
-    <div class="split-half">
-      <div class="half b-accent" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden">
-        <canvas class="ascii-bg" aria-hidden="true"></canvas>
-        <div class="chrome-min" style="margin-bottom:0;position:relative;z-index:1">
-          <div class="l">10 / 10</div>
-          <div class="r">CLOSING</div>
-        </div>
-        <div data-anim="manifesto" style="display:flex;flex-direction:column;gap:2vh;position:relative;z-index:1">
-          <div class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em;margin-bottom:1.6vh">MANIFESTO</div>
-          <h2 style="font-family:var(--sans),var(--sans-zh);font-size:min(6.4vw,11vh);line-height:.94;letter-spacing:-.025em;font-weight:200;color:#fff">重点是<br/><span style="font-style:italic;font-weight:300">持续运转</span></h2>
-          <div style="font-family:var(--sans),var(--sans-zh);font-size:max(16px,1vw);line-height:1.6;color:rgba(255,255,255,.82);font-weight:400;max-width:36ch;margin-top:1.4vh">小浣熊负责把初审流程按时跑起来。人主要复核异常、确认修改、决定能不能签。</div>
-        </div>
-        <div data-anim="signature" style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh;position:relative;z-index:1">
-          <div class="t-meta" style="color:rgba(255,255,255,.62)">小浣熊挑战赛 · 赛道二</div>
-          <div class="t-meta" style="color:rgba(255,255,255,.62)">2026.06</div>
-        </div>
-      </div>
-      <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
-        <div class="chrome-min">
-          <div class="l">TAKEAWAYS</div>
-          <div class="r">04 CHECKS</div>
-        </div>
-        <div data-anim="rules" style="display:flex;flex-direction:column;gap:0">
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.2vh 0;border-top:1px solid var(--border-subtle)">
-            <div style="font-family:var(--sans);font-weight:200;font-size:min(4vw,7vh);line-height:.9;color:var(--text-primary)">01</div>
-            <div><h3 class="t-h-prod">真实场景</h3><p class="t-body-sm">采购合同每天进待审队列，法务和财务得快速判断能不能签。</p></div>
-          </div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.2vh 0;border-top:1px solid var(--border-subtle)">
-            <div style="font-family:var(--sans);font-weight:200;font-size:min(4vw,7vh);line-height:.9;color:var(--text-primary)">02</div>
-            <div><h3 class="t-h-prod">完整流程</h3><p class="t-body-sm">定时拉取、联网尽调、@知识库、规则参考初筛、大模型终局报告、写周报。</p></div>
-          </div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.2vh 0;border-top:1px solid var(--border-subtle)">
-            <div style="font-family:var(--sans);font-weight:200;font-size:min(4vw,7vh);line-height:.9;color:var(--text-primary)">03</div>
-            <div><h3 class="t-h-prod">可量化</h3><p class="t-body-sm">单份初审约 4 小时压到 3 分钟；周报整理从约 2 小时压到约 10 分钟。</p></div>
-          </div>
-          <div style="display:grid;grid-template-columns:auto 1fr;gap:2vw;align-items:start;padding:2.2vh 0;border-top:1px solid var(--border-subtle);border-bottom:2px solid var(--accent)">
-            <div style="font-family:var(--sans);font-weight:200;font-size:min(4vw,7vh);line-height:.9;color:var(--accent)">04</div>
-            <div><h3 class="t-h-prod" style="color:var(--accent)">如实说明</h3><p class="t-body-sm">网页端「查对方公司」目前保留了无联网工具时的降级截图，没有包装成已完成工商查询。</p></div>
-          </div>
-        </div>
-        <div data-anim="foot" class="t-meta" style="color:var(--text-helper);text-align:right">→ 完 · END OF SUBMISSION DECK</div>
+      <div class="ledger-row" style="display:grid;grid-template-columns:auto 1fr auto;gap:2vw;align-items:center;padding:1.8vh 0;border-bottom:2px solid var(--accent)">
+        <div class="t-meta">SHOTS</div>
+        <div><h3 class="t-h-prod" style="color:var(--accent)">界面截图包</h3><p class="t-body-sm" style="color:var(--text-secondary);margin-top:.4vh">桌面端定时任务 6 张 · 云端工作台 8 张（均为办公小浣熊真实界面）</p></div>
+        <div class="ledger-icon"><i data-lucide="folder-archive" style="width:2vw;height:2vw;color:var(--accent)"></i></div>
       </div>
     </div>
   </div>

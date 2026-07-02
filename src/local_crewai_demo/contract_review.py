@@ -11,6 +11,14 @@ from typing import Callable, Iterable
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
+from local_crewai_demo.pdf_markdown import (
+    TokenSavingsProfile,
+    build_token_savings_profile,
+    pdf_to_markdown,
+    token_savings_json,
+    token_savings_markdown,
+)
+
 
 HIGH = "高风险"
 MEDIUM = "中风险"
@@ -311,15 +319,62 @@ DATE_PATTERN = re.compile(
 
 
 def extract_text_from_file(path: Path) -> str:
-    """Extract contract text from common office formats without hard dependencies."""
+    """Extract contract text from common office formats without hard dependencies.
+
+    PDF 走 ``pdf_to_markdown`` 输出结构化 Markdown（保留标题层级与表格），
+    其余格式保持原行为。下游规则引擎和 LLM 拿到的都是结构化文本。
+    """
     suffix = path.suffix.lower()
     if suffix == ".pdf":
-        return _extract_pdf_text(path)
+        return pdf_to_markdown(path)
     if suffix in {".docx", ".docm"}:
         return _extract_docx_text(path)
     if suffix in {".txt", ".md", ".csv"}:
         return path.read_text(encoding="utf-8", errors="replace")
     return path.read_bytes().decode("utf-8", errors="replace")
+
+
+def extract_text_with_profile(
+    path: Path,
+    knowledge_context: str = "",
+    rule_reference: str = "",
+    rules_definition_text: str = "",
+) -> tuple[str, str, "TokenSavingsProfile | None"]:
+    """同时返回结构化文本和 token 节省 profile。
+
+    返回 ``(markdown_text, raw_text, profile)``。非 PDF 文件 raw_text 与
+    markdown_text 相同，profile 仍可基于文本长度对比「纯 LLM vs 混合架构」。
+    用于 GUI / 报告里展示「本次审核节省了多少 token」。
+
+    Args:
+        rules_definition_text: 26 条规则定义全文，用于量化纯 LLM 场景需要
+            把规则定义作为检查指令输入的 token 成本。留空时用规则结论 JSON
+            近似，建议从 ``knowledge/contract_audit_rules.md`` 读取后传入。
+    """
+    suffix = path.suffix.lower()
+    if suffix == ".pdf":
+        raw_text = _extract_pdf_raw_text(path)
+        md_text = pdf_to_markdown(path)
+    elif suffix in {".txt", ".md", ".csv"}:
+        raw_text = md_text = path.read_text(encoding="utf-8", errors="replace")
+    elif suffix in {".docx", ".docm"}:
+        raw_text = md_text = _extract_docx_text(path)
+    else:
+        raw_text = md_text = path.read_bytes().decode("utf-8", errors="replace")
+
+    profile = build_token_savings_profile(
+        raw_text=raw_text,
+        markdown_text=md_text,
+        rule_reference_json=rule_reference,
+        knowledge_context=knowledge_context,
+        rules_definition_text=rules_definition_text,
+    )
+    return md_text, raw_text, profile
+
+
+def _extract_pdf_raw_text(path: Path) -> str:
+    """提取 PDF 纯文本流（用于 token 对比基线，不走结构化）。"""
+    return _extract_pdf_text(path)
 
 
 def audit_contract_text(text: str, file_name: str = "") -> dict[str, object]:

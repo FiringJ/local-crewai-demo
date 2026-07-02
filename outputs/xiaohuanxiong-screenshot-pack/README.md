@@ -172,8 +172,7 @@
 当前仓库已有一套本地工作台演示证据，可作为“审核引擎节点”的补充材料：
 
 - 本地截图：`/Users/firingj/Projects/local_crewai_demo/outputs/opc-demo/screenshots/`
-- 本地录屏：`/Users/firingj/Projects/local_crewai_demo/outputs/opc-demo/video/local-demo-flow.webm`
-- 本地 PPT：`/Users/firingj/Projects/local_crewai_demo/outputs/opc-demo/ppt/opc-contract-audit-demo.pptx`
+- 复赛 PPT：`/Users/firingj/Projects/local_crewai_demo/outputs/opc-demo/ppt/opc-xiaohuanxiong-workflow-submission.pptx`（初赛旧版与本地录屏已移至 `_archive/`）
 
 注意：这些证明的是“工作流第 3-8 步的可体验审核引擎节点”；小浣熊端截图需要补齐定时任务、联网检索、知识库、数据分析、PPT 生成和多轮调优的真实过程。
 

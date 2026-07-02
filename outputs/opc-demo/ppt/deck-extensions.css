@@ -1,0 +1,62 @@
+/* OPC 合同初审 deck · 页面专用扩展（assemble-deck 注入） */
+
+.image-hero-workflow{display:flex;flex-direction:column;height:100%;min-height:0}
+.image-hero-workflow .hero-head{flex-shrink:0;padding:3.6vh 5vw 1vh}
+.image-hero-workflow .hero-head .chrome-min{padding:0;margin-bottom:1vh}
+.image-hero-workflow .hero-head h2{font-size:min(3.8vw,6.8vh)!important;line-height:1!important}
+.image-hero-workflow .hero-shot{
+  flex:1;min-height:0;padding:0 2.4vw 1vh;display:flex;align-items:stretch
+}
+.image-hero-workflow .hero-shot .frame-img{
+  flex:1;width:100%;height:100%;max-height:none;aspect-ratio:unset;min-height:0
+}
+.image-hero-workflow .hero-shot .frame-img img{width:100%;height:100%;object-fit:contain;object-position:center center}
+.image-hero-workflow .image-hero-foot{
+  flex-shrink:0;display:grid;grid-template-columns:5fr 7fr;gap:2.4vw;
+  padding:1.2vh 5vw calc(var(--nav-safe-bottom)*0.5);
+  border-top:1px solid var(--border-subtle);align-items:end
+}
+.image-hero-workflow .image-hero-foot .t-body{font-size:max(14px,.88vw);line-height:1.45}
+.image-hero-workflow .image-hero-foot .image-hero-stats{gap:1.6vw}
+.image-hero-workflow .image-hero-foot .stat-nb{font-size:min(3vw,5.2vh)!important;line-height:.95}
+
+.screenshot-fill{flex:1;min-height:0;display:grid!important}
+.screenshot-fill figure{display:flex;flex-direction:column;min-height:0;height:100%}
+.screenshot-fill .frame-img{flex:1;min-height:0;height:auto!important;max-height:none!important;aspect-ratio:unset}
+.screenshot-fill .frame-img img{object-fit:contain;object-position:center top}
+.screenshot-head{margin-bottom:1.4vh!important}
+.screenshot-head h2{font-size:min(4vw,7vh)!important}
+
+.prompt-block{
+  font-family:var(--mono);font-size:max(11px,.68vw);line-height:1.48;
+  background:var(--grey-1);color:var(--text-secondary);
+  border-top:2px solid var(--accent);padding:1.4vh 1.2vw;
+  white-space:pre-wrap;overflow:hidden;flex:1;min-height:0
+}
+.slide.dark .prompt-block{background:rgba(255,255,255,.06);color:rgba(255,255,255,.84)}
+.prompt-split{display:grid;grid-template-columns:5fr 7fr;gap:2vw;flex:1;min-height:0;align-items:stretch}
+.prompt-split .frame-img{flex:1;min-height:0;height:100%!important;max-height:none!important;aspect-ratio:unset}
+.section-pill{
+  display:inline-block;font-family:var(--mono);font-size:max(12px,.7vw);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);padding:.35vh .8vw;margin-bottom:1vh
+}
+.slide.dark .section-pill{color:var(--accent-bright);border-color:rgba(255,255,255,.35)}
+
+/* S06 数据页：内容区较多时压缩 KPI 塔高度，避免底部脚注被裁切 */
+.bar-towers-compact{
+  flex:0 0 auto!important;
+  align-items:end;
+  margin-top:0;
+  margin-bottom:1.2vh!important;
+}
+.bar-towers-compact .cap{height:4vh;margin-bottom:.3vh}
+.bar-towers-compact .body-block{min-height:0!important;padding:1.4vh 1vw 1.2vh}
+.bar-towers-compact .body-block.h-4{min-height:14vh!important}
+.bar-towers-compact .body-block.h-3{min-height:12vh!important}
+.bar-towers-compact .body-block.h-2{min-height:10vh!important}
+.bar-towers-compact .body-block.h-1{min-height:8.5vh!important}
+.bar-towers-compact .nb{font-size:max(18px,2.4vw)!important}
+.slide-kpi-dense .kpi-head{margin-bottom:1vh!important}
+.slide-kpi-dense .kpi-head h2{font-size:min(4.2vw,7.4vh)!important}
+.slide-kpi-dense .kpi-footnote{margin-top:1vh!important;padding-bottom:calc(var(--nav-safe-bottom)*0.35)}

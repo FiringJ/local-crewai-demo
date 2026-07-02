@@ -1,8 +1,0 @@
-{
-  "bundle_id" : "com.sensetime.desktop.raccoon",
-  "element_count" : 16,
-  "name" : "office-raccoon",
-  "pid" : 24112,
-  "tree_markdown" : "- AXApplication \"office-raccoon\"\n  - [0] AXWindow actions=[AXRaise]\n  - [1] AXMenuBar actions=[AXCancel]\n    - [2] AXMenuBarItem \"Apple\" actions=[AXCancel, AXPick]\n      - [3] AXMenu actions=[AXCancel]\n    - [4] AXMenuBarItem \"office-raccoon\" actions=[AXCancel, AXPick]\n      - [5] AXMenu actions=[AXCancel]\n    - [6] AXMenuBarItem \"File\" actions=[AXCancel, AXPick]\n      - [7] AXMenu actions=[AXCancel]\n    - [8] AXMenuBarItem \"Edit\" actions=[AXCancel, AXPick]\n      - [9] AXMenu actions=[AXCancel]\n    - [10] AXMenuBarItem \"View\" actions=[AXCancel, AXPick]\n      - [11] AXMenu actions=[AXCancel]\n    - [12] AXMenuBarItem \"Window\" actions=[AXCancel, AXPick]\n      - [13] AXMenu actions=[AXCancel]\n    - [14] AXMenuBarItem \"Help\" actions=[AXCancel, AXPick]\n      - [15] AXMenu actions=[AXCancel]\n",
-  "turn_id" : 104
-}

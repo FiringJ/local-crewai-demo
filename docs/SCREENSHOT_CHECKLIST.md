@@ -40,7 +40,7 @@
 | 任务运行中 | `outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/03-task-running-manual-trigger.png` | 封面或运行证据页 |
 | 任务完成摘要 | `outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/06-task-complete-summary-updated.png` | 证明运行后有结果 |
 | 任务运行录屏 | `outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/desktop-raccoon-task-run-verified.mov` | 提交材料包必放 |
-| **全流程录屏（推荐）** | `outputs/opc-demo/opc-full-pipeline-demo.mp4`（副本：`outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/opc-full-pipeline-demo.mp4`） | 知识库 + 定时立刻运行 + 历史完成 + 云端 7 步闭环 + 人力节约 92%；**SCStream 连续主屏视频**（1987 帧，见 `recordings/full-pipeline-live/`） |
+| **全流程录屏（推荐）** | `outputs/xiaohuanxiong-screenshot-pack/12-desktop-task-run/opc-full-pipeline-demo.mp4` | 知识库 + 定时立刻运行 + 历史完成 + 云端 7 步闭环 + 人力节约 92%（SCStream 连续主屏视频；原始逐轮素材已移至 `_archive/recordings-raw/`） |
 | 截图包总说明 | `outputs/xiaohuanxiong-screenshot-pack/MANIFEST.md` | 解释每张图的含义 |
 | 知识库冲突复核 + 联网尽调补充 | `outputs/opc-demo/screenshots/cua-evidence-kb-due-diligence-supplement.png` | S5/S6：@知识库 三组冲突表、乙方尽调带来源、人力节约 92%、audit JSON 口径 |
 
